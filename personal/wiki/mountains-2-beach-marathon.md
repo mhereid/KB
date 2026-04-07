@@ -84,5 +84,5 @@ Distributed immediately at the finish expo — no ceremony:
 - **10K/5K:** Top 3 overall + 1st per age group
 
 ## Related Topics
+- [[m2b-race-weekend-logistics]]
 - [[marathon-training]]
-- [[race-logistics]]
