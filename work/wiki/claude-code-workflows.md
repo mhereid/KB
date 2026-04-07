@@ -18,12 +18,21 @@ Place a `CLAUDE.md` file in your project root to define:
 - Rules for how AI should organize content
 - Focus areas and priorities
 
+### The Three Operations (from Karpathy's LLM Wiki)
+- **Ingest**: Process a new source — write summary, update index, update 10-15 related wiki pages in one pass
+- **Query**: Search wiki for relevant pages, synthesize answers with citations. File good answers back as new wiki pages.
+- **Lint**: Health-check for contradictions, stale claims, orphan pages, missing cross-references, data gaps
+
 ### Prompt Patterns for Knowledge Work
 - **Compile**: "Read everything in raw/. Compile a wiki following CLAUDE.md rules."
 - **Query**: "Based on wiki/, what are the gaps in my understanding of [topic]?"
 - **Compare**: "Where do source A and source B disagree about [concept]?"
 - **Brief**: "Write a 500-word briefing on [topic] using only this knowledge base."
 - **Health check**: "Review wiki/. Flag contradictions, unexplained topics, unsourced claims."
+
+### Indexing and Logging
+- **index.md**: Content-oriented catalog updated on every ingest. LLM reads it first to find relevant pages — works at moderate scale without embedding-based RAG.
+- **log.md**: Chronological append-only record with parseable prefixes (e.g. `## [2026-04-02] ingest | Article Title`). Gives timeline of wiki evolution.
 
 ## Plugins & Skills
 Claude Code supports an extensible plugin system for specialized workflows:

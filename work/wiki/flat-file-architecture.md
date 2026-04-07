@@ -4,7 +4,7 @@ Flat file architecture is a design philosophy that uses plain text files in simp
 
 ## Core Principle
 
-As Andrej Karpathy put it: "I'm trying to keep it super simple and flat. It's just a nested directory of .md files." [source](../raw/karpathy-second-brain-system.md)
+As Andrej Karpathy put it: "I'm trying to keep it super simple and flat. It's just a nested directory of .md files." [source](../raw/karpathy-second-brain-system.md) [source](../raw/karpathy-llm-wiki-gist.md)
 
 ## Why Flat Files Win
 
