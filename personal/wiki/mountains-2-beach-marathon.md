@@ -77,6 +77,12 @@ Typical conditions: 55°F at the start, warming to 72°F at the finish. Bring wa
 
 **Trash Zone Policy:** Discard waste only within designated zones (150 yards before/after aid stations). Littering may result in disqualification.
 
+## Live Runner Tracking
+
+Track runners in real time on race day: **[M2B Live Tracking](https://track.laurelt.com/?h=m2b)**
+
+Search by bib number or name to follow split times, current pace, and estimated finish.
+
 ## Awards
 
 Distributed immediately at the finish expo — no ceremony:

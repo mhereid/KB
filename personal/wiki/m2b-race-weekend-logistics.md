@@ -141,6 +141,16 @@ You have a **pre-purchased Preferred Parking Pass** (Sunday only) for the finish
 
 ---
 
+## Live Runner Tracking
+
+Track Mike's progress in real time on race day:
+
+**[M2B Live Tracking](https://track.laurelt.com/?h=m2b)**
+
+Search by bib number **10140065** or name **Mike Hereid** to follow split times, current pace, and estimated finish. Bookmark this link on your phone before race morning.
+
+---
+
 ## Important Contacts
 
 - **Race questions:** info@fastgreenracing.com
