@@ -80,6 +80,14 @@ This is the big day. Here's the full timeline for both Mike and Stephanie.
 
 *Finish time math: 6:16 AM start + 4h30m = 10:46 AM. Could range 10:30–11:15 AM depending on the day.*
 
+### Live Runner Tracking
+
+Track Mike's progress in real time on race day:
+
+**[M2B Live Tracking](https://track.laurelt.com/?h=m2b)**
+
+Search by bib number **10140065** or name **Mike Hereid** to follow split times, current pace, and estimated finish. Bookmark this link on your phone before race morning.
+
 ### Stephanie & Kids — Sunday Morning Plan
 
 | Time | What | Details |
@@ -138,16 +146,6 @@ You have a **pre-purchased Preferred Parking Pass** (Sunday only) for the finish
 - [ ] Sunscreen for kids (72°F by finish)
 - [ ] Snacks/entertainment for kids while waiting
 - [ ] Phone charger (for tracking / photos)
-
----
-
-## Live Runner Tracking
-
-Track Mike's progress in real time on race day:
-
-**[M2B Live Tracking](https://track.laurelt.com/?h=m2b)**
-
-Search by bib number **10140065** or name **Mike Hereid** to follow split times, current pace, and estimated finish. Bookmark this link on your phone before race morning.
 
 ---
 
