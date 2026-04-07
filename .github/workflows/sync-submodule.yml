@@ -1,0 +1,32 @@
+name: Sync KB submodule in executive-site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout executive-site
+        uses: actions/checkout@v4
+        with:
+          repository: mhereid/executive-site
+          token: ${{ secrets.EXEC_SITE_PAT }}
+          submodules: true
+
+      - name: Update KB submodule to latest
+        run: |
+          git submodule update --remote src/content/kb
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet; then
+            echo "No submodule changes to commit"
+            exit 0
+          fi
+          git add src/content/kb
+          git commit -m "chore: auto-update KB submodule"
+          git push
