@@ -1,0 +1,2681 @@
+Delivered-To: michael.hereid@gmail.com
+Received: by 2002:a05:6520:608e:20b0:2d0:52d7:271d with SMTP id s14-n2csp2745090lks;
+        Fri, 5 Sep 2025 21:45:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFqF9xVy70f8IaZfnmOR/uc+F/sbCqCKmc7cnUya3N4GxXOtA00Tpq9FRYd4cYra/vzXirC
+X-Received: by 2002:a05:622a:199e:b0:4b5:e72d:dbbf with SMTP id d75a77b69052e-4b5f83977c2mr13353211cf.21.1757133904546;
+        Fri, 05 Sep 2025 21:45:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1757133904; cv=none;
+        d=google.com; s=arc-20240605;
+        b=KOPld5FwNBCZMrbf7jbTTKb3lTTZ8/KQsiGf4mD6Zu+A0ZC0gIxee3Z154RGPYAfQU
+         bfIVpebxZHafNnzlsBY0xCXnhlroCJH2JGNfymOHAMXJEZFbjf45jcTI6TAF9OyNgIiv
+         cQrK+bjzEfdXdwHzfTARsT6Vy57O+iLC4ZEvrKRk/rnZuReGdXb8oyXDeWvPctkA8ODT
+         IEDojVesvgx3XNRU8yaaM1C0x9fPXskm/fEIS3P58wLcwzsXxYXk1/mUzcfTAOp/SQY4
+         zOvTov7Jd7CfAwZYD8ndSHZV9l4o+L1BLOvC08oOT9lbrvjscL7n1FHPVoIebMVhrgUb
+         Os/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=feedback-id:date:message-id:reply-to:from:to:subject:mime-version
+         :dkim-signature:dkim-signature;
+        bh=gaM2K0NQXNL1Kg6/mLsepb8l1U3hDFDU3fBaLGKFuxU=;
+        fh=9d2KacXT1OCZyzsHOphPh7nc2GvD5MxbzjPKqfPTKrU=;
+        b=lSQRieaDd2OkP9GkYaaVJetLYemFp1Prf+NL2rDbolGW39WoIV655G0Tr6VkH9ZXD2
+         msY6VfAaLZt0BBomMiPzWBNmOFOJHl5ZtzercDOORXZM0DvAs+mlDa8qPHy2uhctg1D8
+         EsHZjgNQzbAG78A3EDb4q6tIdhNMN4qLMGM6cEIy4vxOvmkZ00mPxy0OIXIXYfmmy/Hx
+         V8CdyF2ha02a7TIRs6asI8Quv0e8ELPjlie7N4PrSs46brxSpooOSuHsXxwaZc99a895
+         pBGh8GAzJAN+ZNbfnwPyHUdqio8vkRsU09GXODoo15cm9BgzoHtmQCiwaKsej93WR+FK
+         uHhA==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@runsignup.com header.s=55muq65nrqc4b4k6ntyvcutcgrozmiq3 header.b=hIRvR1rY;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=BudC1kHE;
+       spf=pass (google.com: domain of 010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com designates 54.240.11.87 as permitted sender) smtp.mailfrom=010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=runsignup.com
+Return-Path: <010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com>
+Received: from a11-87.smtp-out.amazonses.com (a11-87.smtp-out.amazonses.com. [54.240.11.87])
+        by mx.google.com with ESMTPS id d75a77b69052e-4b48f790547si38509671cf.419.2025.09.05.21.45.04
+        for <michael.hereid@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Sep 2025 21:45:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com designates 54.240.11.87 as permitted sender) client-ip=54.240.11.87;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@runsignup.com header.s=55muq65nrqc4b4k6ntyvcutcgrozmiq3 header.b=hIRvR1rY;
+       dkim=pass header.i=@amazonses.com header.s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw header.b=BudC1kHE;
+       spf=pass (google.com: domain of 010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com designates 54.240.11.87 as permitted sender) smtp.mailfrom=010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@ses-us-east-1.runsignup.com;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=runsignup.com
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=55muq65nrqc4b4k6ntyvcutcgrozmiq3; d=runsignup.com; t=1757133904;
+	h=MIME-Version:Content-Type:Subject:To:From:Reply-To:Message-ID:Date;
+	bh=gXb86Y0zFwDtP525EbMdzfoSi3gCiOcYFGBE5v/6sTo=;
+	b=hIRvR1rYmlmohpdSYrimvyLcBTUIYYu1JTYVcCwqKnlAEX8JOQnsplK7SWe2ZYgF
+	PkptOd/sSHp2KtRPWRygnOORH5fqLcgcrS2E21YSQ8HfSt5x7FyYJKTKMUNeO5g5IhN
+	Ln/0b1xvRPi+/jr+KmUOmorIxLxVLSOsjd+fGDR4=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1757133904;
+	h=MIME-Version:Content-Type:Subject:To:From:Reply-To:Message-ID:Date:Feedback-ID;
+	bh=gXb86Y0zFwDtP525EbMdzfoSi3gCiOcYFGBE5v/6sTo=;
+	b=BudC1kHEdEsVT9uQ7aJBaCl8LD8yQRlGwa7KT+nj89Ad1vUj5nxOPs8voYEsr6yM
+	JMOrVsIMhrSuVw8atZbasd60KuZBbdqUf9qGMuKz3KXz204kG3aGHgX6f+ke9pCMUsW
+	6u7s3E46/S9xd9c5tpiLny/E0nScqKRF8HQOqsHs=
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+ boundary="=_83f338282aa1f7fdea9092f6e7020afd"
+Subject: Mountains 2 Beach Marathon, Half, 10k and 5k Registration Confirmation
+To: Michael Hereid <michael.hereid@gmail.com>
+From: RunSignup <info+auto@runsignup.com>
+Reply-To: Mountains 2 Beach Marathon and Half <info@fastgreenracing.com>
+Message-ID: <010001991d5797c7-d8993c2a-9660-4f5b-a2e5-d21d4b5ffc77-000000@email.amazonses.com>
+Date: Sat, 6 Sep 2025 04:45:03 +0000
+Feedback-ID: ::1.us-east-1.KOly9hUXwPZeTER9M50bc1prE3muarn2OJGLWe98rac=:AmazonSES
+X-SES-Outgoing: 2025.09.06-54.240.11.87
+
+--=_83f338282aa1f7fdea9092f6e7020afd
+Content-Type: multipart/alternative;
+ boundary="=_7b4e5e4dcf331979a72f7052641ccc5b"
+
+--=_7b4e5e4dcf331979a72f7052641ccc5b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+
+[1]Mountains 2 Beach Marathon and Half
+
+Registration Confirmation
+
+Thank you for registering for the Mountains 2 Beach Marathon, Half, 10k and=
+ 5k! Below is the information we have for you. Please double check it for a=
+ccuracy.
+
+April 18-19, 2026
+Ventura, CA 93001 US
+For any questions, you can reach us at info@fastgreenracing.com
+[2]Event Website
+[3]Athlete info Packet- Everything you need to know for a smooth event expe=
+rience. (goes live approx. 2 weeks prior to race day)
+[4]Event Online Store
+[5]Edit your Registration
+
+
+Remember to invite your friends with your special URL ([6]https://runsignup=
+=2Ecom/Race/CA/Ventura/Mountains2BeachMarathonandHalf?raceRefCode=3DfZX8XUZ=
+u). If they sign up from that link, you are eligible for a refund up to $30=
+=2E00 after 5 friends sign up.
+*If they register within 10 days of you, and use the "referral coupon" belo=
+w (scroll down and look just above your purchase summary), they will also g=
+et 15% off their registration.
+Registered: September 5, 2025 @ 9:45pm PDT
+
+Registrant
+
+Name: Michael Hereid
+Gender: Male
+Age on 04/19/2026: 39
+Email: michael.hereid@gmail.com
+Phone: 636-236-9425
+Address: 5416 brunswick ave
+San Diego, CA 92120 US
+Technical Running Shirt: Men's Large- T-Shirt
+Event: Combo Challenge- 5k & Full Marathon ($199.99) =E2=80=94 Sat Apr 18, =
+2026 - Sun Apr 19, 2026
+[7]Manage Registration
+
+To update or complete additional information for your registration, [8]clic=
+k here.
+
+QR Code
+*
+1
+0
+1
+4
+0
+0
+6
+5
+4
+*
+Barcode
+Corral: 3
+Corral Start: 6:16 am
+Combo Challenge- 5k & Full Marathon Referral Coupon: combof7CBNFSFW
+Expires: Sep 16 @ 12:45am
+
+Purchase Summary
+
+                                                       Item  Total
+Combo Challenge- 5k & Full Marathon
+  * Michael Hereid
+
+$199.99                                               $199.99
+Technical Running Shirt
+  * Men's Large- T-Shirt
+
+$0.00                                                 $0.00
+Full Marathon Shuttle - Michael Hereid
+  * 5:00 am Downtown
+
+$0.00                                                 $0.00
+Kids Zone Access - Michael Hereid
+  * Sunday only (All day)
+
+3 @ $15.00                                            $45.00
+Sunday Only- Finish Area Parking Pass - Michael Hereid
+  * Preferred Parking
+
+$20.00                                                $20.00
+Credit Card BIN Discount                              $0.00  $0.00
+Sales Tax                                             $0.00  $0.00
+Processing Fee: $14.25
+Total: $279.24
+
+This charge may show on your credit card descriptor as SignUp *Mountains2Be=
+achMa or RunSignup.
+
+Questions for Michael Hereid
+
+Emergency Contact Name
+
+  * Stephanie Orbon
+
+Emergency Contact Phone
+
+  * 724-433-6082
+
+How many nights will you spend in Ventura County?
+
+  * 3+
+
+If you would like to sign up to receive text message updates for this race,=
+ please enter your cell phone number here.
+
+  * 6362369425
+
+Event: Full Marathon
+
+The Mountains 2 Beach Marathon is 26.2 miles of mountain and beachfront sce=
+nery. Starting in beautiful downtown Ojai, California, you start off with a=
+ 6+ mile loop through east Ojai. This loop brings runners back by the start=
+ area which makes for great spectating as it heads towards the community of=
+ Meiners Oaks. After a few downhill trending miles through country roads, t=
+he course makes its way onto the Ventura River Bike Path and then continues=
+ to Downtown Ventura. After a tour of downtown Ventura, runners make one of=
+ the final turns and come face to face with the famous Ventura Beach front.=
+ Try not to get distracted by the beauty as you still have just over a mile=
+ to go of beach side running which brings you to the finish line and festiv=
+al. Over the 26.2 miles you will see beautiful mountain peaks, the Ventura =
+River Basin, the Historic Ventura Downtown district, and the world renowned=
+ Ventura Coast line. There is a total downhill of over 700 feet. The course=
+ is a lightning fast, USATF certified
+Boston Marathon Qualifier (CA24015TEB). Space is limited so don=E2=80=99t w=
+ait and miss out. We have sold out every year, several months early!
+***Course is subject to change without notice.
+Event Date: Sunday April 19, 2026
+Start Time: 6:10am PDT
+End Time: 11:50am PDT
+
+Event: Half Marathon
+
+Starting on a quiet road in Oak View CA, you will begin your race near the =
+Ventura River. Heading towards Ventura on back country roads you will event=
+ually encounter our Ventura River bike path which continues to Downtown Ven=
+tura. After a quick tour of downtown, runners make one of the final turns a=
+nd come face to face with the famous Ventura Beach front. Try not to get di=
+stracted by the beauty as you still have just over a mile to go of beach si=
+de running which brings you to the finish line and festival. Over the 13.1 =
+miles you will see beautiful mountain peaks, the Ventura River Basin, the H=
+istoric Ventura Downtown district, and the world renowned Ventura Coast lin=
+e. The finish line and festival are directly adjacent to the beach which be=
+ckons you for a post-race soak. This USATF certified route (CA23034TEB) run=
+s lightning fast!
+***Course is subject to change without notice.
+Event Date: Sunday April 19, 2026
+Start Time: 6:10am PDT
+End Time: 11:50am PDT
+
+Event: 10k
+
+After a great first year, we are excited to be bringing back the 10k option=
+=2E Marathon or half marathon too long? 5k not long enough? Join us for the=
+ Mountains 2 Beach 10k. Starting at roughly mile 20 of the full marathon, t=
+he 10k runners get a taste of the same route as the full and half marathone=
+rs. Be sure to stick around for the festivities and beer garden and to chee=
+r on your fellow runners. 10k participants will enjoy the same finish line =
+as the Marathoners and Half Marathoners, along with all the amenities and o=
+f course the Beachside Party afterwards.
+***Course is subject to change without notice.
+Event Date: Sunday April 19, 2026
+Start Time: 6:10am PDT
+End Time: 11:50am PDT
+
+Event: 5k
+
+With a beautiful ocean side start, the Beachfront 5k starts and finishes at=
+ the Full/Half finish expo area. It will be flat and fast=E2=80=A6Be sure t=
+o stick around for the festivities and beer garden and to cheer on your fel=
+low runners. 5k participants will enjoy the same finish line as the Maratho=
+ners and Half Marathoners, along with all the amenities and of course the B=
+eachside Party afterwards.
+***Course is subject to change without notice.
+Event Date: Saturday April 18, 2026
+Start Time: 7:30am PDT
+End Time: 9:30am PDT
+
+Event: Combo Challenge- 5k & Full Marathon
+
+New to 2025, we are offering a multi event challenge! You will run the 5k w=
+ith us on Saturday and then the Full Marathon on Sunday.
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the Full Marathon and 1 combo medal) and VIP lou=
+nge access on Sun!
+The 5k is all beach front running on Saturday. Come ready to run
+then hang out at the expo festival as the majority of the runners are check=
+ing in that day for their race the next day.
+Then on Sunday join us for the Mountains 2 Beach Marathon. 26.2 miles of mo=
+untain and beachfront scenery. Starting in beautiful downtown Ojai, Califor=
+nia, you start off with a 6+ mile loop through east Ojai. This loop brings =
+runners back by the start area which makes for great spectating as it heads=
+ towards the community of Meiners Oaks. After a few downhill trending miles=
+ through country roads, the course makes its way onto the Ventura River Bik=
+e Path and then continues to Downtown Ventura. After a tour of downtown Ven=
+tura, runners make one of the final turns and come face to face with the fa=
+mous Ventura Beach front. Try not to get distracted by the beauty as you st=
+ill have just over a mile to go of beach side running which brings you to t=
+he finish line and festival. Over the 26.2 miles you will see beautiful mou=
+ntain peaks, the Ventura River Basin, the Historic Ventura Downtown distric=
+t, and the world renowned Ventura Coast line. There is a total downhill of =
+over 700 feet. The course is a
+lightning fast, USATF certified Boston Marathon Qualifier (CA24015TEB). Spa=
+ce is limited so don=E2=80=99t wait and miss out. We have sold out every ye=
+ar, several months early!
+***Courses are subject to change without notice.
+Event Dates: Saturday April 18, 2026 - Sunday April 19, 2026
+Start Time: 7:30am PDT
+End Time: 11:50am PDT
+
+Event: Combo Challenge- 5k & Half Marathon
+
+New to 2025, we are offering a multi event challenge! You will run the 5k w=
+ith us on Saturday and then the Half Marathon on Sunday.
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the Half Marathon and 1 combo medal) and VIP lou=
+nge access on Sun!
+The 5k is all beach front running on Saturday. Come ready to run
+then hang out at the expo festival as the majority of the runners are check=
+ing in that day for their race the next day.
+Then on Sunday join us for the Half Marathon. Starting on a quiet road in O=
+ak View CA, you will begin your race near the Ventura River. Heading toward=
+s Ventura on back country roads you will eventually encounter our Ventura R=
+iver bike path which continues to Downtown Ventura. After a quick tour of d=
+owntown, runners make one of the final turns and come face to face with the=
+ famous Ventura Beach front. Try not to get distracted by the beauty as you=
+ still have just over a mile to go of beach side running which brings you t=
+o the finish line and festival. Over the 13.1 miles you will see beautiful =
+mountain peaks, the Ventura River Basin, the Historic Ventura Downtown dist=
+rict, and the world renowned Ventura Coast line. The finish line and festiv=
+al are directly adjacent to the beach which beckons you for a post-race soa=
+k. This USATF certified route (CA23034TEB) runs lightning fast!
+***Courses are subject to change without notice.
+Event Dates: Saturday April 18, 2026 - Sunday April 19, 2026
+Start Time: 7:30am PDT
+End Time: 11:50am PDT
+
+Event: Combo Challenge- 5k & 10k
+
+New to 2025, we are offering a multi event challenge! You will run the 5k w=
+ith us on Saturday and then the 10k on Sunday.
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the 10k and 1 combo medal) and VIP lounge access=
+ on Sun!
+The 5k is all beach front running on Saturday. Come ready to run
+then hang out at the expo festival as the majority of the runners are check=
+ing in that day for their race the next day.
+Then on Sunday join us for the Mountains 2 Beach 10k. Starting at roughly m=
+ile 20 of the full marathon, the 10k runners get a taste of the same route =
+as the full and half marathoners. Be sure to stick around for the festiviti=
+es and beer garden and to cheer on your fellow runners. 10k participants wi=
+ll enjoy the same finish line as the Marathoners and Half Marathoners, alon=
+g with all the amenities and of course the Beachside Party afterwards.
+***Courses are subject to change without notice.
+Event Dates: Saturday April 18, 2026 - Sunday April 19, 2026
+Start Time: 7:30am PDT
+End Time: 11:50am PDT
+
+Event: Kids 1K Fun Run
+
+We always have so much fun with the kids 1k, we just have to do it again!!!=
+ Starting on Sat during the packet pickup for the half and the full, kids 1=
+2 and under will get the chance to race against their peers in this fun (sp=
+ectator friendly) route throughout the venue area at the Ventura State Beach
+***Course is subject to change without notice.
+Event Date: Saturday April 18, 2026
+Start Time: 1:00pm PDT
+End Time: 1:30pm PDT
+
+Place
+
+901 San Pedro St
+Ventura, CA 93001 US
+
+Description
+
+Uniquely situated and completely surrounded by beautiful mountains, the cit=
+y of Ojai holds the start of the Mountains 2 Beach Marathon while the half =
+starts closer to the beach. This point to point race winds through the Vent=
+ura River Valley as it makes its way to the pristine beaches of the last gr=
+eat surf town in California, Ventura. Runners will love the gradual downhil=
+l nature of the race, which is prime to make you faster but not hurt the kn=
+ees, and the amazing weather of the area. After a final tour of beach front=
+ Ventura, runners and their families are treated to a finish line party onl=
+y steps away from the surf and the shops and restaurants of Historic Downto=
+wn Ventura. As a certified Boston Qualifier, the courses, the race and the =
+surrounding communities make for the perfect destination marathon and half.
+
+
+Race Contact Info
+
+If you have any questions about this Race, please contact the Race director=
+ at info@fastgreenracing.com
+
+Sponsors
+
+[9]Race Sponsor [10]Race Sponsor [11]Race Sponsor [12]Race Sponsor [13]Race=
+ Sponsor [14]Race Sponsor [15]Race Sponsor [16]Race Sponsor
+
+Share Now!
+
+[17]Share on Facebook [18]Share on X [19]Share via Email
+
+Facebook
+
+Like this page and invite your friends on [20]Facebook.
+[21]Mountains 2 Beach Marathon and Half
+[22]RunSignup
+
+References
+
+   1. https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathonandHalf
+   2. https://mountains2beachmarathon.com/
+   3. https://mountains2beachmarathon.com/event/important-documents-racer-i=
+nfo/
+   4. https://www.officialm2bgear.com/
+   5. https://runsignup.com/Race/MyRegisteredRaces?raceId=3D4487
+   6. https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathonandHalf?=
+raceRefCode=3DfZX8XUZu
+   7. https://runsignup.com/Account/ParticipantManagement/NLHjVJT6Q8oBPWLgg=
+ktF6lbnet0cvyZl?registrationId=3D101400654&raceId=3D4487
+   8. https://runsignup.com/Account/ParticipantManagement/NLHjVJT6Q8oBPWLgg=
+ktF6lbnet0cvyZl?registrationId=3D101400654&raceId=3D4487
+   9. https://seadon.co/
+  10. https://mizunousa.com/running/
+  11. https://www.mile26runningco.com/
+  12. https://www.venturarental.com/
+  13. https://balcomcanyoncider.com/
+  14. https://store.livefluid.com/
+  15. https://www.ojaipixies.com/
+  16. https://www.mountrax.net/
+  17. https://www.facebook.com/sharer/sharer.php?u=3Dhttps://runsignup.com/=
+Race/CA/Ventura/Mountains2BeachMarathonandHalf?raceRefCode=3DfZX8XUZu
+ hMountains2BeachMarathonandHalf?raceRefCode=3DfZX8XUZu
+ hMountains2BeachMarathonandHalf?raceRefCode=3DfZX8XUZu
+  20. http://www.facebook.com/286532658119469
+  21. https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathonandHalf
+  22. https://runsignup.com/
+--=_7b4e5e4dcf331979a72f7052641ccc5b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html><html><head><base href=3D"https://runsignup.com/" /><meta co=
+ntent=3D"text/html; charset=3Dutf-8" /><meta name=3D"viewport" content=3D"w=
+idth=3Ddevice-width, initial-scale=3D1" /><meta content=3D"IE=3Dedge" /><st=
+yle>/*<![CDATA[*/
+=2Emso-mb15{mso-margin-bottom-alt:15px}.mso-mb25{mso-margin-bottom-alt:25px=
+}h1,h2,h3,h4,h5,h6{margin:0 0 10px;padding:0}h1,h2{color:#333}h3,h4{color:#=
+666}h5,h6{color:#777}ul,ol{margin:0;padding:0}ul li,ol li{list-style-positi=
+on:inside}.pt5{padding-top:5px}.pt15{padding-top:15px}.pt25{padding-top:25p=
+x}.pt35{padding-top:35px}.pb15{padding-bottom:15px}.pb25{padding-bottom:25p=
+x}.pb35{padding-bottom:35px}.pr15{padding-right:15px}.pr25{padding-right:25=
+px}.pr35{padding-right:35px}.pl15{padding-left:15px}.pl25{padding-left:25px=
+}.pl35{padding-left:35px}.fsz14{font-size:14px}.fsz15{font-size:15px}.fsz16=
+{font-size:16px}.fsz17{font-size:17px}.fsz18{font-size:18px}.fsz22{font-siz=
+e:22px}.fsz30{font-size:30px}.fsz45{font-size:45px}.lh18{line-height:18px}.=
+lh20{line-height:20px}.lh24{line-height:24px}.lh30{line-height:30px}.lh36{l=
+ine-height:36px}p{margin:0 0 10px}p,ul,ol{font-size:16px}.center{margin:0 a=
+uto;text-align:center}.bold{color:#353a3e;font-family:Helvetica,Arial,sans-=
+serif;font-weight:700}.link{color:#009ede;text-decoration:underline}p.unsub=
+{font-size:.8em;text-align:center}.d-block{display:block}.frame{background:=
+#f3f5f6}.cta{box-shadow:0 15px 35px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0=
+,.07);color:#fff !important;text-decoration:none;border-radius:8px;padding:=
+15px 30px;display:inline-block;font-weight:700;mso-padding-alt:0px;margin-t=
+op:20px;background-color:#666 !important;border:1px solid #666;mso-border-a=
+lt:8px solid #666}.wrapper{padding:35px;max-width:1200px;margin:0 auto;mso-=
+element-frame-width:800px;mso-element:para-border-div;mso-element-wrap:no-w=
+rap-beside;mso-padding-top-alt:50px;font-family:Helvetica,Arial,sans-serif}=
+=2Ebox{background:#fff;border-radius:10px;box-shadow:0 15px 35px rgba(50,50=
+,93,.1),0 5px 15px rgba(0,0,0,.07)}.labelValue{margin:5px 0}div.labelValue =
+span.label{font-weight:700;display:inline-block;margin-right:10px;vertical-=
+align:top;width:100px;max-width:50%;text-align:left}div.labelValue span.val=
+ue{display:inline-block;vertical-align:top}.multiline span.label,.multiline=
+ span.value{display:block}.majorSection{border-bottom:2px solid #dedede;mar=
+gin:20px 0;padding-bottom:10px}.minorSection{background-color:#f8f8f8;borde=
+r-radius:5px;padding:10px;margin:10px 0}.recurringNote{border-bottom:none}.=
+genericSummary .labelValue{margin:5px 0;padding:9px 0;border-bottom:1px sol=
+id #dedede}.genericSummary .labelValue span.label{font-weight:700;display:i=
+nline-block;margin-right:10px;vertical-align:top;width:220px;max-width:50%;=
+text-align:left}.genericSummary.majorSection{padding-bottom:10px;border-top=
+:3px solid #dedede;border-bottom:none;margin:20px 0}.minorGenericSummary{ba=
+ckground-color:transparent;border-radius:0}.minorGenericSummary .labelValue=
+ span.label{width:auto;max-width:none}.minorGenericSummary .labelValue span=
+=2Evalue{color:#666}div.cart table,table.information{border-bottom:2px soli=
+d #dedede;border-collapse:collapse;margin:10px 0 20px}div.cart table thead,=
+table.information thead{background-color:#333}div.cart table thead th,table=
+=2Einformation thead th{border:1px solid #666;white-space:nowrap}div.cart t=
+able th,table.information th{color:#fff;padding:5px 20px}div.cart table tbo=
+dy,table.information tbody,table.information tfoot{text-align:right}div.car=
+t table td,table.information td{background-color:#fff;border:1px solid #666=
+;padding:5px 10px}img.d-block{margin:10px auto}@media (max-width:500px){.wr=
+apper{padding:18px}}
+/*ed57bbd5862ddbf4b3dd3035eb09abfa*/
+
+
+/*]]>*/</style></head><body style=3D"background:#f3f5f6">
+<div class=3D"frame">
+<div class=3D"pb25">
+<div class=3D"center"><!--[if gte mso 12]><br clear=3D"all" /><![endif]-->
+		<a href=3D"https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathona=
+ndHalf" target=3D"_blank">
+			<img src=3D"https://d368g9lw5ileu7.cloudfront.net/races/races-4xxx/4487/=
+emailBanner-npx0B8aL-bKRU0v.jpg" alt=3D"Mountains 2 Beach Marathon and Half=
+" width=3D"100%" style=3D"max-width: 1200px;" />
+		</a>
+		<!--[if gte mso 12]><br clear=3D"all" /><![endif]--></div>
+<h2 class=3D"fsz30 lh36 bold pt15 pb15 mso-mb15 center">Registration Confir=
+mation</h2>
+<h4 class=3D"pb15 fsz16">Thank you for registering for the Mountains 2 Beac=
+h Marathon, Half, 10k and 5k! Below is the information we have for you. Ple=
+ase double check it for accuracy.<br />=C2=A0<br /><br /><span class=3D"rac=
+eDate">April 18-19, 2026</span><br /><span class=3D"raceLocation">Ventura, =
+CA 93001 US</span><br />For any questions, you can reach us at <span class=
+=3D"raceContactEmail">info@fastgreenracing.com</span><br /><br /><br /><br =
+/><br /><span style=3D"color:#e03e2d"><a style=3D"color:#e03e2d" href=3D"ht=
+tps://mountains2beachmarathon.com/" rel=3D"nofollow">Event Website</a><br /=
+><a href=3D"https://mountains2beachmarathon.com/event/important-documents-r=
+acer-info/" target=3D"_blank" rel=3D"nofollow noopener noreferrer">Athlete =
+info Packet</a>- Everything you need to know for a smooth event experience.=
+ (goes live approx. 2 weeks prior to race day)</span><br /><span style=3D"c=
+olor:#e03e2d"><a style=3D"color:#e03e2d" href=3D"https://www.officialm2bgea=
+r.com/" rel=3D"nofollow">Event Online Store</a></span><br /><span style=3D"=
+color:#e03e2d"><a style=3D"color:#e03e2d" href=3D"https://runsignup.com/Rac=
+e/MyRegisteredRaces?raceId=3D4487" rel=3D"nofollow">Edit your Registration<=
+/a></span><br /><br /></h4>
+<p>=C2=A0</p>
+<div><p>
+											<b>Remember to invite your friends with your special URL (<a hre=
+f=3D"https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathonandHalf?r=
+aceRefCode=3DfZX8XUZu" class=3D"referralCodeLinkHtmlTag">https://runsignup.=
+com/Race/CA/Ventura/Mountains2BeachMarathonandHalf?raceRefCode=3DfZX8XUZu</=
+a>). If they sign up from that link, you are eligible for a refund up to $3=
+0.00 after 5 friends sign up.<br />
+*If they register within 10 days of you, and use the &quot;referral coupon&=
+quot; below (scroll down and look just above your purchase summary), they w=
+ill also get 15% off their registration.</b>
+			</p></div>
+<div class=3D"minorSection">
+<div class=3D"labelValue"><span class=3D"label">Registered:</span> <span cl=
+ass=3D"value"> <span class=3D"registrationDate">September 5, 2025 @ 9:45pm =
+PDT</span> </span></div>
+</div>
+<div><div class=3D"minorSection">
+		<h3>Registrant </h3>
+	=09
+
+		<div class=3D"labelValue registrantName">
+			<span class=3D"label">Name:</span>
+			<span class=3D"value">
+				Michael Hereid
+			</span>
+		</div>
+
+					<div class=3D"labelValue registrantGender">
+				<span class=3D"label">Gender:</span>
+				<span class=3D"value">
+					Male
+				</span>
+			</div>
+	=09
+																											<div class=3D"labelValue registrantAge">
+				<span class=3D"label">Age on 04/19/2026:</span>
+				<span class=3D"value">
+					39
+				</span>
+			</div>
+	=09
+		<div class=3D"labelValue registrantEmail">
+			<span class=3D"label"> Email:</span>
+			<span class=3D"value">
+				michael.hereid@gmail.com
+			</span>
+		</div>
+
+					<div class=3D"labelValue registrantPhone">
+				<span class=3D"label"> Phone:</span>
+				<span class=3D"value">
+					636-236-9425
+				</span>
+			</div>
+	=09
+					<div class=3D"labelValue registrantAddress">
+				<span class=3D"label"> Address:</span>
+				<span class=3D"value">
+					5416 brunswick ave
+					<br/>
+					San Diego, CA 92120 US
+				</span>
+			</div>
+	=09
+	=09
+							<div class=3D"labelValue registrantGiveawayOption">
+					<span class=3D"label">Technical Running Shirt:</span>
+					<span class=3D"value">
+						Men&#039;s Large- T-Shirt
+					</span>
+				</div>
+		=09
+				=09
+					<div class=3D"labelValue eventDetails">
+				<span class=3D"label">Event:</span>
+				<span class=3D"value">
+					Combo Challenge- 5k &amp; Full Marathon ($199.99)
+
+											&mdash; Sat Apr 18, 2026
+																					- Sun Apr 19, 2026
+																	=09
+					<br/>
+
+																										<a href=3D"https://runsignup.com/Account/Particip=
+antManagement/NLHjVJT6Q8oBPWLggktF6lbnet0cvyZl?registrationId=3D101400654&a=
+mp;raceId=3D4487" class=3D"registrationManagementLinkHtmlTag">
+						Manage Registration
+					</a>
+
+									</span>
+			</div>
+
+							<p>
+					To update or complete additional information for your registration,
+					<a href=3D"https://runsignup.com/Account/ParticipantManagement/NLHjVJT=
+6Q8oBPWLggktF6lbnet0cvyZl?registrationId=3D101400654&amp;raceId=3D4487">cli=
+ck here</a>.
+				</p>
+		=09
+					=09
+												=09
+			<p>
+				<img class=3D"qr" src=3D"https://static.runsignup.com/img/qrcode-101400=
+654.png" alt=3D"QR Code" height=3D"100" width=3D"100" />
+			</p>
+
+						<div style=3D"display: block; position: relative; width: 228px; margi=
+n: 20px auto 20px; min-height: 70px;">
+				<div style=3D"background-color: transparent; padding: 5px 10px; width: =
+286px;position: absolute; top: 0; left: 0;"><table style=3D"table-layout:fi=
+xed; border-collapse: collapse; border: 0; height: 60px; white-space: nowra=
+p; margin: 0; padding: 0"><tr style=3D"border-collapse: collapse; border: 0=
+; margin: 0; padding: 0;"><td style=3D"border-collapse: collapse; border: 0=
+; margin: 0; padding: 0 0 20px 0; position: relative;"><table style=3D"tabl=
+e-layout:fixed; border-collapse: collapse; border: 0; width: 26px; height: =
+100%; white-space: nowrap; margin: 0; padding: 0;"><tr style=3D"border-coll=
+apse: collapse; border: 0; margin: 0; padding: 0;"><td style=3D"border-coll=
+apse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;=
+background-color: #000;"></td><td style=3D"border-collapse: collapse; borde=
+r: 0; margin: 0; padding: 0; width: 4px; height: 100%;"></td><td style=3D"b=
+order-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; hei=
+ght: 100%;background-color: #000;"></td><td style=3D"border-collapse: colla=
+pse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td =
+style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width=
+: 4px; height: 100%;background-color: #000;"></td><td style=3D"border-colla=
+pse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"=
+></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding=
+: 0; width: 4px; height: 100%;background-color: #000;"></td><td style=3D"bo=
+rder-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; heig=
+ht: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: =
+0; padding: 0; width: 2px; height: 100%;background-color: #000;"></td><td s=
+tyle=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width:=
+ 2px; height: 100%;"></td></tr></table><div style=3D"position: absolute; bo=
+ttom: 0; left:0; width: 100%; font-family: courier, monospace; text-align: =
+center; font-size: 12px; line-height: 20px; color: #000;">*</div></td><td s=
+tyle=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0 0 20px =
+0; position: relative;"><table style=3D"table-layout:fixed; border-collapse=
+: collapse; border: 0; width: 26px; height: 100%; white-space: nowrap; marg=
+in: 0; padding: 0;"><tr style=3D"border-collapse: collapse; border: 0; marg=
+in: 0; padding: 0;"><td style=3D"border-collapse: collapse; border: 0; marg=
+in: 0; padding: 0; width: 4px; height: 100%;background-color: #000;"></td><=
+td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; wi=
+dth: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; borde=
+r: 0; margin: 0; padding: 0; width: 2px; height: 100%;background-color: #00=
+0;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padd=
+ing: 0; width: 4px; height: 100%;"></td><td style=3D"border-collapse: colla=
+pse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;background-=
+color: #000;"></td><td style=3D"border-collapse: collapse; border: 0; margi=
+n: 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"border-colla=
+pse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;b=
+ackground-color: #000;"></td><td style=3D"border-collapse: collapse; border=
+: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"bo=
+rder-collapse: collapse; border: 0; margin: 0; padding: 0; width: 4px; heig=
+ht: 100%;background-color: #000;"></td><td style=3D"border-collapse: collap=
+se; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td></tr>=
+</table><div style=3D"position: absolute; bottom: 0; left:0; width: 100%; f=
+ont-family: courier, monospace; text-align: center; font-size: 12px; line-h=
+eight: 20px; color: #000;">1</div></td><td style=3D"border-collapse: collap=
+se; border: 0; margin: 0; padding: 0 0 20px 0; position: relative;"><table =
+style=3D"table-layout:fixed; border-collapse: collapse; border: 0; width: 2=
+6px; height: 100%; white-space: nowrap; margin: 0; padding: 0;"><tr style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0;"><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px=
+; height: 100%;background-color: #000;"></td><td style=3D"border-collapse: =
+collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td=
+><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; =
+width: 2px; height: 100%;background-color: #000;"></td><td style=3D"border-=
+collapse: collapse; border: 0; margin: 0; padding: 0; width: 4px; height: 1=
+00%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pa=
+dding: 0; width: 4px; height: 100%;background-color: #000;"></td><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px=
+; height: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; ma=
+rgin: 0; padding: 0; width: 4px; height: 100%;background-color: #000;"></td=
+><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; =
+width: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; bor=
+der: 0; margin: 0; padding: 0; width: 2px; height: 100%;background-color: #=
+000;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pa=
+dding: 0; width: 2px; height: 100%;"></td></tr></table><div style=3D"positi=
+on: absolute; bottom: 0; left:0; width: 100%; font-family: courier, monospa=
+ce; text-align: center; font-size: 12px; line-height: 20px; color: #000;">0=
+</div></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pa=
+dding: 0 0 20px 0; position: relative;"><table style=3D"table-layout:fixed;=
+ border-collapse: collapse; border: 0; width: 26px; height: 100%; white-spa=
+ce: nowrap; margin: 0; padding: 0;"><tr style=3D"border-collapse: collapse;=
+ border: 0; margin: 0; padding: 0;"><td style=3D"border-collapse: collapse;=
+ border: 0; margin: 0; padding: 0; width: 4px; height: 100%;background-colo=
+r: #000;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0=
+; padding: 0; width: 2px; height: 100%;"></td><td style=3D"border-collapse:=
+ collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;backg=
+round-color: #000;"></td><td style=3D"border-collapse: collapse; border: 0;=
+ margin: 0; padding: 0; width: 4px; height: 100%;"></td><td style=3D"border=
+-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: =
+100%;background-color: #000;"></td><td style=3D"border-collapse: collapse; =
+border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px=
+; height: 100%;background-color: #000;"></td><td style=3D"border-collapse: =
+collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td=
+><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; =
+width: 4px; height: 100%;background-color: #000;"></td><td style=3D"border-=
+collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 1=
+00%;"></td></tr></table><div style=3D"position: absolute; bottom: 0; left:0=
+; width: 100%; font-family: courier, monospace; text-align: center; font-si=
+ze: 12px; line-height: 20px; color: #000;">1</div></td><td style=3D"border-=
+collapse: collapse; border: 0; margin: 0; padding: 0 0 20px 0; position: re=
+lative;"><table style=3D"table-layout:fixed; border-collapse: collapse; bor=
+der: 0; width: 26px; height: 100%; white-space: nowrap; margin: 0; padding:=
+ 0;"><tr style=3D"border-collapse: collapse; border: 0; margin: 0; padding:=
+ 0;"><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding:=
+ 0; width: 2px; height: 100%;background-color: #000;"></td><td style=3D"bor=
+der-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; heigh=
+t: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0=
+; padding: 0; width: 2px; height: 100%;background-color: #000;"></td><td st=
+yle=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: =
+4px; height: 100%;"></td><td style=3D"border-collapse: collapse; border: 0;=
+ margin: 0; padding: 0; width: 4px; height: 100%;background-color: #000;"><=
+/td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: =
+0; width: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; =
+border: 0; margin: 0; padding: 0; width: 2px; height: 100%;background-color=
+: #000;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0;=
+ padding: 0; width: 2px; height: 100%;"></td><td style=3D"border-collapse: =
+collapse; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;backgr=
+ound-color: #000;"></td><td style=3D"border-collapse: collapse; border: 0; =
+margin: 0; padding: 0; width: 2px; height: 100%;"></td></tr></table><div st=
+yle=3D"position: absolute; bottom: 0; left:0; width: 100%; font-family: cou=
+rier, monospace; text-align: center; font-size: 12px; line-height: 20px; co=
+lor: #000;">4</div></td><td style=3D"border-collapse: collapse; border: 0; =
+margin: 0; padding: 0 0 20px 0; position: relative;"><table style=3D"table-=
+layout:fixed; border-collapse: collapse; border: 0; width: 26px; height: 10=
+0%; white-space: nowrap; margin: 0; padding: 0;"><tr style=3D"border-collap=
+se: collapse; border: 0; margin: 0; padding: 0;"><td style=3D"border-collap=
+se: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;ba=
+ckground-color: #000;"></td><td style=3D"border-collapse: collapse; border:=
+ 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"bor=
+der-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; heigh=
+t: 100%;background-color: #000;"></td><td style=3D"border-collapse: collaps=
+e; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;"></td><td st=
+yle=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: =
+4px; height: 100%;background-color: #000;"></td><td style=3D"border-collaps=
+e: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"><=
+/td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: =
+0; width: 4px; height: 100%;background-color: #000;"></td><td style=3D"bord=
+er-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height=
+: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0;=
+ padding: 0; width: 2px; height: 100%;background-color: #000;"></td><td sty=
+le=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2=
+px; height: 100%;"></td></tr></table><div style=3D"position: absolute; bott=
+om: 0; left:0; width: 100%; font-family: courier, monospace; text-align: ce=
+nter; font-size: 12px; line-height: 20px; color: #000;">0</div></td><td sty=
+le=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0 0 20px 0;=
+ position: relative;"><table style=3D"table-layout:fixed; border-collapse: =
+collapse; border: 0; width: 26px; height: 100%; white-space: nowrap; margin=
+: 0; padding: 0;"><tr style=3D"border-collapse: collapse; border: 0; margin=
+: 0; padding: 0;"><td style=3D"border-collapse: collapse; border: 0; margin=
+: 0; padding: 0; width: 2px; height: 100%;background-color: #000;"></td><td=
+ style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; widt=
+h: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; border:=
+ 0; margin: 0; padding: 0; width: 2px; height: 100%;background-color: #000;=
+"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; paddin=
+g: 0; width: 4px; height: 100%;"></td><td style=3D"border-collapse: collaps=
+e; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;background-co=
+lor: #000;"></td><td style=3D"border-collapse: collapse; border: 0; margin:=
+ 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"border-collaps=
+e: collapse; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;bac=
+kground-color: #000;"></td><td style=3D"border-collapse: collapse; border: =
+0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"bord=
+er-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height=
+: 100%;background-color: #000;"></td><td style=3D"border-collapse: collapse=
+; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td></tr></=
+table><div style=3D"position: absolute; bottom: 0; left:0; width: 100%; fon=
+t-family: courier, monospace; text-align: center; font-size: 12px; line-hei=
+ght: 20px; color: #000;">0</div></td><td style=3D"border-collapse: collapse=
+; border: 0; margin: 0; padding: 0 0 20px 0; position: relative;"><table st=
+yle=3D"table-layout:fixed; border-collapse: collapse; border: 0; width: 26p=
+x; height: 100%; white-space: nowrap; margin: 0; padding: 0;"><tr style=3D"=
+border-collapse: collapse; border: 0; margin: 0; padding: 0;"><td style=3D"=
+border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; he=
+ight: 100%;background-color: #000;"></td><td style=3D"border-collapse: coll=
+apse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td=
+ style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; widt=
+h: 4px; height: 100%;background-color: #000;"></td><td style=3D"border-coll=
+apse: collapse; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;=
+"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; paddin=
+g: 0; width: 4px; height: 100%;background-color: #000;"></td><td style=3D"b=
+order-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; hei=
+ght: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; margin:=
+ 0; padding: 0; width: 2px; height: 100%;background-color: #000;"></td><td =
+style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width=
+: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; border: =
+0; margin: 0; padding: 0; width: 2px; height: 100%;background-color: #000;"=
+></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding=
+: 0; width: 2px; height: 100%;"></td></tr></table><div style=3D"position: a=
+bsolute; bottom: 0; left:0; width: 100%; font-family: courier, monospace; t=
+ext-align: center; font-size: 12px; line-height: 20px; color: #000;">6</div=
+></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding=
+: 0 0 20px 0; position: relative;"><table style=3D"table-layout:fixed; bord=
+er-collapse: collapse; border: 0; width: 26px; height: 100%; white-space: n=
+owrap; margin: 0; padding: 0;"><tr style=3D"border-collapse: collapse; bord=
+er: 0; margin: 0; padding: 0;"><td style=3D"border-collapse: collapse; bord=
+er: 0; margin: 0; padding: 0; width: 4px; height: 100%;background-color: #0=
+00;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pad=
+ding: 0; width: 2px; height: 100%;"></td><td style=3D"border-collapse: coll=
+apse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;background=
+-color: #000;"></td><td style=3D"border-collapse: collapse; border: 0; marg=
+in: 0; padding: 0; width: 4px; height: 100%;"></td><td style=3D"border-coll=
+apse: collapse; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;=
+background-color: #000;"></td><td style=3D"border-collapse: collapse; borde=
+r: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=3D"b=
+order-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; hei=
+ght: 100%;background-color: #000;"></td><td style=3D"border-collapse: colla=
+pse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td =
+style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width=
+: 2px; height: 100%;background-color: #000;"></td><td style=3D"border-colla=
+pse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"=
+></td></tr></table><div style=3D"position: absolute; bottom: 0; left:0; wid=
+th: 100%; font-family: courier, monospace; text-align: center; font-size: 1=
+2px; line-height: 20px; color: #000;">5</div></td><td style=3D"border-colla=
+pse: collapse; border: 0; margin: 0; padding: 0 0 20px 0; position: relativ=
+e;"><table style=3D"table-layout:fixed; border-collapse: collapse; border: =
+0; width: 26px; height: 100%; white-space: nowrap; margin: 0; padding: 0;">=
+<tr style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0;">=
+<td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; w=
+idth: 2px; height: 100%;background-color: #000;"></td><td style=3D"border-c=
+ollapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 10=
+0%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pad=
+ding: 0; width: 2px; height: 100%;background-color: #000;"></td><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 4px=
+; height: 100%;"></td><td style=3D"border-collapse: collapse; border: 0; ma=
+rgin: 0; padding: 0; width: 4px; height: 100%;background-color: #000;"></td=
+><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; =
+width: 2px; height: 100%;"></td><td style=3D"border-collapse: collapse; bor=
+der: 0; margin: 0; padding: 0; width: 2px; height: 100%;background-color: #=
+000;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pa=
+dding: 0; width: 2px; height: 100%;"></td><td style=3D"border-collapse: col=
+lapse; border: 0; margin: 0; padding: 0; width: 4px; height: 100%;backgroun=
+d-color: #000;"></td><td style=3D"border-collapse: collapse; border: 0; mar=
+gin: 0; padding: 0; width: 2px; height: 100%;"></td></tr></table><div style=
+=3D"position: absolute; bottom: 0; left:0; width: 100%; font-family: courie=
+r, monospace; text-align: center; font-size: 12px; line-height: 20px; color=
+: #000;">4</div></td><td style=3D"border-collapse: collapse; border: 0; mar=
+gin: 0; padding: 0 0 20px 0; position: relative;"><table style=3D"table-lay=
+out:fixed; border-collapse: collapse; border: 0; width: 26px; height: 100%;=
+ white-space: nowrap; margin: 0; padding: 0;"><tr style=3D"border-collapse:=
+ collapse; border: 0; margin: 0; padding: 0;"><td style=3D"border-collapse:=
+ collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;backg=
+round-color: #000;"></td><td style=3D"border-collapse: collapse; border: 0;=
+ margin: 0; padding: 0; width: 4px; height: 100%;"></td><td style=3D"border=
+-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: =
+100%;background-color: #000;"></td><td style=3D"border-collapse: collapse; =
+border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 4px=
+; height: 100%;background-color: #000;"></td><td style=3D"border-collapse: =
+collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 100%;"></td=
+><td style=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; =
+width: 4px; height: 100%;background-color: #000;"></td><td style=3D"border-=
+collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px; height: 1=
+00%;"></td><td style=3D"border-collapse: collapse; border: 0; margin: 0; pa=
+dding: 0; width: 2px; height: 100%;background-color: #000;"></td><td style=
+=3D"border-collapse: collapse; border: 0; margin: 0; padding: 0; width: 2px=
+; height: 100%;"></td></tr></table><div style=3D"position: absolute; bottom=
+: 0; left:0; width: 100%; font-family: courier, monospace; text-align: cent=
+er; font-size: 12px; line-height: 20px; color: #000;">*</div></td></tr></ta=
+ble></div>
+				<img src=3D"https://static.runsignup.com/img/barcode-101400654.gif" sty=
+le=3D"position: absolute; top: 0; left: 0; height: 60px;" alt=3D"Barcode" />
+			</div>
+
+					=09
+		=09
+		=09
+							<div class=3D"labelValue registrantCorralName">
+					<span class=3D"label">Corral:</span>
+					<span class=3D"value">
+						3
+					</span>
+				</div>
+
+				<div class=3D"labelValue registrantCorralStartTime">
+					<span class=3D"label">Corral Start:</span>
+					<span class=3D"value">
+						6:16 am
+					</span>
+				</div>
+		=09
+					=09
+		=09
+					=09
+					=09
+					=09
+										<div class=3D"labelValue referralCoupon">
+					<span class=3D"label"><b>Combo Challenge- 5k &amp; Full Marathon Refer=
+ral Coupon:</b></span>
+					<span class=3D"value">
+						<u>combof7CBNFSFW</u><br/>
+						Expires: Sep 16 @ 12:45am
+					</span>
+				</div>
+						</div></div>
+<div><div class=3D"majorSection cart">
+		<h2>Purchase Summary</h2>
+
+							<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Item</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+											<tr  >
+							<td>
+								<span class=3D"mainItems">
+									Combo Challenge- 5k &amp; Full Marathon
+								</span>
+
+																	<ul class=3D"subItems">
+																					<li class=3D"items">Michael Hereid</li>
+																			</ul>
+															</td>
+							<td class=3D"quantity">
+																$199.99
+							</td>
+							<td class=3D"cost">$199.99</td>
+						</tr>
+											<tr  >
+							<td>
+								<span class=3D"mainItems">
+									Technical Running Shirt
+								</span>
+
+																	<ul class=3D"subItems">
+																					<li class=3D"items">Men&#039;s Large- T-Shirt</li>
+																			</ul>
+															</td>
+							<td class=3D"quantity">
+																$0.00
+							</td>
+							<td class=3D"cost">$0.00</td>
+						</tr>
+											<tr  >
+							<td>
+								<span class=3D"mainItems">
+									Full Marathon Shuttle - Michael Hereid
+								</span>
+
+																	<ul class=3D"subItems">
+																					<li class=3D"items">5:00 am Downtown </li>
+																			</ul>
+															</td>
+							<td class=3D"quantity">
+																$0.00
+							</td>
+							<td class=3D"cost">$0.00</td>
+						</tr>
+											<tr  >
+							<td>
+								<span class=3D"mainItems">
+									Kids Zone Access - Michael Hereid
+								</span>
+
+																	<ul class=3D"subItems">
+																					<li class=3D"items">Sunday only (All day)</li>
+																			</ul>
+															</td>
+							<td class=3D"quantity">
+																	3 @
+																$15.00
+							</td>
+							<td class=3D"cost">$45.00</td>
+						</tr>
+											<tr  >
+							<td>
+								<span class=3D"mainItems">
+									Sunday Only- Finish Area Parking Pass - Michael Hereid
+								</span>
+
+																	<ul class=3D"subItems">
+																					<li class=3D"items">Preferred Parking</li>
+																			</ul>
+															</td>
+							<td class=3D"quantity">
+																$20.00
+							</td>
+							<td class=3D"cost">$20.00</td>
+						</tr>
+											<tr id=3D"ccBinDiscountCartItem" style=3D"display: none;">
+							<td>
+								<span class=3D"mainItems">
+									Credit Card BIN Discount
+								</span>
+
+															</td>
+							<td class=3D"quantity">
+																$0.00
+							</td>
+							<td class=3D"cost">$0.00</td>
+						</tr>
+											<tr id=3D"salesTaxV2" style=3D"display: none;">
+							<td>
+								<span class=3D"mainItems">
+									Sales Tax
+								</span>
+
+															</td>
+							<td class=3D"quantity">
+																$0.00
+							</td>
+							<td class=3D"cost">$0.00</td>
+						</tr>
+									</tbody>
+			</table>
+	=09
+	=09
+			=09
+		<div class=3D"labelValue proc">
+			<span class=3D"label">Processing Fee:</span>
+			<span class=3D"value cost">
+									$14.25
+							</span>
+		</div>
+
+		<div class=3D"labelValue final">
+			<span class=3D"label">Total:</span>
+			<span class=3D"value cost">
+				$279.24
+											</span>
+		</div>
+
+			=09
+					<p>
+				<i>
+					This charge may show on your credit card descriptor as <b>SignUp *Moun=
+tains2BeachMa</b> or <b>RunSignup</b>.
+				</i>
+			</p>
+			</div><br /></div>
+<div><br /><br /><div class=3D"minorSection individualQuestions">
+		<h3>Questions for Michael Hereid</h3>
+			<div class=3D"question">
+			<h4>Emergency Contact Name</h4>
+
+			<ul class=3D"questionResponse">
+									<li>Stephanie Orbon</li>
+							</ul>
+		</div>
+=09
+							=09
+								<div class=3D"question">
+			<h4>Emergency Contact Phone</h4>
+
+			<ul class=3D"questionResponse">
+									<li>724-433-6082</li>
+							</ul>
+		</div>
+=09
+							=09
+						=09
+								<div class=3D"question">
+			<h4>How many nights will you spend in Ventura County?</h4>
+
+			<ul class=3D"questionResponse">
+									<li>3+</li>
+							</ul>
+		</div>
+=09
+							=09
+								<div class=3D"question">
+			<h4>If you would like to sign up to receive text message updates for thi=
+s race, please enter your cell phone number here.</h4>
+
+			<ul class=3D"questionResponse">
+									<li>6362369425</li>
+							</ul>
+		</div>
+	</div><br /><br /><div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Full Marathon
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		The Mountains 2 Beach Marathon is 26.2 miles of mountain and beachfront s=
+cenery. Starting in beautiful downtown Ojai, California, you start off with=
+ a 6+ mile loop through east Ojai. This loop brings runners back by the sta=
+rt area which makes for great spectating as it heads towards the community =
+of Meiners Oaks. After a few downhill trending miles through country roads,=
+ the course makes its way onto the Ventura River Bike Path and then continu=
+es to Downtown Ventura. After a tour of downtown Ventura, runners make one =
+of the final turns and come face to face with the famous Ventura Beach fron=
+t. Try not to get distracted by the beauty as you still have just over a mi=
+le to go of beach side running which brings you to the finish line and fest=
+ival. Over the 26.2 miles you will see beautiful mountain peaks, the Ventur=
+a River Basin, the Historic Ventura Downtown district, and the world renown=
+ed Ventura Coast line. There is a total downhill of over 700 feet. The cour=
+se is a lightning fast, USATF certified Boston Marathon Qualifier (CA24015T=
+EB). Space is limited so don=E2=80=99t wait and miss out. We have sold out =
+every year, several months early!<br />
+<br />
+***Course is subject to change without notice.
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Date:
+																		</span>
+			<span class=3D"value">
+				Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T06:10:=
+00-07:00">
+			6:10am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Half Marathon
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		Starting on a quiet road in Oak View CA, you will begin your race near th=
+e Ventura River. Heading towards Ventura on back country roads you will eve=
+ntually encounter our Ventura River bike path which continues to Downtown V=
+entura. After a quick tour of downtown, runners make one of the final turns=
+ and come face to face with the famous Ventura Beach front. Try not to get =
+distracted by the beauty as you still have just over a mile to go of beach =
+side running which brings you to the finish line and festival. Over the 13.=
+1 miles you will see beautiful mountain peaks, the Ventura River Basin, the=
+ Historic Ventura Downtown district, and the world renowned Ventura Coast l=
+ine. The finish line and festival are directly adjacent to the beach which =
+beckons you for a post-race soak. This USATF certified route (CA23034TEB) r=
+uns lightning fast!<br />
+<br />
+***Course is subject to change without notice.
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Date:
+																		</span>
+			<span class=3D"value">
+				Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T06:10:=
+00-07:00">
+			6:10am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	10k
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		After a great first year, we are excited to be bringing back the 10k opti=
+on. Marathon or half marathon too long? 5k not long enough? Join us for the=
+ Mountains 2 Beach 10k. Starting at roughly mile 20 of the full marathon, t=
+he 10k runners get a taste of the same route as the full and half marathone=
+rs. Be sure to stick around for the festivities and beer garden and to chee=
+r on your fellow runners. 10k participants will enjoy the same finish line =
+as the Marathoners and Half Marathoners, along with all the amenities and o=
+f course the Beachside Party afterwards. <br />
+<br />
+***Course is subject to change without notice.
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Date:
+																		</span>
+			<span class=3D"value">
+				Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T06:10:=
+00-07:00">
+			6:10am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	5k
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		With a beautiful ocean side start, the Beachfront 5k starts and finishes =
+at the Full/Half finish expo area. It will be flat and fast=E2=80=A6Be sure=
+ to stick around for the festivities and beer garden and to cheer on your f=
+ellow runners. 5k participants will enjoy the same finish line as the Marat=
+honers and Half Marathoners, along with all the amenities and of course the=
+ Beachside Party afterwards. <br />
+<br />
+***Course is subject to change without notice.<br />
+
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Date:
+																		</span>
+			<span class=3D"value">
+				Saturday April 18, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T07:30:=
+00-07:00">
+			7:30am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T09:30=
+:59-07:00">
+				9:30am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Combo Challenge- 5k &amp; Full Marathon
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		New to 2025, we are offering a multi event challenge! You will run the 5k=
+ with us on Saturday and then the Full Marathon on Sunday. <br />
+<br />
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the Full Marathon and 1 combo medal) and VIP lou=
+nge access on Sun!<br />
+<br />
+The 5k is all beach front running on Saturday. Come ready to run <br />
+ then hang out at the expo festival as the majority of the runners are chec=
+king in that day for their race the next day.<br />
+<br />
+Then on Sunday join us for the Mountains 2 Beach Marathon. 26.2 miles of mo=
+untain and beachfront scenery. Starting in beautiful downtown Ojai, Califor=
+nia, you start off with a 6+ mile loop through east Ojai. This loop brings =
+runners back by the start area which makes for great spectating as it heads=
+ towards the community of Meiners Oaks. After a few downhill trending miles=
+ through country roads, the course makes its way onto the Ventura River Bik=
+e Path and then continues to Downtown Ventura. After a tour of downtown Ven=
+tura, runners make one of the final turns and come face to face with the fa=
+mous Ventura Beach front. Try not to get distracted by the beauty as you st=
+ill have just over a mile to go of beach side running which brings you to t=
+he finish line and festival. Over the 26.2 miles you will see beautiful mou=
+ntain peaks, the Ventura River Basin, the Historic Ventura Downtown distric=
+t, and the world renowned Ventura Coast line. There is a total downhill of =
+over 700 feet. The course is a lightning fast, USATF certified Boston Marat=
+hon Qualifier (CA24015TEB). Space is limited so don=E2=80=99t wait and miss=
+ out. We have sold out every year, several months early!<br />
+<br />
+***Courses are subject to change without notice.<br />
+<br />
+
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Dates:
+																		</span>
+			<span class=3D"value">
+				Saturday April 18, 2026 - Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T07:30:=
+00-07:00">
+			7:30am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Combo Challenge- 5k &amp; Half Marathon
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		New to 2025, we are offering a multi event challenge! You will run the 5k=
+ with us on Saturday and then the Half Marathon on Sunday. <br />
+<br />
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the Half Marathon and 1 combo medal) and VIP lou=
+nge access on Sun!<br />
+<br />
+The 5k is all beach front running on Saturday. Come ready to run <br />
+ then hang out at the expo festival as the majority of the runners are chec=
+king in that day for their race the next day.<br />
+<br />
+Then on Sunday join us for the Half Marathon. Starting on a quiet road in O=
+ak View CA, you will begin your race near the Ventura River. Heading toward=
+s Ventura on back country roads you will eventually encounter our Ventura R=
+iver bike path which continues to Downtown Ventura. After a quick tour of d=
+owntown, runners make one of the final turns and come face to face with the=
+ famous Ventura Beach front. Try not to get distracted by the beauty as you=
+ still have just over a mile to go of beach side running which brings you t=
+o the finish line and festival. Over the 13.1 miles you will see beautiful =
+mountain peaks, the Ventura River Basin, the Historic Ventura Downtown dist=
+rict, and the world renowned Ventura Coast line. The finish line and festiv=
+al are directly adjacent to the beach which beckons you for a post-race soa=
+k. This USATF certified route (CA23034TEB) runs lightning fast!<br />
+<br />
+<br />
+***Courses are subject to change without notice.<br />
+<br />
+
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Dates:
+																		</span>
+			<span class=3D"value">
+				Saturday April 18, 2026 - Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T07:30:=
+00-07:00">
+			7:30am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Combo Challenge- 5k &amp; 10k
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		New to 2025, we are offering a multi event challenge! You will run the 5k=
+ with us on Saturday and then the 10k on Sunday. <br />
+<br />
+As a Combo Challenge runner, you will get a special medal (three medals in =
+total- 1 for the 5k, 1 for the 10k and 1 combo medal) and VIP lounge access=
+ on Sun! <br />
+<br />
+The 5k is all beach front running on Saturday. Come ready to run <br />
+ then hang out at the expo festival as the majority of the runners are chec=
+king in that day for their race the next day.<br />
+<br />
+Then on Sunday join us for the Mountains 2 Beach 10k. Starting at roughly m=
+ile 20 of the full marathon, the 10k runners get a taste of the same route =
+as the full and half marathoners. Be sure to stick around for the festiviti=
+es and beer garden and to cheer on your fellow runners. 10k participants wi=
+ll enjoy the same finish line as the Marathoners and Half Marathoners, alon=
+g with all the amenities and of course the Beachside Party afterwards. <br =
+/>
+<br />
+***Courses are subject to change without notice.<br />
+<br />
+
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Dates:
+																		</span>
+			<span class=3D"value">
+				Saturday April 18, 2026 - Sunday April 19, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T07:30:=
+00-07:00">
+			7:30am PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-19T11:50=
+:59-07:00">
+				11:50am PDT
+			</span>
+		</div>
+								</div>
+																																						<div class=3D"minorSection">
+							=09
+<h3>
+	Event:
+	Kids 1K Fun Run
+</h3>
+
+	<div class=3D"eventExtendedDetails">
+		We always have so much fun with the kids 1k, we just have to do it again!=
+!! Starting on Sat during the packet pickup for the half and the full, kids=
+ 12 and under will get the chance to race against their peers in this fun (=
+spectator friendly) route throughout the venue area at the Ventura State Be=
+ach <br />
+<br />
+***Course is subject to change without notice.
+	</div>
+
+	=09
+							=09
+=09
+			<div class=3D"labelValue eventDates">
+			<span class=3D"label">
+									Event
+			=09
+																						Date:
+																		</span>
+			<span class=3D"value">
+				Saturday April 18, 2026
+			</span>
+		</div>
+=09
+	<div class=3D"labelValue eventStartTime">
+		<span class=3D"label">Start Time:</span>
+		<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T13:00:=
+00-07:00">
+			1:00pm PDT
+		</span>
+	</div>
+
+			<div class=3D"labelValue eventEndTime">
+			<span class=3D"label">End Time:</span>
+			<span class=3D"value" itemprop=3D"startDate" content=3D"2026-04-18T13:30=
+:59-07:00">
+				1:30pm PDT
+			</span>
+		</div>
+								</div>
+														=09
+																	<div class=3D"minorSection">
+			<h3>Place</h3>
+												<p>
+						901 San Pedro St<br/>												Ventura, CA 93001 US
+					</p>
+									</div>
+								<div class=3D"minorSection">
+				<h3>Description</h3>
+				<p>Uniquely situated and completely surrounded by beautiful mountains, =
+the city of Ojai holds the start of the Mountains 2 Beach Marathon while th=
+e half starts closer to the beach. This point to point race winds through t=
+he Ventura River Valley as it makes its way to the pristine beaches of the =
+last great surf town in California, Ventura. Runners will love the gradual =
+downhill nature of the race, which is prime to make you faster but not hurt=
+ the knees, and the amazing weather of the area. After a final tour of beac=
+h front Ventura, runners and their families are treated to a finish line pa=
+rty only steps away from the surf and the shops and restaurants of Historic=
+ Downtown Ventura. As a certified Boston Qualifier, the courses, the race a=
+nd the surrounding communities make for the perfect destination marathon an=
+d half.</p>
+<p>=C2=A0</p>
+			</div>
+									<div class=3D"minorSection">
+				<h3>Race Contact Info</h3>
+				<p>
+					If you have any questions about this Race,
+					please contact the Race director at info@fastgreenracing.com
+				</p>
+			</div>
+							=09
+	=09
+			=09
+							<div class=3D"minorSection">
+				<h3>Sponsors</h3>
+							=09
+
+			=09
+									<div class=3D"center">
+												=09
+							<a href=3D"https://seadon.co/" rel=3D"noopener noreferrer" target=3D=
+"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bNYnZc.png" alt=3D"Race Sponsor" title=3D"Seadon"
+								/></a>												=09
+							<a href=3D"https://mizunousa.com/running/" rel=3D"noopener noreferre=
+r" target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bN0FvC.png" alt=3D"Race Sponsor" title=3D"Mizuno"
+								/></a>												=09
+							<a href=3D"https://www.mile26runningco.com/" rel=3D"noopener norefer=
+rer" target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bNYodM.png" alt=3D"Race Sponsor" title=3D"Mile 26 Running Co."
+								/></a>												=09
+							<a href=3D"https://www.venturarental.com/" rel=3D"noopener noreferre=
+r" target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bNYoa7.png" alt=3D"Race Sponsor" title=3D"Ventura Party Rental"
+								/></a>												=09
+							<a href=3D"https://balcomcanyoncider.com/" rel=3D"noopener noreferre=
+r" target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bN0FJz.png" alt=3D"Race Sponsor" title=3D"Balcom Canyon Cider"
+								/></a>												=09
+							<a href=3D"https://store.livefluid.com/" rel=3D"noopener noreferrer"=
+ target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bNYocD.png" alt=3D"Race Sponsor" title=3D"Fluid"
+								/></a>												=09
+							<a href=3D"https://www.ojaipixies.com/" rel=3D"noopener noreferrer" =
+target=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bN0FGc.png" alt=3D"Race Sponsor" title=3D"Ojai Pixie"
+								/></a>												=09
+							<a href=3D"https://www.mountrax.net/" rel=3D"noopener noreferrer" ta=
+rget=3D"_blank"><img
+									style=3D"max-width:175px;height:auto;float: none; display: inline-=
+block;"
+									src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-racesp=
+onsor-0.bN__RN.png" alt=3D"Race Sponsor" title=3D"Mountrax"
+								/></a>											</div>
+							</div>
+	=09
+													<div class=3D"minorSection">
+				<h3>Share Now!</h3>
+			=09
+											=09
+				<a href=3D"https://www.facebook.com/sharer/sharer.php?u=3Dhttps%3A%2F%2=
+Frunsignup.com%2FRace%2FCA%2FVentura%2FMountains2BeachMarathonandHalf%3Frac=
+eRefCode%3DfZX8XUZu">
+					<img src=3D"https://d368g9lw5ileu7.cloudfront.net/img/buttons/facebook=
+/FB-f-Logo__blue_72.bwQt9U.png" width=3D"30" height=3D"30" alt=3D"Share on =
+Facebook" />
+				</a>
+				<a href=3D"https://twitter.com/home?status=3DI%20just%20registered%20fo=
+r%20the%20Mountains%202%20Beach%20Marathon%20and%20Half%20on%20RunSignup%21=
+%20https%3A%2F%2Frunsignup.com%2FRace%2FCA%2FVentura%2FMountains2BeachMarat=
+honandHalf%3FraceRefCode%3DfZX8XUZu">
+					<img src=3D"https://d368g9lw5ileu7.cloudfront.net/img/buttons/twitter/=
+twitter-x-logo-72.bOc9rG.png" width=3D"30" height=3D"30" alt=3D"Share on X"=
+ />
+				</a>
+				<a href=3D"mailto:?subject=3DI%20just%20registered%20for%20the%20Mounta=
+ins%202%20Beach%20Marathon%20and%20Half%20on%20RunSignup%21&amp;body=3DI%20=
+just%20registered%20for%20the%20Mountains%202%20Beach%20Marathon%20and%20Ha=
+lf%20on%20RunSignup%21%20Check%20it%20out%20here%3A%20https%3A%2F%2Frunsign=
+up.com%2FRace%2FCA%2FVentura%2FMountains2BeachMarathonandHalf%3FraceRefCode=
+%3DfZX8XUZu">
+					<img src=3D"https://d368g9lw5ileu7.cloudfront.net/img/buttons/email/em=
+ailButtonOrange.bw3ZNr.png" width=3D"30" height=3D"30" alt=3D"Share via Ema=
+il" />
+				</a>
+			</div><br /><div class=3D"minorSection">
+		<h3>Facebook</h3>
+		<p>
+							Like this page and invite your friends on <a href=3D"http://www.face=
+book.com/286532658119469" rel=3D"noopener noreferrer" target=3D"_blank">Fac=
+ebook</a>.
+				<br/>
+								</p>
+	</div></div>
+<div style=3D"margin-top:25px;text-align:center"><!--[if gte mso 12]><br cl=
+ear=3D"all" /><![endif]-->
+<a href=3D"https://runsignup.com/Race/CA/Ventura/Mountains2BeachMarathonand=
+Half" target=3D"_blank">
+=09
+		<img src=3D"https://d368g9lw5ileu7.cloudfront.net/races/race4487-logo-0.b=
+HezNe.png" alt=3D"Mountains 2 Beach Marathon and Half" height=3D"100" borde=
+r=3D"0" />
+	</a>
+<!--[if gte mso 12]><br clear=3D"all" /><![endif]--></div>
+</div>
+<div class=3D"pb25">
+<div class=3D"wrapper">
+<div class=3D"center"><a href=3D"https://runsignup.com/" rel=3D"nofollow"> =
+<img src=3D"https://d368g9lw5ileu7.cloudfront.net/img/logos/rsuCircleLogoGr=
+ay.bCW1ie.png" alt=3D"RunSignup" border=3D"0" /> </a></div>
+</div>
+</div>
+</div>
+</body></html>
+--=_7b4e5e4dcf331979a72f7052641ccc5b--
+
+--=_83f338282aa1f7fdea9092f6e7020afd
+Content-Transfer-Encoding: base64
+Content-Type: text/calendar;
+ name=calendar-event.ics
+Content-Disposition: attachment;
+ filename=calendar-event.ics;
+ size=954
+
+QkVHSU46VkNBTEVOREFSDQpWRVJTSU9OOjIuMA0KTUVUSE9EOlBVQkxJU0gNClBST0RJRDotLy9S
+dW5TaWduVXAvL05PTlNHTUwgdjEuMC8vRU4NCkJFR0lOOlZUSU1FWk9ORQ0KVFpJRDpBbWVyaWNh
+L0xvc19BbmdlbGVzDQpYLUxJQy1MT0NBVElPTjpBbWVyaWNhL0xvc19BbmdlbGVzDQpCRUdJTjpE
+QVlMSUdIVA0KVFpPRkZTRVRGUk9NOi0wODAwDQpUWk9GRlNFVFRPOi0wNzAwDQpUWk5BTUU6UERU
+DQpEVFNUQVJUOjE5NzAwMzA4VDAyMDAwMA0KUlJVTEU6RlJFUT1ZRUFSTFk7QllEQVk9MlNVO0JZ
+TU9OVEg9Mw0KRU5EOkRBWUxJR0hUDQpCRUdJTjpTVEFOREFSRA0KVFpPRkZTRVRGUk9NOi0wNzAw
+DQpUWk9GRlNFVFRPOi0wODAwDQpUWk5BTUU6UFNUDQpEVFNUQVJUOjE5NzAxMTAxVDAyMDAwMA0K
+UlJVTEU6RlJFUT1ZRUFSTFk7QllEQVk9MVNVO0JZTU9OVEg9MTENCkVORDpTVEFOREFSRA0KRU5E
+OlZUSU1FWk9ORQ0KQkVHSU46VkVWRU5UDQpVSUQ6TzRoZ21UN2MtMTc1NzEzMzkwMy41ODczQHJ1
+bnNpZ251cC5jb20NCkRUU1RBTVA6MjAyNTA5MDZUMDQ0NTAwWg0KRFRTVEFSVDtUWklEPUFtZXJp
+Y2EvTG9zX0FuZ2VsZXM6MjAyNjA0MThUMDczMDAwDQpTRVFVRU5DRTowDQpUUkFOU1A6T1BBUVVF
+DQpEVEVORDtUWklEPUFtZXJpY2EvTG9zX0FuZ2VsZXM6MjAyNjA0MTlUMTE1MDAwDQpTVU1NQVJZ
+Ok1vdW50YWlucyAyIEJlYWNoIE1hcmF0aG9uIGFuZCBIYWxmDQpMT0NBVElPTjo5MDEgU2FuIFBl
+ZHJvIFN0IFxuVmVudHVyYSBDQSBVUyA5MzAwMQ0KVVJMOmh0dHBzOi8vcnVuc2lnbnVwLmNvbS9S
+YWNlL0NBL1ZlbnR1cmEvTW91bnRhaW5zMkJlYWNoTWFyYXRob25hbmRIYWxmDQpPUkdBTklaRVI7
+Q049TW91bnRhaW5zIDIgQmVhY2ggTWFyYXRob24gYW5kIEhhbGY6bWFpbHRvOmluZm9AZmFzdGdy
+ZWVucmFjaW5nLmNvbQ0KRU5EOlZFVkVOVA0KRU5EOlZDQUxFTkRBUg0K
+--=_83f338282aa1f7fdea9092f6e7020afd
+Content-Transfer-Encoding: base64
+Content-Type: application/pdf;
+ name=registration.pdf
+Content-Disposition: attachment;
+ filename=registration.pdf;
+ size=54043
+
+JVBERi0xLjcKJeLjz9MKNyAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDEgMCBSIC9MYXN0
+TW9kaWZpZWQgKEQ6MjAyNTA5MDYwMDQ1MDMtMDQnMDAnKSAvUmVzb3VyY2VzIDIgMCBSIC9NZWRp
+YUJveCBbMC4wMDAwMDAgMC4wMDAwMDAgNjEyLjAwMDAwMCA3OTIuMDAwMDAwXSAvQ3JvcEJveCBb
+MC4wMDAwMDAgMC4wMDAwMDAgNjEyLjAwMDAwMCA3OTIuMDAwMDAwXSAvQmxlZWRCb3ggWzAuMDAw
+MDAwIDAuMDAwMDAwIDYxMi4wMDAwMDAgNzkyLjAwMDAwMF0gL1RyaW1Cb3ggWzAuMDAwMDAwIDAu
+MDAwMDAwIDYxMi4wMDAwMDAgNzkyLjAwMDAwMF0gL0FydEJveCBbMC4wMDAwMDAgMC4wMDAwMDAg
+NjEyLjAwMDAwMCA3OTIuMDAwMDAwXSAvQ29udGVudHMgOCAwIFIgL1JvdGF0ZSAwIC9Hcm91cCA8
+PCAvVHlwZSAvR3JvdXAgL1MgL1RyYW5zcGFyZW5jeSAvQ1MgL0RldmljZVJHQiA+PiAvUFogMSA+
+PgplbmRvYmoKOCAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVjb2RlIC9MZW5ndGggMjMzMD4+IHN0
+cmVhbQp4nM2d224btxaG7/0UvNjYB6BmeD70Km2Spi0aIAe3N0UvFHsia9eSGtlu0Lffa0aWuFTL
+dvb8y0IcCFFG4jfk4r8OZGTK6JgN/ahPyqgf6fFf9etv9NcZPV7SY3r07Yl68p1V1mkz/KiTD+rF
+yZEZ2/DjnS+oGHVJzqRK7Y0KXrv1665oH4dn2Rtd1hdP5+rJD0Y9X6o3fdOwgfV/2r+iqzrdtHVm
+c3Vo69Zth944ZeOI8dGbV2pL/UTtFF21Lmhv+puqVLOuttZS1MmZ+vXfr5bXi6vJbHGpnPq2m5ye
+q1eT1eTqfLlQk8WZ+n5y8UG97aazyyu6Olsu/vObOvmx786RT5vbpFi0CbXmpOZHMe+7fnH07ujN
++CnamGTMlN9hEmLZXIdu2qxzjVuT/LQ8HYb6tdoOFpHcHffPUdsSN/evyW/v/0u3uLpeTb5Sz75R
+P7/b7YOoDZLTZZCxirXumIDPuHo+ueoOZYu+I9wW77o/rrr5+26l4lfKGRfVU1W/DvGPuXr9/GSf
+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
+dt5wOn+o+RtOsDZpZ24hvqjJoMov7NWVVU/V304Apgm5/7skHn1OKBSX6qA5CVZnfwvxJc2JpxVM
+3DsnX8Z8jJvEo/GZ8c7viRkue1U+e9IezH+F1BFTf4mKaJuHZzfpb9op+8Rt896jGP5/wYnhEwpl
+bmRzdHJlYW0KZW5kb2JqCjkgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAxIDAgUiAvTGFz
+dE1vZGlmaWVkIChEOjIwMjUwOTA2MDA0NTAzLTA0JzAwJykgL1Jlc291cmNlcyAyIDAgUiAvTWVk
+aWFCb3ggWzAuMDAwMDAwIDAuMDAwMDAwIDYxMi4wMDAwMDAgNzkyLjAwMDAwMF0gL0Nyb3BCb3gg
+WzAuMDAwMDAwIDAuMDAwMDAwIDYxMi4wMDAwMDAgNzkyLjAwMDAwMF0gL0JsZWVkQm94IFswLjAw
+MDAwMCAwLjAwMDAwMCA2MTIuMDAwMDAwIDc5Mi4wMDAwMDBdIC9UcmltQm94IFswLjAwMDAwMCAw
+LjAwMDAwMCA2MTIuMDAwMDAwIDc5Mi4wMDAwMDBdIC9BcnRCb3ggWzAuMDAwMDAwIDAuMDAwMDAw
+IDYxMi4wMDAwMDAgNzkyLjAwMDAwMF0gL0NvbnRlbnRzIDEwIDAgUiAvUm90YXRlIDAgL0dyb3Vw
+IDw8IC9UeXBlIC9Hcm91cCAvUyAvVHJhbnNwYXJlbmN5IC9DUyAvRGV2aWNlUkdCID4+IC9Bbm5v
+dHMgWyA2IDAgUiBdIC9QWiAxID4+CmVuZG9iagoxMCAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVj
+b2RlIC9MZW5ndGggNDgzNj4+IHN0cmVhbQp4nO1cW3Mex3F956+YB1VFftCnnkvPxU+RojCOHVd0
+4ZMtPyAgSCIBgRgEi6V/n+4zu/N1QyAdU5QEk6RKEniwOzs7fZnus2eXDtxI/oRXgcLv5d//Dn/+
+i/zvcaAD4c8dP3z7b3LE0wdfPgqfP4whph1/9CT866MH9PohwxtP/OtrfxGYD70mqkPOp1DyIc3f
+p37IjJ9apkOf4Onz8Pm/U/jqKnyjp5Y1f/nn+DdO41C3c9O6NZyb5rmYTQqR3+L+5ODr44K9kvOC
+oDGVQya9aKijHUYco/fw6HH486d/vHp5eXNyfvkipPDl2cnps/DHk+uTm2dXl+Hk8nH43cnFk/Dt
+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
+rtLJ07OQPk/vYi3+D/+PSpsKZW5kc3RyZWFtCmVuZG9iagoxIDAgb2JqCjw8IC9UeXBlIC9QYWdl
+cyAvS2lkcyBbIDcgMCBSIDkgMCBSIF0gL0NvdW50IDIgPj4KZW5kb2JqCjMgMCBvYmoKPDwvVHlw
+ZSAvRm9udCAvU3VidHlwZSAvVHlwZTEgL0Jhc2VGb250IC9IZWx2ZXRpY2EgL05hbWUgL0YxIC9F
+bmNvZGluZyAvV2luQW5zaUVuY29kaW5nID4+CmVuZG9iago0IDAgb2JqCjw8L1R5cGUgL0ZvbnQg
+L1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL05hbWUgL0YyIC9FbmNv
+ZGluZyAvV2luQW5zaUVuY29kaW5nID4+CmVuZG9iago1IDAgb2JqCjw8L1R5cGUgL0ZvbnQgL1N1
+YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL05hbWUgL0YzIC9FbmNv
+ZGluZyAvV2luQW5zaUVuY29kaW5nID4+CmVuZG9iagoxMSAwIG9iago8PC9UeXBlIC9YT2JqZWN0
+IC9TdWJ0eXBlIC9JbWFnZSAvV2lkdGggMzAwIC9IZWlnaHQgMjMyIC9Db2xvclNwYWNlIC9EZXZp
+Y2VSR0IgL0JpdHNQZXJDb21wb25lbnQgOCAvRmlsdGVyIC9GbGF0ZURlY29kZSAvRGVjb2RlUGFy
+bXMgPDwgL1ByZWRpY3RvciAxNSAvQ29sb3JzIDMgL0JpdHNQZXJDb21wb25lbnQgOCAvQ29sdW1u
+cyAzMDAgPj4gL0xlbmd0aCAzNjkwMCA+PiBzdHJlYW0KeNrsXYV7FEcb7//QELm7GFESgru7OxS3
+4qW4uzsUWqw4tIW2aHF3dwghOAmEJMQ9JyuX7515d+f27pKQkEsIfLvPPsdxududnZnf6/Jdjnqo
+h3p80eM7dQrUQz1UEKqHeqggVA/1UA8VhOpRfIdZcaizoYJQPUruEOkhCAJgT5QPFYcqCNWj5A6B
+HgyKeKggVEGoHiUnggL0eJ5HLpiQkGAymeD/Mg5VKKogVI9iB6Eg8CZyClxKSlKb1i137thmFnlR
+4ER4FXnGElXeqIJQPYoJhQJBmsibjPqJE8ZpNa5enu4H9u8FWCIOAZwq/FQQqkfxghBgBnjbv+9f
+gB+AUOPm4udb9uiRQ/AhgSJhhqLKDFUQqkex4I+cwAkFLvzpk4oVyms1LhSEznAGlfM7c/ok44fo
+v1CnTAWhejhKD4RDMEuCqCktNbFrlw5aDWCvjPKsWCHo4oWzqC5S/VBgLFE9VBCqRxEPEY0ugC6O
+08+fN0undbEBIfwXzqpVKty8cUUkXzPKUFRFUxWE6uEATkhAKIicIJiOHT3k5+vl5upkD0J8U6tm
+1fv3bhP9kJ4qCFUQqkfRFUFAjwhw4nnj6zfPa9asag88GzTWq1vzSegj2VIqUqFURaAKQvUovB5o
+QaCZyKIZ6an9+vZkwFO+AcaocQPeKH0Ir40a1n3+7CnwQzOVY0WBp2hUoaiCUD0KA0ISHGMW4KSC
+KLd69Up3nSsCj6KuDBNKKQ6/BxwqWWKzpo1fv3rO8yZ05fO86j9UQagehQahIBtjDOfOnS4X6Aeo
+o+f3wPQY2Fq1bMoYI4ITeSO8wp/evnnJnPhMP1QPFYTqURAQEp8EVQVNkZGvGzeqhwBDsZMxvb59
+eiQlxv08cri9lojv27VtFfU+QhBM1E6DQW2qC1EFoXoUDIQUNqbMjNTBg/ozaKH6hyCsUrkCAIzn
+jBnpaSOGD2acUCmyAhQ7dmgTE/1ODqYB7iqodhoVhOqRrx4o5QcKhH3xht/WrPR0d9MCrij8mDbo
+6aE9ffoEfF0AZU8QAavDhg7K1VgKZ5fO7eM+fuCp8xD9hyozVEGoHp/EIS+KpjNnTgT6emtdnNzd
+LKYXlDPnzZ1tMhpB1wO5NYcYPoWMdBue+T1AV0u/r9O6/NCtc0J8LM+bbPyH6qGCUD2sECgKmKjL
+c5wxMvJNvbo1CYpcAUtWqmCH9m3S01Lgm9QLiN4HEX6cmZE2oH8fjZszBaoTgpDJpX16d09IiCPZ
+iJwJhVK1NIYKQvWwOgCBABBMhkhNSerXt7e1uUXCYUj5wOfPnmBMDEORSFN9gTGmJCcO6N/XXi7F
+6wBE4cpmAnQObT9qfKkKQvVQcELCzIgvAUC4fNlircYF1T/0N+i0hLmBYHno4F6e0/PU0GKjSQIO
+zSKfmZk+cEAfpZFGBiHB4eBBAygX5RRx3iozVEGoHhIICYwAHocPHyrr7W4TFoOAnDF9itGQJQjE
+BY8uBym2RoYilUv5lOQElEtlBDpRlVJC49AhP6alJvOcEU01KjNUQfh/p/jlZY9B/Lx6+bx6tSpK
+DsZ4WscOqAqSpF4zrfWkvKalsIVISmCkp6f+OLCfHFKD+qQFiqN+Hp6WmiTwRlEylqrxpSoI/w+w
+p5QbbbFHmSBoaMlJ8d26dspVnatUMTg09AGg1EwNN4QR5lFkjUS78SDT8qnJSYN+7E+9FGVk46oT
+u+D4caPS05JFkSmHqlyqgvBbPwQagcbTQ+EhMAty2pHRkD1v7iwWDqpkg95eugP7/+UJ46IWUYFG
+leZh2yRCKQE1+Q7wQxA+af6hbd4TvE6bOjEjPUUOauPV+FIVhN84J8Rioenp6YyDsZR5Ck/j3n//
+BrDJIHFiXkGA0OxZ0wCi8B3eRFzzOSL6Bs153YvikGJVFNLSkocPG5xrEjC8gStnpKcSHBJLj6D6
+D1UQfrsQJHAQP8bG9urRU5+dbRYlOZRaY0yiYHr08F7FCsGM+zEXH8a7JCfHC4KRqnACSW8qQIVR
+AlH0PApcakrSiOFDAMw2SiZef+GCOZkZqbR2hkBlYyFH9R+qIPymVEHKlEharsk4dPAgjZvrP3/v
+IdudOubNoJKJpriPH9q2acFQQU5ZaKxWteKT0AeguYnUIlrYivcidT4iDkf9PJwlQ9noh8uXLdZn
+Z9LMQ5KCCGPLUUGogvDbOGj8mZBDQQjSpjsIm67OtWpWT0tNRjUMmJtBnzFu7M824dd4+pT1OHRw
+LwIDlEdz4XtOyKYgIvSmpVpwSNFuuaOHu9svq5YbDFkglBK/BRVNVWaogvAb4IM5tGY9MDE+4u3r
+KpVDXF1g04OO57pxw1oQL4G5mYxZO7Zv9vTQ2CHQCdAyd84MBAaWTjMXXmETRdRFabE2gUtLTRw7
+5icFP7ScMIa1v/1iMuqxwreyfql6qCD8ioVRkUaBZmVl/Diwn9IoUrlS+fi4aFEw3rt7MzDABz5E
+hU2uVUG+1rNHV6oKmljSw+exJvlXNEtYMKWnJY0fNwpYnz0OAZybNq3nTNkg/QIOiXKYI6rxpSoI
+v1pVEC2fVODcuWMrbHql1wEgt3jRPMBhyxZNlEnx7KxZs2rYk0eCFCAqOoomUEe/KT09ZeKEMUp+
+yIK8gR9u3bIRxgxCqVTp1Cyo9WlUEH6FeqAoYtgK7Phn4aEVKwQprZG43YPK+Q0dMtCGF+EX/Hy9
+jhw+KAPAYbufukZIlgbJe8pInTplojU/lKiAl6d2186tHGfAvCdSpUYFoQrCr1AVpM4/mgzRu9cP
+6ChXOgbs3fEMnMAkFy6YYzTqMRBU6bgzf95o5N9J/USJ85AYazPSU6ZOmaDAoYUVl/V2//PPHYhD
+XjXSqCD8LFFQRB6CuXY58htzvj5uByqCNGfPyHH69evWoNHF3vKZV+FQAG1qSgLu++IaKlaRErjM
+jLQZ06fIOHSSo0wlw+zfe/5EjZQacqW4ttKARlIHUjYUl+aG4d/9nyNQqqci8GmpKRERb9AvZ5Yq
+cBbnmhHmxVMDo/H+vVsh5QNz9T3Yn/idGtUrPw17RNz3xcx8sNco4DA7K33WzKk2/kOgDq4u3wf4
+l92/7x9erqiPzL00mExhZmjon4CpWHp9dunE4f8vCAXSx5YIUYCErKyMSRPHN2pY/2lYqNRGk5g6
+hKIYGz85BOpYN6anJXXt0oE53z+JQ1QFDx7YSyujFS8IWSg5zFWOWcjKSp89axrFoVX+PpyBAT7E
+USlyLMD1y4MQlph0JuZwlR8/frhz53aBRuSWNhz+/4IQkIbtUECl+WXVcp2WNA9r1rThyxdPed7A
+cwa58l/x8RhO4A2rVi7N1R2X1wnjnD1rhtGQLfDK8oTFJ84hDrHZE/DDtAXzZ7O4NqW+Ghzkf/To
+QSxATI00X1o/pEsM/NloyPrrz52NG9WPjHhDAcmpIPyShhAS0EwLagIfyqENpQGBB/b/i/HQeLZu
+1Szi7UuQ9GC1UKNw4JqxC1IZyXTj+mXYu0qVL39OSANEOyQnJdDaFpxZKrhWMlvKTG9qzMpMXbhg
+DuLQpsJ3+eCA48cPcyY9CZ2jfhezHL5TYvvebDlIrJ9Bnzl3zgwvT+3KFUskxVXlhF8ahCKN6kLj
+AalTdvfODdg6bOvjZurQvnVUVIRASkgIovVGL8r6sSxBFPASE2LbtG7O0hRYhRh49fXxzNUeU6Vy
+hbAnj6VUXZ6eJQfCHBrdSgR14MPLli4EBm5PMipWCDp96hiI2VTY5lC7ziuhsYhgY7o9DRWQwn1g
+YtFElJMjAL0YO2YkjBOk5egP76gzlhcVg1FSB4cssQrCAhokOaTQQNSB49WtU4ORc6UD4IduneI+
+xopY00xw2F5nIDQa9dOnTWL+d6nqGY3SrFmjyj9//8nYCxsYsOt//v6LSKGcJU2JuSNKYOsw+gGz
+B+NfuWIpwyGqiDjgypXKX7p4FpPxBanVjFAcI2S5zjkknwMDHgivM5kM8MZkzAYEIo3r17cnDe7h
+QFLG8Uu0mMSg4/k5AbcqCD9nF5mpkkA3hyk1NbFTx7YsBMxGsqI+gJ4JCQkmk0mZXFvEdYKfgw4K
+G+TAgX0+ZT1kNc+FlmYiOPT0cDt39qRBn1G9WiUbQXTqlAkGQxaxG4FARUAID1TcOQxEeGD+Q2nL
+CyKlZhzs8jVrVsr6oVWyRZXKIdevXSLiH61GhRKgY7c4k+oJ6xOMZtFET1BHAYEGeF23bo3O3VWj
+dXbTlNm0eQO1wHGUnmKMuwQ/fE+6iyucGSoIHbJ1zLlJLwK1hRhpsJV+1M/DlaGYrGAZM1Rq3JyH
+DR2cmposlVfBVCNe+Azw01O2yvKm1y+e1axeJde2ENOnTuKMRKdatHCuTCDgTy6tW7dITk7g6TYi
+9j3xS2o12I0UTqMxe/26XxX9gJ2Y/7Ba1Yo3b15F1kTUV8p8csTPDWpFzy2NL7LIMgKXnZ0e+vgB
+MN6rVy7Ex0UD/ASBLG5kxKtygb6EsNKohqNHDsKi67PTr169tGf3rk2/r9++ffO+vXtu3bwKIisR
+ngVLx+KSd2N8+yBUFGghSiAu0qqVS3HrIORsejMwYOi0bhMnjMvOzkSxCtsfFXqFFPHNQLnT01L6
+9OimdbW1xMBNW7ZokpaahHGbT8MewQgpUShTPrhc6OOHmK8glqgxJl/lVuBpQpNh8+YNTC5lFaLg
+v7VqVn1w/w7DDEp9n+FTQRCaMd2L1kEFgfPsmVNDBg8A0RcECk8PjZenNsC/bN8+PQgH5g13794M
+DvJHkurh7nbyxJHt2zbBeOCbypAj+BVcYcL40Q/u3xaRb5PJF0p4Pr99cVSu8EfZIKV5hw8fgAVQ
+5o9jfaTRo0bYNA8DZuiuc1u0cD7gUJKsOL7wGJD4Bt2C/OpVKzy1rjo3ZwXLJcOAPfTo4V3si8Tz
+Rs6U3axpQ5rCp9n95y4WPFA6IlHMaGuhqcBELt26ZaMyvpQ9Wu1a1UiqscCxXMfCgtAsow95ICzB
+07DQbl07KuFkk2k1dMhAWE3ghDgGV5fvAX6M5tqTWngDSB43elT8x1hplYldx6yC0MF7hrIRojzA
+Rvf382Y8kPmab9+6lp2VNmb0T0rWhF+Add24YR0qkzQupHBOfNY/EH5+8eK5AD9vnWsZ2jTCSen9
+++fv3YIUgUkcmKLIAYfRalxgc8A+R30mx65s4ReaUAkbMh4JydixfbMNDvFNvbo1nz8PwwqoYuGb
+zFhASD3vMdFRwAAVSoSTjSyjdF0qaZx1u+IyKGUwnRw+d9e41K5e5crF8zSensrP/4cgLKaNJUct
+cYJofP/uDRo8lCtU1tv92NFDlEmS4g49une1cxvAdzz27f0H01illg7W/DCfYkqwnBxNQo+Ned+o
+QV2An9bFifSNsAjDZX4eOUKfnUkL9XKkSL1INmvcx5iWLZrBkKj1odTGRkv5hzxvAHULCBZwHjaB
+uNHr16v16mU4Vb04uSK4WGASRkPPSAVjPiH+Y5vWLZi5WC43TlBUIaSc8r6fPFEcBUbduFG9zp3a
+dezQJsDXG5Ym0NeHLLRMLEqmntV3X2rd2D6WFbZikbUkex6I+2ZTcnI8zDUslXIlYNNs27bJbAbK
+h+3axZiY6OYtmrgCiZUtfggVXx/P06dOUFmRR9eFdUnCPA3ouKLAZkeOGAo8UDrdLAhs3KhBQnwc
+lidEsLG4VmIWIiLfl9cD87fToMoHlG7/vr/R6qt0+cB72OsYAiFY+gEXKL5UKj9H1E9u/rw5Hu7a
+WjWrLVww58Txw6A2R0a8unXz6pnTx+fPmwX3zRWB9h/Cog8e1P/F87C01EQyJN5ADDOcMTLizYH9
+e2fNnH7z5nVc4m8ZhBY1Sepxycn//Zytlg96pfA03mjisn8eNUwpZGLK7LKlCwXqWUapB5c8LCy0
+Rs2qWq2zsggnnCHlA69fv4LY43k+f/+hwi9PIuO2bt7gqXPRuTm5A+VWbA4/X++bN64RPxUFoVy/
+DH0Dkg+aCsCf8B98WflFMmDSbOBDB/disAHaadBUAw8LKm7U+7csuJSeQkE2ikA7EX+Iiho4oN/x
+Y0eMhmy0XQHvDX18f+KEMaAB2kfe2mSE2cfBB5Xz27Vzq8mYhTZVFjNMaLbJVJIa+JcEoRJ+8vn5
+IMzjhxgjali6bKFO54LAQ2YIazZ50jie09OwY8S/pIFwnOnixfPlgwOYA51Bt2aNas/Cw3FjKA2V
+9i4RQT5AALt27Uq5AB+tmxOAUOvqxEyjMJgNG35DFxYt/mmWfQ9WIBRzp01m5vn4EvZnG/9hjlnK
+BCbwOH7sP1CzWeNuVhm1datmUVFKHH5aP5QIGcebDMbszCwgaKgUGA1Zly6eb9igjnJ1CiiLMg7p
+rnOdMH50UuJH4l2UW4UrwzNKRvj4QuKoKDHAc2dPXzh/ltQUozOLBmgmjivrriuQZmYVcpWmAuuV
+I3FdpN4RjbTav+9fL0+t1k0SAnHZBg7oo89Opx5eW3ULi+we2P8vUnQbUtqsaeOo95FEfZcrzJsl
+r4jZmn5zVAUyRn9437xZYybWYiNrWi/UZcjgH7My00EGzRHNpTnhrTAriwvIgegeVM6fcSfW66J9
+u1Y0JNAkyz6feGrcADk0rZGm8JtAdIz7+AHA4+mu0bo469ycWbAOenc1bi70dM4/I4z9pG+fHtEf
+ImlZVyMVmHEffuvWUUwVBXikpaWMGzuqUcO6G9b/Gh8XjVo7nWs8OJPJkJ6eCl/LxnKXUjt1Xip9
+mYcJSxIXSQQ2f+vWdbRWs5gY4D8d2rdOSUlkzdltgglRKwP8rF27GtBrE6ms1bh06tg+Li6WDsCs
+iMm2CjHFB8nMSPl55Ag3V5voUHKdBvXrRrx9TeUfXhS+kUJJmAaMcunZMycqhJSzqQ0Hr507tYuN
++cA6ASMhyzu+VGShLSgxfoiK6Nqlg8TNXMpQscKJ4VA+nfMBIVpllGv6Q7dOgEMQi0A0pcot/+27
+KKRUUQqk5OT4fn17oi173949Bj2W7uOTkhK2bd08eNAA0CWA+fTt02v1LyuTEuMBG8SIQheG+nPE
+3ERQAdv3PX8WVrtWNZvOeyDDxES/t8T455FED1/Q6zOmTpkAQot1XAshtDAeks0gS6S4mZQPSLip
+Sb992yabn+MmCAzwvUSt4VICMeXqXz0btNARKYkBcFipYnlr/kMev1vXzh9jozHjiVJMLm9NRJSi
+bShLZL2+QdXUaZ1REAXtDmglzLMiKYyA0D4SQ8kGlcFScNL+xLE05I3ohyU5b19KHCUIkhxHgunF
+87DKlYJp5KRm2dKFoHk/fvSgaZNGWo1VnS+Y6MaN6h06tI8zZYMQTyQH0WQPQuRCcFkQWjp2aMPa
+feGbGtUrv3n9QpQKMZhtbANWpRCoJzolOVHROYz5oGDtXUeOHEE6kFH8YVgwk0zRWnjzxhVgwvaU
+2MPdbf26X9EfxUbyjXlmsX8bPB3QmmpVK+GmV6YC9+7VPT7+oyAJmdRIky8IMT57y+bfZfCUqVK5
+PJyVKgbPnzd729bfjx09CHRcmWrMQJhrg4369WohgWaLS2v2SDzg2wShlcyGviUUPjk9yOIzZ0xG
+x2uD+rWB49WrW5uKcNLswFYG+IEMCRpF82aNTp44Qs3KksfJDj+wp7mM9ORhQ3/E2GgmroB09OD+
+bSB1LPU7X21EpJoqF/cxpmOHtrkp/S6TJ03IzEwnDE2w6iwNr8BsYaj2yw9D+mnEENLkSLAk+3yD
+9ZGIrVTAZ7x65VLNGlXt60T169srnkr1mOaXI7eRsgchiqOgiuN1goP8Q8oHjh0z8srl8xFvX9GI
+M2PYk4eBAWVtDNpYucfebAMfwqb695+/+vfr1bJFE/garEtggM+9uzdxPN8sCFFVI6qSyfDq5fPN
+mzaOGTNq0I/9xo8bhfW8sL0JmSaCQBetmzOgDv50+9Y1Eyk1S+Y6Ozs9MuKVAoRKNYxkf4sklTNj
+zuzpGMAhtS5y/T4o0PfsuVOy7UfI170uEwzM2RP4Z+FhoLjmJtu4zJ0zC0Ros9LGSwKLM+QguDLK
+skjUrtMw6n2EGdPtaFhpwT3XXx0O5cBr4dbN63Xr1KAT+L2SNQ36sT+oGFIlbxolb6cei8yCAGwQ
+dAHM0H35IpznDFKvDhrJtPa3XzAThRljUehQIhBYH6AX8ObtpYNPRo4cBsQ6/OnjHt271KpZFZui
+0gJ236hOyNjgmzdvpk+bGhwUyKxYsuOOONC0Lk46V+kVzjo1qjZv2qBTp3a79+x6/iIsW5/OC8Sr
+Q05iyBKsvbokLMZkytr0+zpLH2lXJ7isHwl5+ZshsCAOD6q3EpM1zxG58dbNq1WrVLBT8V10WreV
+K5ZxJgNzQ8P7Hdu3Ev3E1Yk5OVjO6/Vrl+S0DDmV5hsuI09xKNJyPvfv36aEjKhzzPEDczJ82BAa
+FSRRJYxMUAgpItK1rIz07l061a1VHdhXZkYqRlrLOfRwAyMISkzvYCD39/Nm5lkA5LGjhwByixfN
+o18my/HyxVOg7ABF+FO7ti2rVA559izsm40dRRDeu3e3caNGGqLsobRJjI1UxSJo1GkI8LQ0oMTy
+imxEU8bfv+yAAb2vXbuIIEQPO5V7zLI1BmBpOHHiCGjqFpy4OZf11G35fT0J/rRLVMmnKzW5MPVz
+IE8EwJw4fiQ4KMBeKHXXadb+tsZk0qNOf/vWjXKB/ti3TCM1vi2DHTx3bN/MEfFbTiyQOOE3yAYt
+EyvTM3jk0Mf3mzZpwLLGmNl55E/DqXZNhXMenU/MwCM5e96/i5g0YeybV89BApLiBy0BV0JszIdK
+lYLR8FOvTo3qVSsi/W1Yv7akBLqVAWWEpjsRP8ST0Ad9enf39nLfsWMLcdbzRpBNMjJSjh49dOnS
++W/NRaEITBOehoXWqV0TWAdMCggVQKVgX+ZTaZOFQeB/3QGibk5BAT5bNq4zGjJZYL4k89Ao+zu3
+ryv4FZFpPdy1q1Yup2EWhQ4dZtybed737Nnj7+dDGbglIFircQUc/vbrKs6U/TE2CrMfbOwBIAKB
+XJ2dlc6itB20zGZlvqJSlcoF20XNQmT3KnzLJ+wZTAX7li2ayq25LdoaKHgZGamSRMpUfWo74Dki
+beqzM1Npjyp59gR5MASlj0MfBtBeHf6+Xr1+6NKjayd3II5uLv16dde50hgJwnIHi5JHnlwElPn9
++/cuWDCPJ6WGjCx6RFCoCSUTDvFdCSAQPX7JSQldOncs6+0B6jjI9MeP/bdi+eIA/7L5AA8/ge0L
+8rpPWY86NauCYOnjqfXx1G3d8rvFqkF1TTjfvnnZonljhQruDNiYN3e2Xp9FfXGfk8mm1BDRib9h
+wzpvLw+loo9OC1DuV61cOmb0T8pnYU/UuVO7hHjJCCHKFR+KWe6wCtClpEpUROnaHFLZ408FLZlz
+CtJ5NFfGSOLaiJ3z1atnKA3K5Ela7imTx4MuzQIYmdeRGtKlRsUYB6GQICTd/fHjBwEBZbE9zrXL
+Fzq3b0PVGee1q1e6uxGHPhD9ixfPiXZBWhkZacz/zCaBXbxkhJTvip8Ripib8/vG9SAAnDt3KisT
+CJ7p3t2bwLLyj7iFtQHp5eaNK8+fPXlw//azp6GXzp/ZuW1zu9Ytq1ercuP6VYWBkUtMiAN4K8MF
+dVrXcWNHp6enykVEilSjCSO24dWgz168aIGHu8Z62M7YrggUDxveDo9TvVqlx4/uSXJUgWOXizbv
+OVK8kNQQWyAnyUtG1yg1QtI3yKdInpfZEjxYbAIqosr07t2bLp3bW+KHpBI1ZWbOmEJkFpGzhElZ
+qulYXLLWZIJ4pF6/elE+OAA5Ks/pWzRtCMADHP61c1uNqpV0GucO7dsAwtECpECdoPjvF8sRK24Q
+SoHaWVkZly6ey8xIEWlie0py/A/dOtkXllYWPmK5fEcOH0AlkDozSB2RtNTkRw/vX7xwjiEwKzN9
+0sRxFvcrqOZaEhSWlBhPvyDgbisiLZFc84IIt5s2dTLVZp0+Wa/ez9cLlH5M3OZZC8HiWWwW1ifj
+EEEoyiVVOORFsBcN+iyMhMZPRLMJUxxkYYyqxA7dl9J15JSLmOio7j90keXS77HKDvx3/rxZRlOW
+HEqB8JNZlF1kEqOQmZlpNWtUASXwl1XLYI/VrVMDQfjvnj/Hjh7p5ak7d+40rwiNVPI9q6t/iyCU
+g1eoEdmM4XmCccvmDcAxWG67jXe1bZsWtWtVw4wY+E6lisGxMe9lFwUWIOCYpxtjeVf/shzkDUvg
+vKZMz54/xMZGM7ZT9PlFBPK0yBIIt5kZaePHjWLRT3kljwJvXLpkIWcyMAQWmwnEIpshN6MOG8K/
+372LuHb18rZtm8ePH92nd8/27Vo3b9a4SeOGTZs0bNG8accObfv26Tlp4titWzZeunTu1cvndLS8
+xDAlMdxCOIo6k8h44foCH/cxunfv7sgG3WQLFmyMRQvnwhiwnkgB7oWxGVynDm08NC53bl2DfVKl
+cgi1ijv/veePixfO9u/Xx2jUl5bS4F/COkqt1Bg/QcxfXNT7iPr1arHkIPtQhjq1q4PwNnfOjMAA
+H/xk4YI5ZhFFeUFO0uXROwQn5s7IHjlaOLRD28jIt0z7cgh5syhPAjZ459LTkn4aMQRxmJdcPXjQ
+gOysDEsl3GIoOiaF7EhxfCYaigBo556/CN++fUvPHt2qVa3k7eWeV46PkpkDIatYIRhQCor0+XOn
+iQdPuiD6VASzhO2icXKF/zApMW7ggD42xR1B/Fm5YinxDBUolRkrbRtWLV9co0rFlKR4kJjKBflp
+qKq5f9/f8KeEhHhZABH/n3tRoExPULF922bqXiN5zUMGD0CYge6HaSnovQF51WjMOnf2ZFA5P2Am
+tWpWlaV56aB8lXifrl+7AqxSWXKvWdOGr169UORJCQ7c8cxUgDWOUlMShg/7EfCvzBVmW7xxo3rv
+372RREHZH+jgTYAWGFnaBCnDZMy6cvnc0KEDy4cEKjPNC9JtRpn0AIAEoW7ypHFXr1ww6DPM1H+A
+wa5Fqb0vC6U5Zin/kE9LTRo8qD8LqkaK5u2lW7P6F6zoUyCFnTM+DX04qH+f7My0+PgYP39vDWWw
+QKBpbSG+NBTI+sIglDcvKQo0ACif1rld25b37t4aOuRHLw/tyBFDIyNejR/3M9MDSY9oEXa5/tHD
+uzQ8V/NaCvjEarw06JQ3vXwR3qB+HUUwlFO9ujWfPn0sRyTyjvMEWDYQWjXQgy/wxM87fNggKS6H
+7Watc3CQ/61b10m4eXHSYJxVqnCSJNcb1y/36d3dp6y7GxHwiGnKpqhxXlC0K8UvuXCxHDgoCH/+
+sT0lOYHmXppyS78uhCFRdsPKdUJIC8TUkT8NtbS4oL7ist4eG9avlRs85SNByP2tOOPhg/uyMtNg
+A5T1wez+748dPUir7AmlOUml5DghVgSKi49u0LBOo0b1Hj++B8vZu1ePFs2axn54J3KGieNGwdR7
+6Nw0rmXu3rmBRQdoWOkUT53LyRNHAJasaBJwwpTEhG5dOyp3UvVqle7du0Vju3mWky4IQvHQFLMM
+ddKegTbZtXBjD0/Njh1bkRAUo5hPM66or9nwMTYK9Drm8pEz6wqR5GqdJmL7c1DVgDGuX7cGmD/1
+d/N094uKtAnx81wXmDcGQvvYMSPR247BUgAhoCagqaImkndwn2S6FkhGvJHGNl2T/c9OJ44fzjGX
+9tDcEgUhsIW3ES87d2n/8OFdUtWDN82YPvXVy+ciCYA2Tp4w1t3NuV6t6gE+XieOH6FfAO2c1Iap
+Vb0yCPdmsxxxz5tgzcaMGqk07QAMLl44g6UKmB+pmGcfI6qMILChlQ/FP+LymjrBZDLIMTHFQAJE
+9H0L1O1huHTxLNA1Js7ZV/XLx3hrL6zm06AGbgEa+59/7CBtobB7nKjwNH6+V03ExLEpk8dr3KRI
+KXQhAh/etXMbtYjlFcUiGx3k1I1zZ0/RsGECwnPnThGbcI4KQkauRC4tLfkD8D1Bsm0CluQKc9ys
+mVOB/rVt2WzOjKkXzp8mGZaCieMNcP6xaxvoh5wpm2piRqNRv2L5Uncdi88mRTvlimkmSzibhdYW
+FwiptcnUt08PpZGjY4c2qalJrCxAscymIJXiNBlJyiKrsZl/r1+bYmTKwpvKN6wSuc1vQe9FnMMW
+79CuFTAcUoiR+k6xzVURJpr48WH5DPrMRYvmKe+I8Z+7d/9Bg1pYspgtCKUPaZmN/w7tZyAE+qiC
+0MaCILUElPLiBdqyh+No0rRpyeL5QP8a1q2VEPvBoM9QRhhFf3iXnZWOmg/IQvv3/ePlqWOR30As
+aacUo1lKvi7u5rWWAH8Y+YvnYaDEKhhy8KuXz2TxSXDc8pstJ8pfHKfPzlq2dCGp3KFAkT0DlD8h
+Ol5goE+TJvX79u05btyoWbOmTZ48fvDgAa1bN69WtRLWEMgVk8rLYhymO43InTdnZloqzaikNmNz
+EbpSY+IYaedi1P+yajmW9EaLN7wBHB7Yv1cRrWa2A6HIwPz3nr9kcuN0584N0AlVECqlN4HmUEvt
+OGismYDVEOC/a1avBE5YpUJwUkIsupXRzSXl9VG/PDDDmzeuYPVeXB6Q/rds3sCZDCQdgYhnJdGo
+Wd5nZNjz581iu1+ndV0wf46iPoID195siWakDg+9PmvunFl2Wf/27soynh7azp3ab9q0MezJ48zM
+NKMxm6P54zQNhcgaRlO2QZ+VkpJ05fL5dWvX9O7VHWZYWR5XyV0JP9Q4Y/1id41LwwZ1Hj64T2xg
+ZkuFgc/GIaXOsMqGjRvWyi0uJPAHBvgcOXoIU9Ws7W3KqlOEPu3YvoX98PGjezkqCHN1tSnkB3QZ
+kY21betm4IQBvt4J8TGUelk87Ihb0krl5TMpQJ7mVYDUsfqX5diFC8slYYBF8VMTTLcRs7MzK1cK
+YaGqnh66e3dvo/XI8aIvZX+Sg5Q3rVyxzMNdm7946evjNWf2zDevX4IEgi4+OUBUUPjNLCfWhoGL
+p6UmHT1ycOiQgX6+XjZXJidFIClhTD/0Kev5+8b1tKKPQFvW8NQuLchKQaGXQ6TpYH/+sd3Tw00u
+ikVuVC7I7/SZ4xxR+5XlhaxACBtp1cpljIGDnEJAWLqTxb5AeQsGLUmZl05h379/k2wmrUt09Ds5
+2ceMigZWvUtNSWrdvIlOrhfo7u66cMEcAZRGmhzE0ilKgOrJ9F44fvwoU021Gtc6tWvSkTs+RRBN
+DghC0Ir37P4TAK9xA2Zl5XNnLAtGNernEe/fvcXiAFTiMGO+LMvWsy7BjMXtRRZOiR5/IIgbN/xW
+p3Z1ZvWhKVqAQ2edxkVj0RtdfhoxDBaIhrgblbkInyGTo9oCUs9/h/Z5e2lJRBvJaCNNzoLLB1y6
+dE6O/jPnAsIccfy40SyLP/pDpArC/HUqmXhRneLIfwdRArlz+7pUykkK3iU/MRqyBw7oh3YzkqCp
+c504fozRkEWby5OefyIWKSn+wHephzuh+qYRw4ewKqYAiUUL51vIh6P9geiYAWDcvHktMMBXWcvI
+xgwTUj7w+LEjJJ4Bc9Kl0FkxrygwG+ERWaUkWvIckQ71WaCHN2pYj0q/zP9h5dUAGtSqVfM3b14y
+Cza7TmGlU7m+OdH/T544EuDvrXG1pOpWrFj+5o1rCr1Dme5AFgf2CR0P+XJmRgrWVi/NEmkp6EVB
+i5HAxj154ihWy6JRDtTPjmksggh0cc6cmeg7JqEVGufhQ37MykzD0JWSrFieg1WqKNJggWG7Mw84
+CIfnz52R8yTEYrgrqV4VHxeNebF5+dzr16sV+vi+VEJKDnDPKUwdDdscJ4E2Y+FNnEn/x65t1atV
+sonCoR0U0fDjXKd2jdDQR4JUwIq3yqUqHJmjsgYd/LmzJ4OD/JEfUteFc/VqVe7fu4MBhDbogp92
+7NieVWwAQYn0pXSkhewbBSFWszt75gRWhdm8ab0UnI3NUXh+9187NYpK2D26d0lLSUDffclPLhXZ
+CKM+feoY60MEowrw983KyhClIH2Hj0rEJmRTp0ywCXxRKmyAz9evnlH/qpzxLJcqk6PnChHXolgg
+dCGQoJyPsVEzpk+2VA+xNcO6gJJ8984tqT0oYWifX1hdcgIJxsuXzlWuVJ5Iv5L47VyrZrUnFO20
+bqKy7LLQuFED1Gs8PTQEhGZeBWEBOCEF4cULZ3BpVyxfDCKErMzwVy9fQsUAN1/HDm1iY6JACmVd
+yko4IolSaUKh586ZoXRnderY/vO6fxVQHIXLXrp4DqYor9CzWjWrPg17hBVsJalY0RHapil04dV4
+ERcF5GGY/Nu3rgHgc80doe2yK9y+dQPlUl5ul/25k80LNCT95o2rNWtUYXopnPXr1X4W/oQaS60q
+vlavXlUmi2UBwCoIC8EJb1y/jCCcPWsabV9MQrSfP3taISQIgycAh82bNfoQFWGW3IxWlbNLkhNi
+jZNGDesqPeDLly2RmxMVR5yUmJmR1qVzh7wc8eUCfYGKGY1ZaamJCQmxcR+jP8Z+gBPeJCR8TE6K
+B/2ZisqCohlWoVKTpH4vNLiChHGnpiRMmjhW6SNVFreuXq3yg/t35e4GhS4sYmWRMkulE+/fu1W3
+Tg1lSd/GjerRpmscM/CaTIbyweWYbkyEAhWEBQMhkTru3r3p7+dNy/4MJdmDgjElOaFF88ZUFSSU
+r26d6u8iX6MLMZ/K2SWiE/KRkW9Zs1Fc8iOHD+XIFTIdHzVuFo8e+c+m3axSIAQRfenShUMGDwAG
+VbFCkK+PJ1akBroG+AQe0qd396VLFpw5fSohIZ42kRel5tUFb2FNPbbUNEyKVmL00p7df9DOObY1
+ReGsW6dm+JPHIm8pi1YEWzS2OubCnjxq2qQhCw+EE+jy2zevWJ5KbOwHYIA66icE9ZWSck4F4acd
+YDTmSXgS+hDrVXfq2DY7Kw3OwYP647bTupWpUbXSs3Cp4WuObFDPC9PFrhOK/PFjR9CMxOpbvn79
+EnUYB1YHYhn96elpbdu00rjlmQaRV8CanZfPtXq1KnPnzHry5LE+O5OaW7Grh7mgiyVi5CoW/KS1
+DO/dAbzJyVwKAuFWpmO71jFR70Wed4TKgGWdhZcvnrVt01JLHSQ66rRs07rlu0ip2VNo6EPaqBDu
+TlLJmDhammO4SwsnhOV9/fp5cBCpFAhiHog6ixbOZfHZlSuUf3DnFk1fIlVS8nbHl0jLPgpCED6V
+kVz+fmUx147WbHc8CE8cP+au0+QfeJ1/c0xpqK7Ux+Pq7O/jNWHsaMqpMOBWLPiY5FLZJCQfa+++
+eB7epnULRSM0J8xI0rmWGTl8aGZGRtErZcgmU0IyIiPedO7UwV3riu1WgbK0a9s6Kuod0OgrVy7S
+DlzExd+xQxvSdctsSeZUQZiPYYbs64+x0RUrBMPiVakcsnnTeixXgTXwL1+6QPL3sM4CcXnlj+kS
+kEf5Ht27KqMrG9SvTaJkzFjJxuyomaEp84I+O6tP7x7ooSniKUWfuJJXYCMVQ8pt2bwBhA5ZKBUL
+SjeplCjXZyOBMlFR77t17US9eVa38/TQ/vbrGpJTYl1c5/PmCBs+ChwX/eF9n1493LVuWjn1sWuX
+jtEfIk+eQAmFEIJ+fXvJlc5FFYSftLwRZ1RWZkaN6pVpGJQHWmgwPeLE8cOsjVbpSI4m9gllsyc4
+e/XsJjpUEJVNISSF/2nYY28vXdERmCu39PTQTBg/OjUlSZn+X/CFUxZl/RD1rkvn9nYs2jkwwO/q
+lUusm11RVlAqA0vcHnx8XOyPA0FhcWVW2R49umzc8Ku7DhuQlJkwfiz6SEtnVYvSBULs9wDzhbVn
+mL2Rpkf8SUut8Upr3hcHYdzHGCzyzUS+aVMnOhyEaAECEC5eND9vIDkpk4kLe7ImYbCbP9K6WDQi
+TCzgwtnIzLCQERGv2rRubi8Pw4dxHz8U0X+jbL0m9dVLShj50zCMYseg7fLB/nINxTKLFy2Q7dWq
+TvgpkxvWSIfd1rRJQ7ZsQPu3b9/CmfQ0ZlL4jMCL4hNHb9+6gcXgGL3/dc3K4gGhkJ6eWqtmtbxN
+L/mBMB9rjZ3q6Dxs6OD0tBRqqhHsXQWflmVEyZfw/FkYbVFme5dFi+aajNmO8d9gtRQax5eWljxh
+/Bgs94qp1az/x7q1v+ZI8asqJ/zUXkPPclZmOnBCZmyEGSRl6rCNZukq0SOePHGMtXzCXU6ifBwD
+QkmllJphiML582eUWUW5gpDWC7QvTlEg+w073XVu8+fNNtCUeXMhRTjmR0FsgPBZPjhQMT/kDA7y
+v3/vFvZaKTI9NVsCzXlTRnrqzBlTaYqppRUpvNm5Y5tYgBZA/78gZA0qzHL/x1Url2EjKziXL1tC
+S9OStBisFFOqQLhv379ytpu0g//YtU3ON3WAeC7lOtBESswJsEmKt2lAjWe5QL82rVuOGD50yaJF
+u3Zuv3jh3IXzZ3b/tQuksv79eleuFGLTQsOeH4L8f+zof3IWReHTo+UkDGBQ27dt8fRglWClGtsD
+B/QBUmum61o0wmpmfQvxhMsuWbwQcKioHO186NABrASpiqN5GjdYDV+Ypn17/8YuVjB9M2dM0WfT
+fi8C2t9yb+D65dyv4pbNvyvz6+DN7r92Og6EmMFAQJiakoQBQ3mV+oY3VauEDB82CCbwxfPwtJQU
+7LMpVdaQk4lMJsObN6/Wr19bt06NvHgjIrNZ00YxMR942rWm0KUNMdqbqvfAnYB8yC4c6fTy1J46
+eZT1XSkCDhUpzjlSkpdBn7Vm9SpQE1xdvkcQ/jRiGGwkei9eBWFu1F7qlU0QeOP6lYoVgnBDjx0z
+Mj0tWaq0zQsSszTnCsIvZHQ2i0uXLLIxPOzZvcshIJSlA7R0CMeOHkbBUokZfF/W2737D53hvu/e
+vcEK34JUHZyQflnew5RoqVIkx5liot9NnDAmn4pPwOFXrljK0YCYQuPEnMNzPIIQfv7+3VtM+NDS
+LnFIYfv07p6VlYad7YrGoEQ5WVEqu0oC3ElnyC1+vl5YUkCrcZ05Y9pnNOT6ZkHIMmNYkjixAQim
+yDcvmzaqT1OnXYYNHZyUFE/JMOeQ2vXFBMLp06bY8JA//tjuGLpglkNSqHNiyOCBkv3dTUpjB0yW
+C/QfM/rnmzeuZ2akyyXJ8RRl352Z563syehCwICzzMy0FSsWWwr4k9OKK9aoXjky8jWtV1BYTphD
+RyFI3giRO3H8sC8tAaqVUx+9vTxu3bwuV/dyTHM4jOAhgRy0FPehg3sxck3n5uxOCo7MNRn1Zql8
+u/h/DULGAFntUFjm5KS4Xt27etAUzD69e8bFxWIhvVJbLBlp8JTJE5WsA15JeUyHiKNyPAoAIDEh
+DoNpmS8hpHzgjOlTnoaFmgwGbOWdV6szm90mu1hFzM3Pykof9fNwe8USNTd4oi2bN5A8FessoYJp
+GaKiSrnRoM/4eeQwm/Tf0aNGkpbURRJHc7HuYSVyWgrZePrUsfJB/qQIg4uTh7sG1EW0NgklUoKo
+VIMQw46YSpCdnQ6iEQk7cnPu3Kn9BxJ2xH+R7KTCPsfkSRNsJLq1v/3iKBCSLA2OxEnv2f0nCxat
+VDF40cK5L188BWyI2Ckaa3nkK3fk5kjgMcMoNjYK9ENWFkBR5pDcrkP71lQp+Jy2qszkRqvjGe/d
+u1Uu0FdRM8o5qFxAZMQbs9nhpFbyW2A15OvXLlUMKUcZfhnA4epfVqKMXQrdFSVf6EnqSAFbYcP6
+30iYn4tT65ZN30W+ZfmBchml0nqYRdA0lG1AMf3KQSDMwWIC8Nq9W1fQaqpVrfzrml9iSAqlEZ3d
+oNvl1iEsd7dBjq1XnWfz/8/ff+alHPqU9QgNffAZqpTiXpJQCqLg5EnjbBqqbvp9g2M5oYIj8lI+
+MW98cP92NVoWjAYGaQmhFOX43tLUpbyke9bTalxEaz965CAI7lrXMo0a1n396gV2dynV2LM8iLBq
+5XIbQ2XfPj3kar9FXVqkRDExMQ0bNty6dUtSUgLHGXmMDi+yYoPV+7GSUmLCxzq1q9tZSqX3v29c
+i4JJkWxvVO94EvooOCgQeCBWndBQwScjI8XxIDRLbmfqxydtFF48D2NhWN5eus2b1mOTKbkus/n/
+DoRsYe7dvYVteuvUrPYsPNRcnA1ii0Mc3bljmw3raNigjnUdviKRKtj6GRkZ6enpomzZzGHV74u2
+a2UWKtnGFi6YB8zWxvGIrAOURlH4/EVRlnITeO6nEcMoAl1oQRrCaUG0Lq6WwKRHsRmNtAC59+/e
+tmrZFAkN3HfXrm2grObkgEpdWvIMSxSE2Lw+OjqqWVMSnlalYvn7t2njF8laLeZliS5tIDywf6+l
+KzDlJMDVOVLdrKgWXRakLhdcFQsieX7erWg1g6sUhC42IIQnate2VUZ6WtExj7C4fPmit5cHq78E
+N1q/bk1xkV2zFPuOUjeI8XEfY37o1onkcLk4+fp4/r3nD9priJbhoYj9skgsaRCmpib37dsbFIPg
+IP/LF88KJj2Wr89775Y+EJrFc2dPKxsDY5xdeHiYsmBxESfKuiioOa/NVvj9aVZKJbGx0RVCgqmg
+aCWOYp2YqPfvigo/WYDPSE9t26aVTmtpH9Kvb0+DQV9sayRViaTMnIjE6WkpA/v3wYLFfr5ehw7u
+lQNFxJx8TVxfPQjhyQTJeUWiNziTfsni+cBD/P19jh07giWASllIWgE4iCA+fvzQz7esIkKKbN8D
++/+xFAL/Gg5g2+npKW3btMjVPAM79cWLcIdkrqDRctPvG4AT6uSgVqDC8XExjs2BticEPM9jHrAg
+mLIyU0ePGo697AP9y546eVzuPPuFd2AxgxBdM1gayMwdPPAvMBCQB/bt+wcbTZZ2Q2geIAQ5DRiI
+pakl3cQzpk+RAvH4r4OsYMWqn0cOswch7avhEvbksUPcRVg+PDT0UblA4rtjlOvmzau0hVYx+tAt
+CjDpqWgyGjLn0OZfOo1LUDl/kGjQ3PUZHtGvSBw1yw2YTPduXS8f6Ofj7b5jxxbat0AszR2MP7Gn
+BK51qxY2/VLq1a0p9Zz6ekAIDzJl8vhcOSF8+CT0oYNAKAVIkZoUbs5ucmtxqhYWo02Oxe6h05I2
+2zPq9RkrVyzBInEh5QOvXLmIcmkR6jKWehCSWle8MS76ffPG9ct6aDdu+A1oEs9zGFf11bFBee/y
+EyeOZzYG7FXk7aV7TVqvGGkljq/huWixnGlTJ+YaHc5A6AhxVMR04SWLF+pcnVkOx8QJY2hmU7ET
+YvKc1MdDK8QZAI3btv6OGaFVKodgW2hSQ0yKdzd/SyDECsqmjNSkwQP6eLm7rVq2mDT6FEwlWbXe
+8U9FYsq4fXv/sWMgLps3baThi8Zi6MpULFIKPMikiWNzZYPuOtewJ48csiOlbja86dLF894elk5S
+7dq2zM7KKJlSaNTRw2HdRNiTsA9BOQoM8MFY2YcP7/K8UW66VtJ+i++KjfaYsd4BUJ1Vyxd76dxA
+FjcZsrESe2mqVfGZezf86RNQbq03rivIqByGlTm83kwxbUzeNGzoj7kGzZT1dg8Pf+IoEKLYGRnx
+pmqlELmUPelwnpycKDgskrtA0inrMAe08szpk5UqhoBEU6d29SdPHgqikRcMJY/D74rpaTFsH3Sk
+/w7tA74/dsxIWtKLz9vdLH4Fu1bmhFj3tmGDOjac0NvL48H92zzxfH4FIIQHSUtNat2qWa4FL4KD
+/N+8eekQgcVsiWIxtm3ZjHFC2BiJCXElXBRU2pygDnHADw3Xrl6uU7OG1tWlUaN64eGhAEIauVWi
++mGxgBADteEpHz26D9RuyOABqSmJmKkt2WLykF2/DlZIVSnYUosWzrXJDwCaOnnSOFGEVTR9FSCM
+jYmqVDE4V05Yr27N2NgPjgKhVHBJ4Ib82F/jajHAxsR8KOEdb5b8h9jti+Dt8cP7zZs2cXMr06xZ
+o5evwqm6xH2tIGSWKFrs0ZQQH9OyZbOePbsnJiYg6fkahc/cUUiFqxvXL2MlQqVhgzCQ189pbzCR
+tC0VStcjY1w1y3d69PC+so64khP27NGVpOE5Jp3FzEpRzJ8zk2QYUYlU5+b88ME9sWR3PMsQYJUa
+4f2rly87d+qo07q1atn87ZsX/CcCSEo1COU+r4JJn50+8qehnTq2i4v7iHHAX6U3Iu99TPv1GRo3
+qmdvVJw+bZKUbSQ3xy1Vg6dlO3nU2Nev+y2vqt4zpk+mTjwH5d3KIPxzxzadq9T+Gt5cOH+2hDmh
+tX5oZq4y4Mn9+vYGHHbs0CYy8rWltkPxj+07Bz6VQItkonnw943rWrduHh0dxbKTvlIzTF5mBlTu
+N6z/lbnsWWJeuUDfRw/vEUcFTwtVlSY7MEWg1LEsOzuzV88f8nISHjq4lxoMRYWY4wAQnjx22EMu
+JU5AeO4M/ZP4hWbDEhgIYwMFFTiHh7tb187t32NtAau+3F8JCGnTLO7s2VOtW7WIiHhDE5eE0p2h
++3lKrxSRGPcxhmasWvJisWwEqaSSmY5NMksVCOmWEjCp+s3rl74+nrmCEITqF8/DBIcll0m59rDR
+L5477e0uNdVwd3O+dvWyWfxieop1fzgywnRaPbGsh653964xUZFmQoZ4uWSWuVSDENu4UxnMFBnx
+qkvnDi9ePCv9Va6KrFcQzj9z5nSNm4uyUQRsa6Cm27dtYpVUSk+tAKoLEQQajdnLli5kBeRtQPhD
+t05Zmak02NBh4ij2jbt26byPXCAUOOHdO7fE0lFXljkzMzPS16xa4VfWs1+v7nExUYKcyan0Wzh2
+tN85hJYwEKalJv00fPDDh/fIf80Sp/8mQSinGvHA8AMD/KyzgUixlgoh5WCHmeW+7ez44iNHQTom
+9n2N6pVzLQoMmFy3drWU7ONwEF6+4OslNRrx0Lp8iHpXSvqWySU5iAZhMhp2/7GrfKDfoP59EuJj
+RNFEO5DzNL6n9HFCJQg5k37ViiU3rl6iFDQv4mYuVZUFiq5iCcRXMd86NVaq1NKyRZP3795KZc5k
+Q1xp4IQmk3716hV5VT0EWTT86WOp57ajQXj5wlnGCYHbJCXGlxoQSlnTWLEOJun4kf+qViw/bOjA
+lKR4nA1mQypFnFBhYSLb6+iRw2fPnBI5I22ClU8S3LfDG5GxJCUlVKtaWVHWGl9Jo5U+fXqSzri0
+wxmtzkRJU+4dTktgZmgUp2B68SI8mDROsS0ljKLpiOFDTEYSXeg4u6UFhBfOnfKiOiHcq0rlCqmp
+yaWkRr0ZF0ZKQsYq4dy1K5fq1qo+ZtSI9LQks4gT4niS8Z0jiAfJyHr69OmFCxc4jvtmXBEFBiFZ
+roMH9+u0rtgoD6NnsJiKTus26McBCQlxrECtQsGwR6ADcWhWcj+W0ZNj5jIzUvr07p5XF1Gfsp4X
+LpxjkRUOK0koNRLnTp08ykqetmnTOiMjoxRuGDkFD9ZLCHvyuFXLZhMnjM7OShXNJB/K4blXRRVH
+sdJrZmbGkydPSlfvpJI66FPzRqN++LAhWEbFupsnwWGf3j1joqNEuXECRWPJmaxoLWCS6Eij7fQr
+VixRulVsgn769e2dnZ0pig62actl+bmdO7ZgsVbA/OjRoyWPZWndMNg6M/rDOyBb06dNNBgzRTM6
+eBxp9P6uyFuQEPXs7CyO4/7f4MeYDM+bOM4IMKtbpxbWFFMIeGXof0ls9907t7DSXKHaABaVD9Is
+ZHJTzsiZsvfs+YMV5lByQvzE38/7xvWrrCWTQ0GIkWvcrJlTWVLvmjWrS7kHSwr45k0pyQkTxo+e
+MXOKkaQBwWYnOCwt4igW86UxeOL/GwKVpg5MWr1545q/nw+tKaa0OqKM6lypYsiff+zQZ2eQBFMe
+i6yK1rVYzA4EIesqjmkfZs5wcN8eP1+vfBoVTps60WTUOzxyErcyjfUzDfqxH7vjpUuXSn2hZykZ
+ktSqzkpfuWrZggXzaOo2z3q8fXkQ4hYstVX+S4ZYSuV0OdLJ6OCBfaxRnnWFeUL7gQvBLiRZM6Qj
+ChYRZe1fisp8rPBMjQvyBQkIt27aEODraa8EIr2A14YN6ryLfENtgEKxTBEpBJzdqmVTVp8uNjbm
+q5CeqG2bx+ZW+/b+s2rlctlSKuRdJbAExVEkcl9NAkSxLROJ6iZSHyk4vWXz79hC1KZ/IDsrhJSb
+O3dmVFQkJpKSZHyeo03FpDwTSwPqz2oFITXNJaVTQGoiPaWnT5sC+HfPI0INIAGC6OlTxzG6oHhA
+SHw5r18/Z0kbnTu1y8zMLP2cUEHgyHPA+l65cmnzpo0cTd1GzeILg/Ab8/sVFYQcCbkwGrI3rP/V
+00NDG+g62aheLM4boDh71tQnoQ9J/X9iNeHMMgqVVQ8/Q0eVxRMiRF04f7Z5syaglOq0Lq4u3+cq
+iALJ+GXVMuxyQWVR0eE7GC1Dly6ew+IucK5YvpiZf74WRYauDyGab16/PHBgn9GoB96orDf7eQ/i
+EBB+xWnyjlPBMAZYas1nMul3bN+CiU7Ktrh2XgHSHLdjh7Y7d2yNjHhNgxywwyD6FbGFUL5+C7PS
+t2GWe6SRIN5HD+8OHTLIp6wn7SrDapxhe20nRVcp1/HjRhv0maTIikwFHD47lBOa1q9bg8OAm969
+e4uF9X8lnJBSWhIgTWKCU1KS79+/S5QQkxHDMz/7Kb7LUQ9Hmh+khpXoDzhx/CjtweBkb4e0b80J
+aGzRvPHyZYvPnztDe0rz6NKQmmDKaFTA0sxyx6QIYxq+k5GeeujQgR7duwAJUBZllE+JG8sGUpcB
+/fumpaXICmqx1L8TMapRNPXp3R3D3OvVrZ2YGP812hGUwU+kUqLJVPQ0PRWEDseiiKEhhB8a9aGP
+H2L9CCaFMnOIDRrZJ+46t8AA325dO/26ZtWhQ/tfPH9K+3XSujVyY1qsFiFiOz6R02dn3Lt7C9jp
+wAF9g8r507CBMvn04mVliwf9OCAlOVEBcgcbaS1WIlGIiHxdvXollM9nz5quzJP6Oq1xoqO84ioI
+i0c6pc4lbISQkZ4yf95sT7nKmI1ompekygBDCpb7edepXaNTx3ZDBg+cOmXigvlz5s2dNXnS+EE/
+9m/frlWN6pV9ynog02NIVsrANlDHP7nrXCeMHwtsswRKqqBh5uzZ03BTYMWggj54cEcQvr7gKqXa
+hSxRBWFpZoe8KPMrdNDfuX2zU8e2DCrKcM1c6ywpv5PXG3vcKsvy53XClct6u//26y+0YyZNLyzm
+sBUE4aRJ47EJaYf2rTMzU2T7/ldsR3CUKUQFYTEtj8giRWm/DXLq9Zn79//buHF9nc5Vk7e15rPP
+vK5jrQQ616tb6+aNq0ggpG7vxZzeAbMRFxdbv15tNAv9/vs6QTAWQ6fer/VQQVi8QqnSa4BGFL0h
+4+ChvW3btvT20ikZ1yeNN5+NRtbFzdfHc87sGSR7SLL6CLQ/mphH1emiRpMrSipxx48dob5Tp2pV
+K8bERIlYe0dFoArCElPgLZErZh4rzBpNWTdvXJkxfUrNGlWY6yyvuOpCnfYAdnX5HpTGgQP6PAl9
+iP5l5NK0I0xejcEc4P5FrQlja4cN/RFl0SWL56MKKogqAlUQlhQMcyzxFmY5EJH266K8MSMj7fSp
+kxMnjK9Xt7ZPWW+NxpmVnCgwP3RSSrYYpyonUrkGBwX8PHL43Ts3aTSMibq5BNqQhwTo5IuyInFC
+OdEUpHHuxfOwypWCtRrSgOXN6xdYJ0LlgioIvyhnVFi35TwM0Bj1t2/fXrf2144d2lSsEFTW290G
+h8r31mVCy9iYQ911buWDy3Xs0G7b1s1R7yNZLxRqJRJYaNtn96MvuDGGPplhw/o1OLxpUyfyvPH/
+PshRBWFpBSfrlJBj5j7GRl2+dG7Xzq0jhg9u1bIp6FGBAT4gUrKQVOboA17n4a7x9fEKKudXo3rl
+tm1aTJ826b9D+96+eSVHGEtOfzSE2iRtFK9FlHbnTEqMa9G8MQwYKMuL50+/ji4dKgj/jxGIQTCk
+cxBKjxQ8fEpyQujjh1cuXzx18viRwwf37f37rz93wrl/3z9Hj/x3+tSJq1cuPQ0LzUhPFUiGlNEs
+YiF3gcXTsNP+vsXJComz9L9D+0HpBXqxdMlCzmQojthUFYTq4bBNi/9KlYWxAjSNkrFmZTJzk8rp
+0qREEcv8EMRKFTSsotscXjujAI9DYtWErKyMnj26gXZat07ND1GRIs05UNVBFYRfhd4oiIqMCsoe
+RYUyKSrD9hUs1KxgeuYvSU0wilbggXuX9fZw12m2b9tCgxa+2VK0KgjVwwKBL1vPDm1NNL6VFD0Z
+OKAfsMEunTumJqeYSbE5Mw5NxaEKwq9UUs0HdaVmqNT7jy1zLl+6UNbbMzDA9+qVy+RDyr/V1VRB
++K1yv9IjSGNzSi4jPa1vn15ajevcObOMBgOVUXNyVAaoglA9ihuEWIVV4E2nTx338tQ1adwglrQB
+FQrA0lUQqod6OACEItZcSU6Kb9umhZ+v1+nTx2lKF6fCTwWhepSUSkhAaNi+bZOXp3bO7OlGQybt
+Ps2rnFAFoXoUrxQq+f2JX4L7EBVRp3b1Nq2bJ8TH0PKqtGmxCj8VhOpRAiA0k15G+nlzZ4aUD7x1
+8yppKSPV4FDzBlUQqkcxI1CqfSTw9+/dCQ4KoA1SjVhOX0WgCkL1KAkcIggzM9J79ew+YfxYgyFL
+Dh9XEaiCUD2KWw+kGMSSVn/99UeHDu0SExM4jhNUPVAFoXqUGB4x1vxd5NvWrVuGh4fxpKaOygNV
+EKpHCWLQLPJGQ/bkSROuXL6kTFlW50YFoXqUnEp48sSxP3btMJmMzE6jglAFoXqUEP6AE3748H7j
+xvXADElvKZUHqiBUj5LBHquOw3Gm06dOGPRZouqUV0GoHiV5sL4oGelpaanJZtoXjpQStsWg2jlP
+BaF6FJ8iKPDUECpXMc29hLBZReDng5BVAVKWAzIryioo6BwpH1tsYo+orFOUt7QjjURxykqL9Ea0
+7+QoP2CO8km/uEBlM4C8xkOHrVgCqV8ye1PcDV5EdMcLcuNonN58noiWvbFanby4rEPmTYI/ljbG
+jH7pjbnElk+5o/LZV9/lP9HslZUxEc1KGzQDodUmVh6fRHiOdaMpa5mHt0ZgrkX7LEXmFadoNxGi
+QNsPwTeBflvVZpELtyhKZctNPxUFQtmXzYU8PjkzBf+h/bpaV1ITFW9sJjP38X/eDmM1ReVqbp8A
+YY7UDEC5moUbwCcnme1Va7IsIZC6UQRa9kYw59t145N3sa70o4xYyPU7EtvK3171Xf5CP5qb2SXo
+5UhrRBRCzJauOvCPVAWMnfYL88lns1kYtswKcqus22dmpcesCpBJ3zErgYo9A1lbP2zlSRtrimYF
+gK0HbzUwG6Dmdgh5nYr9aiETyvWzWzmzVUwmTVa3IUnKa0p9QsmiWc0G4zw2E6V4RqEArMmWLtNi
+TcgDObOZIyXepAuK+f5QsNkYBSQHLGGfol3MewcJZqu9bs6Re6dKzXlQcaWsJFdJQVlTi11WOedY
+SFKQotJtlyOXGWbNuWgU+2eKo3YghneWvrA5oiAzd1It0zI4iTpySCOVWwFxImKhPllEtN7ogtWX
+FY/HoGh7QUWJ2xzLXhdzLJW/sIEuINAoiib6hsuRSgbaTqXlLtawyQ1IQkGAZ7/vc2FfbMHsvsmG
+RHcAr+Q/uVw27xvhFmR/tQOqvXifKzcTsZwo7kUBJjOHE80WsmUn7EmGGdYPRzE2UUk0rXFopVlY
+plHeUTYIpN24pQXNYU+E8CNj4+TV58irLfUR8yNV8ozZn/I+sSyEoKDvylOuXll4EOYBSxglZzRm
+pqYkpqYmp9EzNTUlNTXJoM+QnxP7RRthx2ekp6SmJElnqvQq0KrsluHS5UxPS4l6HxkZ8eb165fw
+GvcxxmjUWzYKbiCBy8xIS0lOxAvCrTmTgW13uAgZDP1rckpienoq5R6iyWRMSown309LSk6KS0r8
+mJ6WRMrjYvtbgTMZ9fDXlOQEeIVv0iRUk2XY0plI75hEnzeZfQ7/zUhPFWUCCTJCiu0Pk+DRYJyi
+3CkNV4XnjDgbKfTKtG6vCceTRq9Pb5SEDws/5zkDjBmmVOANMP7UlISUFBhwgkGfSYsFIwEi0w5f
+hjt+iHr39s2rVy+fv3sXER8XCxfPUZAGVhpY2ouwj0Wm3VNZk/ZUTEyIe/8uAlYkIuJ1VNQ7GCp2
+FMWJZdtOpoZiDmYU8gLMORk5TpQ8XfBJWmqi0ZApA0laVgmHopiZnpGSDCuYzKY6zWqqk1JSyVPr
+9VlKORDuDkOFi9M7SiuFCyoKWEAZnp1ybIJGnAeQ5oxGY/bHjzHvIt/ALMGWi/7wHm5H0q9EjglN
+sExGQzbZUbjrUpOzMtPhQ4IrnqwIz8HmIQuRkhwPuwse0CKLya85n5LVvyukSkA8Q3fv3GzbukXz
+po2bNyNnM3quW7uaPjOpLUnqn4tcdlbagP69mzdrhGezpg3hFT6BsYoUrtJeTE3eunVz+3ZtAvx9
+aceCMt5eHjWqVx07ZtTjRw9EBV+CL8+ZPbMZuS+5YLu2rR8+eABLjs23YmOj+/Xp1ZzepWnzxgsW
+Yvcf4fatG21at2zWtBH8CcbQonnjdm1bkq0gSst//txpHBucP3TrFPH25YeoCHjDPrQ7m7ATBjOg
+f18T0AIKg3t3b9Phkc/JHembnj1+iImOQtLDpKNXL5917tQObwGvo0eNyM5Oh70CRKNvnx5NmzRg
+k9a6VbMzp4/TPUT2U3x8TK+e3fBB4PXI4QP4OZU7gJYlbd+2qUP71v5+Pjqtq1bjApNZp3bNqVMm
+vXzxzCzBRuJCVnxAhh+WzX758tmsmVMb1KtFGt9rXGBd/P28W7VosvbXXxLiomUQCrR4jEW6k1Qv
+QTx54rg8D/gU0vuWLZrA4KdPm3TmzElYd5wT1shx8qQJ8qySB7ef/2bNGzZv3njv3r+xu6hstOMf
+PrjTvl0r+ALOCbzC+1Ytm2ZlZSC5V8qlsO6AnAcP7vw8clj1apWwJRY8YLlA365dOuz+a2dGejKR
+mOgJE3vh/BnY6/KzNPl94zqZ5BFUA01v2aIp3hHOYUMHyXX+RWtDlNlhLgoqbwgXL5739tTpXMvo
+FP1JunRubzJmE/gBKniYVhNQBVg5mxZCtWtVi4+Llng0b4p4+7pH9246rZtW4wqvrBsR/Ffj5lIu
+0H/vv38TwkPRAjR+QP8+7FJlvT2vXblmRgwK3Lt3b2FO3Uk3Iic3rfOIn4aKEsbOeHnCtctoaQsH
+2n7M+fq1KwwSB/b/y64ZHOT/7NmTt29elA8OyLt3p4vyrFWzuokyZFiwP3Zts2kzCDTFz7fsnTu3
+lNQEbh36+GFggA/7MiAtMyPFTEEIT6HssgTvp0wej3QX/hod/a5ypfL4BXjdtXOrtGMAn3HRAwf0
+8XB3c3X53r5vTKWKwefPn8ZyL7nYCbBUIV2Xa1cv1qheWUNnzN2tDFloV/bGqUOblm/fvAZFNceu
+kL5U71AU9uz+080VO0PhPDjTBbWMx12n6dHjh4i3b7BTDUoB3bp2lmc1r/5T32s1Zdb+tlrqrCii
+qs8dPXIQ+4qzaaFvnB88uIdCilL14Ez63bt3BZXzg8HgRCk77cBFhg8bFPfxA1VbiOhx6OBe2uVb
+6iQ5d84MEVkrvRqIbPAsbDMAufkMc9d3+Zgu8wLhJQJCGBhZJDb6qlUq6LMzaNstnjZ/BWoabrOP
+4b8AwoT4GBSjQQYDNgLLQxcMH0PZxp2sHCDt6pVLDIT9+/VSgvD6lavUXEvI4bt3b6pXrahzAwCX
+cdWUGQ4gpFN/7uxpAkJCMnAeybli+VJJcRX5gwf2su7TIcEBz8JD3759GRISaNd5k713lodKTuAz
+HGekV+OWLJ5v16PTGQjAieNHkdjnWED4AEDIvtamdfPMzFRcdQChTUPs+vVqcaZsM7WCAAgBTuwW
+FIREtIbJnzB+dP5dtStWCHoL+57q4DbKG7bshYG9fvW8Vs2q8LD0eZ20bk5Aat01zu4aeIU5JP/t
+1LG9Xq+XlG0bwxvV6nf/tUsJQnnGlO2lyCcg/iQlxTOVuFvXjnKTcGeNW259vzWkw+G6tWsoCMmA
+UaBdvmyRkmaxm/7zz26LYia9clcuX1DyBpsG43j3GdOnGA1ZVLIz/ndoH+x1dlkAIRU9OBx2XFws
+BSGOmYDwM3oeFxaEIgXhOS9Prc0EebhrQIWQ9GM6vsP/HbAnZoQTUhDCd+ALcB25wZCrqwtMgSs+
+sNy3nXzetk0r3kR2MDCcfn17KkDoAQwtR5as3r+PABDCRiGkQeM8YsQwJO8UhO5ahLeGnpTzIKmD
+8+CBfwGflNg7h5Tzfw6cMOJlSIVy8pIAWf0e+zxb72xpP9WuVYMzmYgUJxiBRih7zbNz9S/Lzawz
+LrUSAScE+UcJwiwAIZU5EYTKe/n5ej0JfYhUIzbmPXBC9oVdO7ch+7pz+6a/X1kbEGLXUbaBgPCD
+KChpLNZ1eKlAQZjS7FnTrDHsjJQeLsUgDSTt2NHDssIj2vjwQTUFoS6f5sHK9zt3bEFmSEHYWUnj
+KHV2sqeD69etse7JwQ/6sR9rBq78ycoVSy22NxDPOGNmRmqvXj9o5SaQeOKj0b6OLrjlfH28Hz28
+j/z58H/7YU+ya8ogxI4aYnz8R527K5tkEFkdwwnz1wnzAiHM2rWrl5XPDBQrHxCCij9k8AAFdXQG
+gfvA/r1AqGAfwPXlJXeBTfA07CmxoNhyQgJCZl0oIAg1WmeNBn7rDtI8ch4AoVaSuJwrBAU8Dw+N
+i4+eNXvauLE/4zl4UD9fHw8EIcw1cDBQJ/BP48eNWrKYNBsCDII0TnmIs7VQRIYKEg41zPCFBSHb
+tX/s2o7GvZiY98AJLZtYBuGihfMZUYdXGAkg4fKlcwsXzIGHZSwIfsuhBitYMzEi1HMfY6Mb1K/N
+rgMzPGvmdBB8YF1geynXeuCAfszvamU8l0GoJEaNG9WDuRo7ZiQsHz41u0WP7l2yszPRQCCDEOVV
+V9CNx8pLIM82eQUdXvI3UBDyvBFUslxFgB8H9kOLlCB//13kG5+yHqyxHGwzEB8unD8NSGvXthWA
+EPUgOJctXYyk4b9DJQ7C/J02+YKwzI7tWxRmWRNoMvmAMCH+I6w3+9zP1xskeIF6IE3GLLm7sqSA
+7flrN8wglxsnLDgIAWkEhBqJRYCYgdrUAQChmwWEz56G8oJRIAoY0dDgCy+eh1WkjBFxWK9uzZTk
+BIH8FtUGamTiuaysNGxDL7MLF7Yh2rVtSXeDqADhgwJyQpyH/v16o1Eh1hqEhBNSktezxw/s1nAe
+P/YfjJzn9BynB5LBvg8LB/g3kza91mEP5APuyZNHvj6eDLEjhg/RU4TA4K9dvQR/YppCpYohKISL
+Vg1ecueEM6ZPRkMiDOavP3coNw9w9fS0FN6iE1rGefXKBTSNsFOU5pyn3Y6pspcjxMZGVatakY2Z
+tXCEs07tGqIcVYfp/wcP7lVK6T17dIVV4zkDyPMga1SsEMy0u/79+hj05NlLGoQFiXSBG+cFwvnz
+ZsuBvDywhQ7tW9s3fJZASHSPF2wzwdcaN6pP3AMUhDAjf/21k3FCYJK/rfkVtonJpC8SCK1b3k6e
+NA5BaMMJnz19Ijl2BCQo3MsX4aBNsfvWq1s7NTXZYnCTH/nxo3tsgYHc1q1Tg/2kVs1qHz/GWIuj
+DwrICRGH1apWSktLQRDai6MgI7Rs0YzpYKDzxES/E3gDEhHY96wFt7vO7czpk5Qti1baCx3V7Vs3
+lOx029ZNvOw4gR2pGJizp4fOZNTLvu9Pg1AkLRPJbCcmxNasUUUpaScnJaDC1rVLJyUIb1y/jN4F
+ehIHDOrwsrNH8jHevXsrwL8sPqCnh6ZO7ersIt5e7gZ9FgvMgF+t/W21Uhhe/csK2aRvAtIPO5b9
+qVnThikphNR+AXH0U5ewAqFS5IA3P3TrLNMnUZ+dgXvFRkIAMSkhPgYm9Pmzp8FB/grzYAvipeEl
+68W+vXsYJwGytHTJEtxqRRFHAWkaV4sRDEZCtilwwv3/MBCGlAt8Hh6GMVk0xElyJyhBWL9eHQpC
+dK8JGHADY9777272HdivIH2xtQG8UXcLTzqiFBKEOHWwn65euQTzFkOtowoQboerZWakNW7UgBkz
+4MqAVcY99u/7m1kO4Q1R5ygI7cVRkDyViwUzY7ZEGpmYpOrmStQHKoTbdPy0EkfZIGfOmMKM/nA2
+aVxfCbbUlCSkYsgJ8dYyCCX4WegddowTJDMSnKdPn2DcD8j64EH9lWJzOCWpzEAKqFPuye3bNkvM
+nFJbkI3pkpEfNmpYFxQWoB0lDcIChPPZckLmVIATdg8ne8ySkuKUgoEdCAUAYVA5KxCCWEIN3CJ1
+G/yjAGGZRQsW5uRiHS0cCBFmso0UyKQuPDxU4oSSOOpSIajci/BwyXIoxfsKr189zwWELDKYMDfy
+yKtWLmWP2bZNi9W/LFdarc6fO0P2gSAWCoS4/Gg2WLN6FdEJqXVUYdjYJlLy1KplczbPMHVPQh/g
+jgch8Fl46LJli5YuWbB06cLlyxY9ffqEaDv2IBT5ixfPKW2Ghw7utQRU8EZkMmjbRE4oWZvyBiHO
+xozpU2ggB2GGcJ3mzRrBRqeGECIyJMsGUjsQXslhth88c2wi1Yi187dff2G/at2q2bp1axS8zvm/
+QwcYJ4TXXxSLAn/dvm0LWWtpEYXuP3RF2wy8NmxQj7DokjfMfAYIsRMyklhAXVpqErpubt64wjYE
+MwxYgfB5OPpqlCDEWNt8QFgkcdTFCUBYv3YNravEDNHJpuCEBITPKQilLkJkMCJIzlRbUIAwJdUO
+hBzTY+F15E9DQedU0qCNG9aZKQgLJY4i80Hy3LFDO9jBNi4KBCEIILQFkjOTTRYtnGsyZQOrl4RS
+yhLx+hj1gkEO9pyQXYGBEFkQ6PAVQsohtQX8hJQP4jkjsqZ8QIivM2dMkwK7aFE2yrTRBEIcs6kp
+icgJQRyVn8vZy1N388Y1CYFsqhXbEKcRgP3TiCFsukb9PPzYsf9gHzJXx9rf1oiWOGHhl1X5gJD/
+oVsX5i37YiAsgGHGCoTwnEDJQsoHMtoJ2MPgINBDcFjAcNDzy3RCAsIc5IR+zPDQhoAwmXIJ5IT/
+KkG4eNFC+Ako0J/LCXVaV2d0Oo/+aZiH1gV99wP69QZlR8kJQ4JAHH2q6DBNpEeivlYI0ipAmJaa
+wvJicDcAgVDamX7fuPbli6dK9WPsmJ8p/xEKxQmnTB4PJAyZT4WQoPfv30Z/iARxVOEnBBASlWb9
+ut/QW0WlqTKwKMDnGQLNUsSsSQqeJGExuYAw4u3rFcuXLF+2eMXyxcAznz97IqleIn/50nlmdoK7
+wH5lIPykTjhzxlTax5vEA8ZER4F+Sz0BZH2bNmmQnZXBUzsk6oT0Fi5ANwGE9Gpmy8myE83SgIGy
+dOzQhm0/4PagmaMBCcXm4cMGs5g+GIMdCDdTHmumFwQl6J8VK5atXLFsxfKlO7ZvhYHBxOYDQlh7
+AKF7CYPQnhOCYt2ubUu2JwB7aNFi/lPYal06t2cCAxpmcnL4Z8+fKDlh21bN01MSmeh/4MA+axAu
+oCAsuGGmzIifhlpA6KFDWRSY4b+7//DUusIb+KRySFB2RupBGjFDo0OcywcFPAsPswoyouIofFNH
+VEonCYQgOSsTi0TeaNSjXZEaP1xh5T7GRjFzPLx27dIBdqHSWV8QEC5cMKd9u1ZM6Dhx/HCMDSfc
+uZXuCT4sLLR8cDm6uaU/wQ/jPn4gzBAjsBTR0ixFxjogUZCsjpSxE32SWGVQPTbNmjlVuX3Xr18r
+2/0/DUL4LQt83fT7OgxAwV07b+5MZI9KEMJTeHt5SCCUo7Ft0qAo3eCAoNeuVZVN8p7duzIzU5Er
+4An6J8YnUsWSsxZHy2zbvgn2lbzcKOPKAeWiFCcIEo1yKzIQ0twoMZ44678cCPGxYedNnzaJ6f2L
+F82DRwW0DBk8AEUXkD+HDxvE1PQvCEI87966XqtaZQQhiMnXLl8oCgjhEKiF4OWLZ+xZgHfdvn09
+JTkelHv24PXr1UpMiC0sCJEjMd0bpvpDVIRNxAzd30TInDJ5Isp4jDP06tktPi4a7U9oA5QzJ3Ls
+cxpxF0o7XmIdxOwEV46MeI2KqOxec3/3LiK3bLXcQdiqZVOgJnNmT4fxgOjEMFM+OODVy3BmXpat
+o84ojv6958/w8CfPwp+EP4Uz9GlYqHxTObmVWqRhGtlsPLh/G2ajYYM6uCHh8wD/sqQgf4FAaEll
+ypFy34hhVglCV5fv4SkwSBCEH/jCx9gPjgdhzqebM1tACCeAcOuWjYy29ejexUzyFrJg/+HIOndq
+p/RTfVkQalyc7t6+PmXiOBRHdaAzrFkF4mjROeGRw4fYSsBzAd5AJRvQvzeDBHwYFvaosCAEBF67
+epH9F4Q3kEhtw9ZEKSsl6n1kg/p1mUSK9+3Usa3krqDh8oCoPOpQWKXvMQcAhrNMnDBWae0YPWqk
+ieaFWKWM5QFCmygWdsKEHDl8gMbESr5l5qJg9B0gFBjgA6/+ft7w+uPA/izpiZpJuYsXzjD7Hwhl
+IH3ABPbp3V0ZCwoUpIAgVEbxMRfUf4f2s60IDwIjqVunRs0aVWrVrAabGVQtpfbryNjRAoIQbgxP
+DjISml7gk2pVKwKdMBqzYKw4LNBqRgwfzLxPGMCdPwhzigeExPqidblz+/qhQ/uY7QF2PwOhh8al
+sCBEGQ72N6hk7Bnr1K6OmhiKcPghCJPXr13+DE6YmpoYHOSP14EdefrUMXs/IdrZgTbfvXOrQkiw
+TeAliGSREa8wAUeZr5yn2k/VXVFO59m392+2vhiP/urlc9E6edoehErrqNKbxV5nTJ+ckZ4s5xYJ
+Nn5Cm6hXfNOzZ3dlUi+AcPu2TSTAVTa8JyfFwQWXLJ6vhP3xY4cLDUJqHURzjo1OiDyWXZ+FNMog
+bFLS4ihywrdvXuAuQW9pdlbau8jXljCaHVvQflVyINRQw8xPQ/FPShACJ7x/91ZywkdPnRvBqqtT
+UKDvxg0EPxg+GlJ4Tkgz3/lRP//Etlq3rh0x4wGvbBPdgg/4uMAg5EzZLDYS5mT1L8tzix3lgc+R
+fEaOg+cNKhegjEuGXwHxBj7JAk3yW2UzdWvzEgLv3b1dqWJ5jZyAAiDcANogb1JkQpnziR1VepLl
+FBbpQ3gP0inFIW/jomBhZcrAV/hvj+7drIobiPz4caNYYH33HzrD3oM5/OfvP+HiIDriRbZs3khD
+mikIVy0rGCe0ZOXbgFBBIFwwxl0ZAeIYTlhYnRA4YWLiR5DC2fiA1Zw8cYRhEt4jJ1SmMn0REKJt
+5v6dmyJnaN28CX7ipXMbSkNYAYSfrRPCpoTZZ8tDgqSpHQKEJSUHAKGAFVkoYOwogBDBjEHGcLW2
+bVrYOOupFidXUhGIofb69avMsclmuHmzJpkZaXJieN4SKS3HI9K+829ev6hXt6aC6pfp07tndlYG
+DVX7NAjZs4MeWCGkXEj5QOCoNpHcoGLxFNKKAG6LTqu4NbEPUxAKlhIvIg/AYwCYMmUCRtjAtLMs
+QTgnjB+D6X8F1wnNltQnXglCZWCgHGVuRSy+gHUUXRQAQvQcYILW3n93b9m8Af8LfDL08X3ghGw9
+QGagIOS+CAi1Lk4P7tzMEUwrly5CtyF8WAujqFxRJ/QvrDhKDGq8yd/Ph227P//YjiAEIdDbS8cW
+D3QVVginIOIo/GrZ0oXwyYvnYcz3BXK+8odWICRxJCJqcY8e3qtapYJSJtRqXCdPmkCZIZ/vKptR
+w4yNjW7erLEio8WpQf06sTEfqKXm05xQyQOnTZ1oNGTCmZ6WtGP7ZhaeioYTdMfZxI7C8y5aOPff
+f/6CE3YUnP/+s/vypQsKcVRMSUkEGsHE0V/XrMRMP5h2uAUzFrZp3YKAMOeTnFBhHZXtw2briBm4
+IKzU4sXzSeTDkiXLliyePWuGFQibfSHraGJCLEaH4CcrVyyZPWsa/hfoH+wtACFbj88F4XxYWnsQ
+XrMFYSWdG2Y5Oo8YMRQD58+dO81SkOFPd2/fyBG5a1cualBLlCmZjhpmbMVRaglHEGpzF0eJVvgh
+6h3GbcKlkPkjCGNjowAJCt2sQWpKEpLYguqEK5bAg2ekp4AEgRHkVAmxSEEyCNG/iv5wE0mtFowv
+XzzFu8tOM5LZeOvmNbR5mkVzHvmiBFpJifHUde7CIqKqVA4JC3tMEY4wFnOrKarkhExxcsawNVpP
+hATNYGQZ0Eq8+NGj/8l+wo4MnLDBrl+7xEK3c6QSFRYVFJ716dPQkPLl0N8Ilzp65CBqAXALEARY
+ZnP54ECz2YYTOilAyMukhISwk2Bump8Jmw2rYxz+74BSHJ0/bxZ+jlGNcR9jdErraMmDEHkdgPDQ
+wb3KyHR0DKI1D2ZEGdMgg7Bw1lEgiuj5yBeEkdWrViZRaTTo4acRw5CknScg1OpcnbAOwL27t+Bz
+fXZmYIAfihOSupWrOKoAocZVmmhrEJK7nzl9nJFDEA2ehj3CCJW01ESQHtnGApKENSbgJwU3zJip
+L37ypPHy7rFkNrLYUWYmoTUN/tfed/jHUV3752/4BQwuIeHll5BAEiAQEh6ENAjwI5D30vOSQMpL
+IeUl2GBjQ4AEU0yxTYDQDO5Vlmw1S1YxkqzebXWrayWttNq+O33mzu+cc+/Mzq5W4AQSXmDnMwhb
+3p25c+d+7+nfQzghjh9QQz520Ycdfz2qTz/9ye2OI4Rly93HPUVT5dV3/Z68rOe4yagn62ocvqkl
+tVnOQiRAuOL9vAYX3gUG6y2H544Z27a9QNP+fn7xZ/+y2RQgvM2bU8pBKLK3BYOT13A1QQ/6EBj3
+54vY7JmhPs4/AOeNX/2yq8rCtujzjcOSg99vzqKOGi4JBawZmPwrr7gUTljGIKJNzJjJX7UyM1hP
+z4K6h39uZtU7G6x3Qdja0sD1Lth+4DHc7f+nP/kRzAtXR/8RIFykjl7Gs0O9ICR1dAWCcIUDQqrv
+vP1HP/B6ER119G8GIbwnULFcRQD0KwAhLIghOAd7YcAuPmHFtDQ3WkISnpVNSOooLt+DB/a6TgtH
+GLohCqwz1FQJwKNrCrFCcQ4r3LCff26r1wyD4SUSsSy5o0xwt+q6um/vLvf9kgP8wrKyEl2QjFge
+ssY3BOHy/0MgPJdAeK/tITg7WnjYa/tt2vSILbyjt7nTCMupob6GEJJN76X9Yu+eXStAVpPnCSYT
+Pj8yPAAzDyePUvAlBD+rq8o5njPV0W0vude30ML8phvd+fy1nwuFAlR6nr8oY4YIzZy0tQ9csPyd
+TFtz1dFEPMyXFC/ogpNPJTwzSMJf/fJn/yBJSJX16TYhyTQXhJYDwpUOCFtbGrnV9NKLf/VKwr8P
+hPzlrVu7eileCa+vHP56OO+g45g5K0kIuj1/5VNT40416rnpkhDjhP7ZqT/8/jc/vuOHd9z+Azh3
+bN8mKO1MPR4LXXbpJY5xiLZWfX2dyGJNAyFShOi6AkLDLcKCFfnBC1Zue+UlXjBhGsabLg8vCFeu
+4KNdtmHDvU5EET9QWFiwEl7uCo+0p/fulYQAwsaGWgchPJE3jYgRvrJ+/brlMMPZCvbdv/IH37Fj
+G1dHXUnISyW2bXvZgTeq8t/+1jdcgpUvXPfvIAmzgtAhmHFA+A+ShEvvc9bitDVKBNFh58hg7ICh
+5x3axyVhhk3IbH1goAdA6I6eg9BNFwYQep98IyXi6Jp0+4++701MwVp+J5tpcoKDcBmpnef9+s5f
+ck8gqKMfugDVUZ78yUHIqIyD62kc7S4I4fd/kySEW9x80/Wu6eXF4aJlcd4DD9zv2ISdGRwzHIRg
+/Fx1xWUr0xwzONp4PPK1W25y3Pep9LGdOwBvyvCZfm/h2D13/0EQKCIO1Z/8+IfkMwNUUDXzkXw7
+E4TMEpWyyrPPbebWGndI/ubXvwLVnVJtsIDoDVokZIBwOUjC5VxiL9uwfp2H8NcqLDyyAmZ+hZii
+rCDEKoqGWkd42k4mr+VS98KAf/jD73O+Ene2vdFFr1/6j/ffyw0EAKETW8dFAiDkdiYf+Xe/8y13
+AAjC0MLZgHDVOwBCp7I+FaIIzMLj/fiOH3gDU9y2Pll3goMwQxLCakNJ6KknvOXG6zkIuYWTl3fQ
+KwlJIGBpNqwnV7aAZOAg5LGvSYdtjYPwt7+5kyt+aBMKEJ7DQciTpFRFuvpzn0mFoc4XjpmBgQwQ
+knf0U28EQjD2MqhcvAUN3lyTH9/xI46N7q72rCCEx/zsFZe5JFqPP76RCvw5gcVD3pAUvyBPWwMF
+7NOXf9L9Vw5CqkuGnUu+b8Na5/O446A0xplh6elm6JaIxUO33noTZ3mC63zyEx/r7zvtRO0Nl0A+
+o0XCG9qEWHm4gaooXN9jfsGhFZ75oZdreEFI9ZOrCISkADvJ8o7rEuc8Fot85StfWLHy3OXLz8m2
+36VFOP7j67dwEIJq5oIQBvbyyy96OSC97lkCIVYbZ1VH/xkgPBt11OsdhXXgatvuyvvoRy6cnZnM
+DkJbHx0buvzy1OZ97dVXzc/6XD7SF1943jutYNjAdQCEa1b/j/t70KyOlRbxlEiYSlAjP3HxRzkd
+GICQu+MddTQFQu6Y4Rrp6rv+x2sT8mB9dhAuLQn9/hk3KgVLHCYE9Ex+Asw8fhFMibzpxhvQJFtK
+HbXAVMsEoUuVC9O+iEJqGWmeysz0BEwsF7bwy9t/9F9IFkYExyZJQm+BYtmxEmYaLL2yniegDAz2
+XHzxR8jpj4/z05/crpOTkLIo3bJawTlvmobT9MJyu3dkSEKhjq5fZxEzMj8feHADzaQIn6BjhvjB
+MtTR+voaTpcuGi7AiYSagh9xaKj/0ksvPh8uskJoZKBYwWzDTzhhbr2b+BWf/hQvJXnxhWc9++Oy
+Bx+83xT02Aa8lxu/er2L56/dcmM0GuKOmXcAhG/WDySLTSiq8tL1gSuvuJSIrrNLwmgseNONX0ll
+da1afjT/EGdMCAYDfDpcVBfkH+SJYE89+ZjXyvrlL37G3Qwg1v76/F8uWHmeC8Knn36Sb+GVFWUZ
+IHSbE+Tx1G0+5r8LhFQIW+VS4gEa9+/b1d93aqD/NJz9/adbWhooliUG/OnLLx0ZHsLM47MD4aZN
+G21b0GbPz8186pPeEDyavttfQ0kIivptt/4/TgXC+Vo72lsM2rZ6e7o+cclFDoXkefDi+vp6OOVU
+BggBVG1tTbCkXEpC2KSCC/5gcC4EZygANlLQOeNO3N9LKe/oStwmfL+rjt695g9wnYXA3OzsNMi3
+K6641GvZFhXmOwnct3mLesuOFYlbB+dDC3OhAJzzwTm/lIhzdjnuC1xOsZADB/b09nbjnNPkw09Y
+aW6YFJSmOb8PJqqyssy7i33xS9eOjZ8xQCtSpKKiox/+8IXuqvv1nT/nvOn/60Do8Y6uciQhqKNz
+RD7ddMEHVlIWv+CNvO3Wm7l7/c5f/dxxOi0DDXB+bpZ3CABh5arvq1Ys+/hFH/7db3+1Yf3aG67/
+EuUEpUrgiS9Y57y0Xk3vA6uWf/MbX79vw7qf/fSO//tvH+SZaKtQE17V3NTAxR2poyJtDb7V1trM
+nGYMM9NTF35I5HBwgs1PXuIBoVvUOzx4WVpR7zXRSMSVhNt3bOOaHn/ZkxMjlGWv8wFrquSpgVz2
+bxde0NnRCrIlqyQkY0O76srLVjpzuOnxR1wRpMhJ0Ga9lKcwq9upLhnu9cf7NziMfecREdMlMJm/
+//1vQAh40qzO++xnPwMa6qLeKaI/XE3NieUrljkuk2UXf/yj133+ajhBN4Pzus/TeR2ejz36sGCM
+T3Vi41V5GD3Yu2eHG0qBu19y8Uf51z/32St5FYUbYYdJ8PunM9RR/q2rPnO5uLtzfvG6a+Dct3cn
+bMeeqBiukNGRwRSDBvGRf++733SDnICiutpqkAd+v88lVeH/Cte/6w+/+8XPf8qNIx51hD+88vIL
+vOjkSMFhh1n0XKq9ut+pjcJ9J4COGZd3FEH4tvGOvhEIhU24yokTIgjhl4l49KMf+TBnjKP9GFO3
+LQeEbjEoByFnoQOcfOwidyGm3lmGiv/rO/+bayBEphL56g1fyuoH8/78+m1fw/axZBOCOnohpk+c
+QwX1y3iIgke1pWQcVj/glqiBAYTnpIGQspe4YyaN3uKaayLhiOsdfehP93NnCdwalj4Gea1Uzwk4
+7123xt0p4TPFRQWAtO7uLDahneYdRVm06fFHU32FLOO5Z585/zzOQCcMHrAJqUJC62hvvfjjF1HF
++jIv7UjGRG3dupU6e5oZa4Wqly2Q6itSIEyzrzLm/K4//NayVAeELK0bGbP27BYgdH1IizO5XZeJ
+SupPBgjf4KSGC+qfHrrfq21yTh0XhDAnGx9+MBUEXnkeaCjwT5qadF3ZXudZRoLrlVdcNjE+yqnB
+HRCe64DwvhSPM5eEyBwvQAhm6j8ThK539EIuCeG89pqrYSNxqFSXvbrtReT9F5LQTVtDEPJ+I6BD
+Pvznh1yDyjFFhFeAX/+zV30aDB5RC0druqqqHKzNjJXhXSKw1dW8Xs2zNNMZuFPeUX4pMJkefeRP
+3CVD0fxzPnXxRYNpIMTy7eEz/V5aF15Z7zZU+s9v3OomYdx80/U8kpvq34T8q5u9I3zs0T/DPs0L
+4dx8fEGDT+roVaCtkS8XBN3jjz3i8qPADHR3d37wgpVuLIuT53IiQNCdNm788wUfWLGYfdittbn5
+phsiJMMXW/68IxjMm7cwx2VP9dYNOEQBvwYQuj2S0lgnmEGSkOf3eAsOzsmA4n98/Ra/4wjgGTNu
+uGipc9XyZc89s5kZ6s9/dscqHo46/9xbv3ZzPBa2RSWucCvs3PGq8HsTFB9++EFO9jE2OsQNBG9q
+uHfGQK7u2M5ZXg1dVwvy81wQwleIBl/0t4APuEW9DkfbW5aEZ0F5KLyjXB3nIASJzJcIKEvLPXRm
+pSVHYUbgMVxJSKS0V875ZyynFwXIT1BsLrn4Y14c8gUNzwaT23O6G70LhuFW1miaDPYn6CqLd2i4
+6dWfu/LokcOGJ7JcWVnxwQtWuXF5LwhheDWvV66knFKsuz/fBSEnrmDE568vZlvjXdo5CK/8zGVu
+2OB3v70TlDSKBBpOJqd5oroiFY1cseyXv/wZz2XxghBp8DkIDfWqT1/Ka45BRD+x6dFUObypw373
++Wuv9m7krxEIOfJhVBsffujij3/EYYJZ5s0a+e53vjHtm+AF9YsXCk2V4bKtZZzZQPhbLgbTinrJ
+yQqz6qStvd8b0nR3InhNl1/2ifs2rJ2ZnrRSFIaYwC0KLJwK7IyTv6bnn9ksxcK33vxVkf1LcZRU
+bxlHB4Fp9xKQg3aKRrKhgP0MO+DXbrnRhagXirDbvvjCc4KPGFa1rmcBoctliiCceZtBeHZdmYyB
+gb4NG9auXbt67dq7/vjAhlg0zPf+0pKitfesWbf27nvuvgumeGzsDPeJ7d27a83dv6fPr37ssY34
+eccqA4hqmtLZ2b5x45++851vfuX6677wxWtuueWrd97533mHDgQpbwg+5PTKFPwLsNBHRoY2b3ni
+u9/95he/eO3V//4ZsLC/971vPfPM03BT06RKalsUm/b3991333oY2L3r7oYBj4+PpPo8mlosFvzj
+fevW37N6w9o18HPjnx9AE8Up9uFLZH5+5uGND667d83adfAIa556ahPosc5nzD8+cB9oOHiuu7uy
+8rhTK2Qx3pmZWTMzU+vX37MWP7D6nrV3vfLKC6ap+HxjDz10v/ji2tXPP7dVlmIIJ1Pd9MifYST3
+rsWZrDhe5lb68OnaseM1GAOfTHic+oYakytgmJaJW157e/NDD9337W//55e/fB1My2233fwbpD8q
+iCfCJsquJbZXYr4ZGuwHI8IZ1Ro6Vy8+YSbh7TjpcmkgpIZc6OCBscEJj0yTBn/A2YM5fPzxjUXF
+BWeG+3VdchpaigZPL730AswhfOZeuEWWc806nJbVta9XRcKBJzY9wn+z9p7VhYVHRKTK05gR3iNM
+O0z4Wpr2LVufhGk3UYUGS08NLMweOLjn57/4CSw2mKUbbvjS977/rSeeeKyv7zTMIY9bUKWo2dXV
+sX79OvcpioryLbEIcfCRSOjee+HlrsHlsXb11q1Pwbf+sSDkLWOdEegGsSrwdF4eaFrURdFFjsa/
+Qk9opHfAdQFmhCPBUCggU889TrEOv4TvpHqxmoYTVgZ4q3CGwwuwykOhBd4/mN/I2+2E8Ot2BdH5
+gB0nuy50IbG3UWIuf5E2c2sFiZ5M9/aCZE41EM/24kagmXo3prdbsrhLalo4t7c4meiGx/slOnze
+nk6GDo+LmF7u5U9dDZYUM7ztY6l3J0yyFo2GYVpUTeY3NWhmlgKhd0LcNPp0Zhdv40uT951eTFTj
+hG1hYKkemp7TpNHySUjriMyneqk+m+7rQyIPXfWaJ26lsvt1dx6oSCq1IA0M2GhOf1WdRqjLShKW
+XCweSR+S5WmfbLoLHr8lbieWovemzj+xfzgIvTVX/N156yzprbifMd0+ck5P+bS0w8UN672piXwp
+L9adFrc+d2LN5uLG9+QpcJoeO/PrjIp5GganUjIy2pF7GiY7g6deqfyP/J70V3Op1+Du9O5cuRVx
+nubYlgNdt0Ev39dM78ecDyzuzu1tpC7aStt2qh2325T7Dd+s5emUzLKdKd2Vt4BftOunnsX5vOVJ
+WEu9YieuuLiWz6T+ft4XyDxBSEu8IYKG5z2m5tP7ec+S8La/9q60jB705uK2wd4F782e9TZR9/Qk
+/pt10b8DhNyzndnMHW0fzo/De646s8WcftWLjyUa2TuUn8zO2kbPuXX2vucZF2dOLFnkatA7c77j
+Nn+mAduMZRuNd4NwExn4u3OfS9SXminwLHI8pjUez4ZAzxtNm0PLu624EoPZaZkuGfPgAIl5t7k3
+bQ3POKPF0v3cM91zS2bMZH9rWd4RTwhlafs7B+3ZtHD3rkD3N0v0906Naqk/p/emt7I+kaOIWYLm
+0kpdwX5rx/vst+PIeLnMZvbbdCyxbli2YrY3WziESqKSZYLMh/7q7RLGo138A4xXyzpEwMxh4WKe
+3dvNweedGwWRmeNddej6vNQlcAKKSFKJvMi0rd473MUw4dzIVloc00qJCWd46eIl87LeuRP1g6LV
+vFOswLzvlaWumj44Jt40b7PmTEJKIHivkmKjEfcmrxb+NDM+a5+9MHlTxe/sNUOXI8d+J4732e+h
+QygWafFpWtzO4hN0v5krWEAz7a+e1WZ58kWYnR41E45WbxhNrFjRT9lZh0LUvvkyYGkodEfmMMXz
+EVhLurvZYmY1XlrofZyMrWBpQcoydhDmeXAvsCzbw93Ln562PzS+vcJXvJD32PGeAqFDJSbklIMY
+IdCIAcG7dJj7ofTvitxnQd3sINjKUmcuTot55acbb7VNA4xKm9pT2Iyl4TXz4FgV3yOjBf6qCxew
+5SjnWXaEzKzgNB3CFcvmG0uP7KaEB1LsTTc/lyyUNiH+7DqdfAbOQmXOgfDdBEILVyvPO3JWJC5p
+Zutu5VrqfxmbfUok2q5d4wq0rCD0/NVZ9HRyWgqnQiCr2pf2XdJfTfqigS4hrDa3zJSY5VSZ/GHY
+UiD0yDtRE+OO3ZXTzBVlzM5au+T82WYeEFpZn9hmXuWYxpvqLSHce3zv4b95pzTCHAj/eSB0/o87
+MUbiLe4ZJZMFvUtc2XO4ywQPs8nj7jZPuLS46e61zQVfLkeRJRaZcE0Jx5Cw5ckCdU+6gkG3t8gb
+7IRGXLCkXAW4WCkBwDUKEXK6ncIVE35aixkeX42wVFPXpeZsPOeK2SnnAqPIigChxzhkSyGQe484
+9i3n3oYHjBaPSbhppY6jjM8P154t7mVNJZ/iDJg5EL6bEShaCqICRlxa1GvSIs8mxQHRu4lhB8Mg
+QFA4zNRFMpRlcEjhIsVoqWowxbAV01IsQ2VGileXOV1iGLXyFVqnxVvqiYAIebs1WvqGJZK/kIyI
+UQ9DaieqM+Rvh3HxCBU1lee99BDCJg7eVG3dhHHDnxTb0G0KcxkmD3YIT66h2ZYT2HQ0QdcbyJsM
+4wAsYsIWYHHkOn0+FalzXPM4eng2m48VPcO2QfNpa6TccpGvY16bpfONgINTMOwj8uCmyMikmyr8
+mTuohVeG5UD4rkYhrW58/bYmMylpK9g8zDAUZOsEQMB/mmorCVuXNVU1ceFquNDhw3BSpJthiwYL
+o+FqxJTmmOxnSpCpUUtNIBCY7oQxAA7wxbitJxCKpmppkqXEmRJjSpTJEVsKMiXA1KCpx5glC4Yi
+BDN1gUdbSbUMGb+Iw1M1Q9PhOrpiSVErEWJSGG7KDBiqAtc3LNoLdAnHiXxhSIhm6AATvKapSjaF
+4DkIcb9AoPJEBfhWkulxZsQJq9zHg5o5+W9htlRLp11G9KnG5G8bxqKrqo1bgoXtllRbTjI1bjEZ
+Z8xAlMJ9LUOivFZBZS08rZZuqDFLWbBh9hIwgUFDicCTmsxJJMjZhO/mA0UBrBod89qk6KnKcju8
+YGpJy5KxmSb8g2bZcny2r33mTA/TKN8CRY0cnZ7ob26wVRmFJApMw9LiDQX7Th/d11+8v7v4QPvx
+I4kFn20kbSyicfRPTZnob/MNdpgmXF+JzU+2lhd0lsBXdrXu3NJf8Orp0n3txw6MdNbbWoxpyb7u
+dktXTV1HKYogVCaGepR4wDZlZhEgpfB0T0tn8d5TRbs7i3a3le7397cj/k0YmGTLsbHmBmlmkhmS
+xlSDUnAAQkos5BsZBEgIXZB6lKGsBFypCSM8O9bR0N9UFZwdhjsyEVjTSVNAmSlFFsYHesQehAoA
+wnust1dNxHQAKuUSAfh9Xe0Lw322mSR6QkCxKUeDU6N9zJRSbS24hW2o7ZWFMA99JXv6ivefKj7Q
+eizfP9pvg8R+Lzpl/hVAmJXL5Gw0z2y+SlgKGso8zbQSgfqdWwZKD1hyFCShbSg6nKYhz47U/vWx
+8ZZ6S9GQ1wjAoEbHTx6r2/4XPTxro7yEQwNp2XxkjxWZMxMRKzanzZ2pyn9NDs8yQ0Yxa6nIrxdL
+NuW9crp4J4osTAWWLCligdgMj/Uc25ccPWXF5y1pgakRBv+UCDaUHwVg4C0pG8TW1YGmKnl+yNYS
+ILvMxEJXxaHh+lIz6LOTYRC/2sJYf1VJT3UBk2Vb120pejpve9fBF/XYPOWgKpaVRG7H+Zm+uuO2
+y36Ptq9u43iUhH+8bveL/vbm8Gj3YPtJGLyOaicq0vR5sFZ1aWZk4PVjTJcNk2u5ADy5vbZSiwRs
+ptEn4T6hzv3b+or2wxZGTUhlW1Pj/olTTWW2HiX3J3PCL5ZtyJ3lB63QpAXjjC3Ag1ugFOgJvKPl
+hI3eFsvjX0ekvu9/OQIznAFv+WqgPumoWcX9XeW7RysLgv0dTItSNqNqxAJdxfsnThae6WnSYDEx
+lIRmcqGzePf46wX+wQ7Q/TDJE4w3XWoq3m+rkmEqGghSK5GYH+s8XmBoCTL/0LSTJieHyw91F+6Q
+/OOkx4Fw09BwU0LdVUeS02M2mGG2Ytkq8momgo2lBbB2UWSBTABNUlfONFRq/mH8q6aPNdX6OmuY
+HjQ0CdRA+CXot2YyOdR0YrS1nqlJW42NHT/oqz401lgJurGJxhjIpWQy6OtvqOC6NK1MsFDJwpTl
+gari2fYqWwI5rCJtBOWhkjFMhhuCVpVn+0dqCpkRQ42X672m1F5XBiLURikHUlpLzgz2n8hrL9lt
+hGYEUa+hxP2jvU3lsAGhSUxOXOFDNeW2ynxLCfELgt1oMtBFFepDL/Ly3iL8PMX+ORC+DfpjquuA
+2/H4bz15yp/F93hu8DCFyXMdlYetwFhD3jZ1YRjTgpXYaNPx6bbX5/tbB3uaDaaD2gZm4nRf+1R3
+i+b3tZQcZskE43keqlxffMCWJfiDaSpoG0UXuot2ITAMpmLSeWKgviI2eSow0nKm4RjDQhsAcMIG
+6arF2k8UgBSyeSkQBhQslgg1lh4Bc043qBE8fExPDDeWK7MjFhioC77WIwdBkOrokcFn0g0JTkyO
+jAfbDu/UI3NMjY0e36/7ejoqDofGBqiNLtioCQBhX30ZBuS4Ywp9mTpA0FLjPVVHZnsaTTBWUTkw
+qHUvGbMUSaf4uiHNDo3UFIPFaFFSOOjsIC3b6qr08IINM4Q6rdJbUahPj4T62s80VoGcRPvTUOPz
+I/0tVSjiBHWvSCqCkbRXHTHlCHxZxy42sKlpOCST+1gNorI338IpyLbZ35VLnQPhEiCkxsg2MzNy
+6vHVootu0Ynqls7fhPM+YIvXRCkDA5VSYdJ8W8URWw4p/jPNBdtZZD480tt1PI/F5gODPSOdzTY1
+1rTVRP/rR6W5KVuReyryEzMToCUaoG3qiZbig3YiAb+3DMmQI/P97UP1pUwBnRaLKrS4v6c0z1bC
+ZsTXUbiLyWi5WSyJAkqJdZzITwRG0bnIawtg+cWDTaX5IFQMAyChMl1jemS84Zg+M2qZUnSweay5
+Clc8OUuwSpNJhiWB2Wkr0cmaEljwlhoZLdutByaM2Hxz0T41MmtbaMjJgZnB2lIYNhNdP+F/sO5B
+xZUSvt6mA6/Y8TlLBWEOBqGCswfTRR5Og+Zfnh4Zqy62pRBoxSD5wUKGS7XXVagRP+4+TDLjgY7j
+B205Aup6S/E+2AuQFQok4fxIXzNgUiIeR53HMhAkmnq6/IgdCdqSgqPSFXLhqOTcha1Hh9/YS224
+2V+3xrKfORC+Tbooz5ptqK/dtfPV3bteg5/uuXvnq3t2ZDt34rmbf2bXa3DuhD/vfm3Xrld7TrXz
+ggYWX2ivLLSTUYCEr6NusCy/I/81WEaWogcGB0e6W0ETs5gsBae6Thy1wWzTErMDLaNtNZYaBTlk
+yYmmQ6/IvsHk7LDsG5qor2g5vIfJIfT7gIWpxcJj3eONJ3A9qbGR+orQYA+6NCjSAPKzs+poPDCK
+ujHPVgGpE5k/+sKWhmOF9ceLGkuONh4rbKzIq3rhcTY5wjTJ11QZHmhjOqiXhBYKbJCRZsA2MdFa
+PQVKtRIdKz+gzfuYJkd8vV3lB5gcg6UozfuH6kptBDAT5R4GaIAq0zRrdqTxpccnThYw9E+qZM1q
+mIeDCqRFNTKGOn2m9qWnG0oPNZXnNx7LbziWBz8LX95izE/CwODpFgbaxrvqAE6A0v6akqhvEOYN
+rNz47HBvywkENuOxDC7xUZOv2ftSW2FeU+HRpuKj9aWFfc2NTJHQB4t7j1F8vHTnDnjR23fv2gE/
+3XP3zu1LvW5nSaSWB7z0ifGxt55anZOETpscw6isKNuy+YnNT2+Cn97zmaeznFvTP7Nl85Nwbt0C
+Pze1NdcLB2AidOp4AYgRDFhJ4d6qgvBEp6XJtsoCA/3Dp1sNsNZMeab9xFxfqy2HbbAb43OdR7ab
+yQBIKgBS+StPn3q9qLOmrLXoQOVzm8Kn25icpEWWZErgdOkBPTBp6JKlxeITPaMVBaYuoceCpGtn
+9ZHE3Aipo7Tlw1qJBVqKDlmJEOicLBExk2Er6Z+qKTYnBi01Ntfx+mx3AwYbLE21SU8WoX7QDZOT
+rdWz/a2wmwyX5wMITVBoldDIyWJfV7OtaongdF99Ed6XUaqNRTqBJsugih/YPtVQ3XTohUB/E2DS
+MHVNTmgY1bBQ6uD068rM8PiJYhOkpRxkyaCVDLBkoKu62AjPoFSUIm2l+1hsBtRykPbJ0d6+E4W2
+EYVJSMyM9LZUM1NCZQSlN3VFwqiG3FFx0AxNsXhIlxcMLayrCdpWyD409YP792/Z/FTW881e95P0
+saeffurJLVueHhoazEnCt9M76pIXsLOyCnhNlSXyOlMtyE0e7MI+DMnQ6fI8pocwaQp0VD1mGRF0
+SKhGYPD0SHcTw5BAqPfQi8HWyoX+5sBAc6inoX//s9HRLsPAAF0TOgNl9FsqUTsx05i/XZqfNo2k
+bWhaYPL03pcX+loDA10LfW2B07XN+7Ya0WlYmqCn2Xq060R+cnocFTD+RGBnJqP1ZQXo57DRqUNx
+fGms/rgxNciMqOTr6648CpIHhCl+AWP26OkBBDItMni8IDE1aGuRMxWHtKAPQ+SqZEbnWov2Sf7h
++NxQX1MJ3hcMMF4HCYJQCrccei7sG2Cyoi9M1e9/KQCyNDFfnbcnGV1AzFBOC2wToI6O1pSDVmkx
+ruCh77fjZIUW8tlGwgiMNO7dGjxdF+prXhhoDXTVNe181opMgvWbmBkbbK60jbiNFbSmJfKC4AGU
+juojDCANRjK6ZEC9JxYQTGAiorRUTaM3Z+hNLf9UfSDOjfGGPRhzIPy75GGqPjq9mHWpMzNnmDzv
+NsYJmabDepIWOqvybD1IFiNKWwphw08lMNg52t1oa8noaE9f6cHp9tqJ7pMT3XWT7TXjdaW9lfm2
+FLc1qbH0MAOTBtcNRqXjE8ODtVWWGWeq4uuoH6w4DEoafHGqq36qo6avYr+v46StJDAWr8e7qosS
+M9MAJlOkpNksEW0sK7S5a9Hiaqoy1lCt+UbAJjTjoY6j+9TZYVNXMdtE14gDF+8bnezrLDnI5DDT
+gmcq96gLPpNi6zrYeYEzrUdekSc7B0ESgnyGZ7MZMn8YST0w1b/jeUsJASTAENX8k437nvWfPNy5
+768suYBRHMqsAfmpTA9N1JbZaNppNrdgLa29vtoIzNpyfKixfLz26FRb1UR79URX3WRnzZmSffM9
+DYYRi0+PDzVU2UaMoZeJcmIoVcnWdNxQpDAvs8bkbVPk+zFbJA958/XO7nWbboW+U6T/r5QJ/q8h
+Cd+eUAeZ9qgWwR6cnG+vPgLGHjnTKD1NlCTLc2dODZ9uYVp8tKEiPN6Ptoou2QYG9EHl6yo5oIWm
+QQg0FBfaKnodQEvUmWLFQ13lBSCCQGHrLt1tywvkAaIsEz0hz050Hy9iasQwJIBiR3VpYm4K8yZF
+apjB4pH6smK4uw0GFSqNsA7l0frj+vSIBpJLVxJjfc35OxT/uC3F0I+io/oX8w03Fb4Wnx61QZHW
+I8PH96lBH4hmnkOjgx3b0zJUuH209oipx1XuZMYUIckE7fe1bYZ/HGOYJlwqqfkGKx/93VDec2Y8
+qGHSnooxVdAHZkbHais4tSlAkagEjPaGKj04YyeDJ0vySFdPWuRcAZU76R89XVFgS8H47NRofTXT
+AgzEtS7BxmGrScqQ0ztP5IOWYVIaoJ0eGHxvVlK8JzJmUh2UMMRmorNUDrfXljElgmuLR7EEca0+
+P9o/0tuuyZHOEyUgYShshgIKF40uj3bWzY0BMhONZcdA6JmYGqrjulcSDUX7NSmhRv19NYWYBEOh
+cUpvVu1E+FTN8Xh4FnVFOdlZW5VYmEbCEl5YB0hOxltPVGDuC+AZoQsquDra+rrmHzcwsKmDJRkc
+62/I2z1SVx480zo32trbUNJUsDsx2WNjjEFhenykrkQJBzROh4NNOXUAanf5gYGGUhiDjmo9iR3T
+VLVYoL+rYefL421V/vG2uZ6m7qJDQ0U7OvNeGTpZa0lgFlKZETzw3MRYcy3jdDhg4KFCbHQ01eiR
+ueTcRG9zjQ07FCr5PC0GtqNwd9VRPeIDTbi3ZK+/p3K2p87f0zjb2zLb16QlQmBmdtUWMSWqE0FF
+xj773qxlek9VUVDOlo0pW6DIJUIzIO4cXiMKi6EOoxvJiJoIGVoyGZ1jRE+GkStLNaj5pi4HlcSC
+achyMIgGIeY/6xS+l/X4nKlruhTRIrMUs8bIOIKM6SD91OiCKkdNzIPT4gt+zJ9kBEJGaWKanAjO
+U5CQclbRPamp0RncJniyKvI86VYsODfY2ddY1t9W7R85ZcWDlkYqLrJCykpwxoIBUFGDbdJ4tSTA
+KBnxkU+Yx3xMJB0DYShH9Pmp0dONva3V4x318tQwSwbM2FxgfMiQkoJaCoS5EtNCfsFlxFRbQ709
+Hp231LiRCBrJkI1C0uT5sqhzGooW9htyxJBCgaGOqb76mb6WmZ626Z7mqf56OTEPO1oy6APZiJ0l
+3qRxdw6E70aBiO5Ekdxp8twuqpAwObuL5ZY+mCqxtilkhTKSnxonhDNNGU9LQ3c6JXmYOncmwuJP
+4p8p2cXi1X/4AST2slEuyZqBxGe2QcvPohIKUTJFN0VDTqPcHYPqnOAzmHdmczYqYl4zTHSQYocW
+apOkGZjCg1FuUhcxkEjZ31j5gReBS8A1MTmWKtjhZrrBQHlWLcxc13XsrK1j0BG/KBuoUmo6Jq+p
+ROSEThg0GnVZsP/BboLOHQPz13UZtXRTIX46k9veFp9hXcKLolGp4S6GWeAWxkiMiGpKGkIbFWZQ
+CgxDf2P+oRwI34UodGtMnXR9KpOlYj7D5PxdlNtBWZIuHw3VgOsmFephwMTA7C4uN6m8kHsDDFQ1
+OZxNyjElP6Zgy0MaQli/ZAWJcloSyw7DGuc+NBzSKax1QvDpiHaTZ/womOZGtHwG6dAcwDpVRVHJ
+BVE5GuRjNHmnXrwshgQxqM0o9KfzGgrKuaFyKHoElUxlfGTUzS26KWAGLsEchkvyOGLYnfYqqsXA
+TQpuhE4Xzksl8s5tUzYsTXddaLxwFw9JZapKLGjEk83pPVM0eaZzeImYciB8l8OROc0TbLGPO+gU
+5a+C3oJq2E2LF7ty9HkNmBSZHrXgo2sZKZYo00sw5hJBpKijOL+a7aV64blxTMDREpWwpu0Q7zHK
+ieaueXEVQ5QcmxzPmiUchjolrIjqdS6SyEdJFca8UJmgg5BG7yUxDjAuBU2WRjvBoz6iU6xJ6W+U
+5G1ZKZobwVAqUlBFEhnFNHEYYO6qlJjKZ1vPoJzzcl7mJOG7HoCZvEOi8psJageHLtCz7gSNUcqb
+x9KpVQTfAzl5bEt8i3DL3PoBlJlUVex8waGpYTwyLkDI/ypSnk2OT4OsVkFfwatmnSVrcFoIgVMB
+fdMZlCHc/7b7gAZxZFi2KHFPkaaRY4pfi0qbU3SV7kAdwgFi6eAErB5aHOZSXgjucTtFXimeSVyA
+kJ5OnZrOmpVTR98TIPQ0YU4JpnQQimSWFOWKy4mW4hf0EhnzhoUcBg6LhJd/jAkdl7kcgy65ouWy
+vAnRZvFCdFuA0BEpLmGUGC7KQEcW2RlsUi5TlUvM6NJWWK4uTuRWaUC0HZoOD9+OqzfwBAhBeSWC
+sF4QOgSGnE7SIfExPRRaLuOh7TB2eyiqUrtiDoS5I3fkjhwIc0fuyIEwd+SO3JEDYe7IHTkQ5o7c
+kTtyIMwduSMHwtyRO3JHDoS5I3fkQJg7ckfuyIEwd+SOHAhzR+7IHTkQ5o7c8a48/j8ibPwHCmVu
+ZHN0cmVhbQplbmRvYmoKMTIgMCBvYmoKPDwvVHlwZSAvWE9iamVjdCAvU3VidHlwZSAvSW1hZ2Ug
+L1dpZHRoIDk4IC9IZWlnaHQgOTggL0NvbG9yU3BhY2UgL0RldmljZUdyYXkgL0JpdHNQZXJDb21w
+b25lbnQgOCAvRmlsdGVyIC9GbGF0ZURlY29kZSAvRGVjb2RlUGFybXMgPDwgL1ByZWRpY3RvciAx
+NSAvQ29sb3JzIDEgL0JpdHNQZXJDb21wb25lbnQgOCAvQ29sdW1ucyA5OCA+PiAvTGVuZ3RoIDU3
+OCA+PiBzdHJlYW0KaN7tmmu1hSAQhY1ABCMYgQhGIIIRaGAEIhjBCEQgAhHm+sbj8QE4+8dd6+z/
+8q2ZzSAzWhRRElKb3tEq33daVXGPRi2vTFh8L983HBihOrqTa19SpKFnWSWyAcpGAKaM6TxI7SIB
+uZCqTwBMkCYNINpEwORJleJySo520tEEnQcYAynjkpTqwocjMsZn+4IwSD0T/DsCkYETnhgchHsG
+D+GOwUUgaq52q+UiXO6rno9Avjoj5Nf0mZz4JkhWwpnlwjEjqD4iWm4C+UOqKnYCUYvbTZs+dlWN
+IFC/RzgIgmQgKAxhH4YFIUIY3FUXtNWfgSGoXAobR1hPdZTZo+yM6ICIOVPIPC2ZQuZpKQ0DRZDA
+HR6rJNqK6baOK+1ZHfet4FsO7jYR6H23V4XeUOOWQhOGuyccoX+IH+L/ITwaIfFnlMTeP0YJ+PuC
+0BeQ6QqCaMH2Gtsxj0UoVJsXNN44GyjBofrhIIPsJWfVoMFBkMdNDlYZdMMaWlZcgbttUORRiDC/
+Qx2Fu3kRKgwNmwueBIEKQxV7IQ4qe5gNWn6EPCD4S/wwGgQ4fjYLZk6V/CYUpeckNMWZODvwqy8Y
+fMehFRcIth78msDFOP94wcm4J3Awnr/mvj2t7nzY9pV/QzARhOG4cvmEJgYwSOQa4mQkYVCdlaw2
+KklbIG0ywCaEsDjSJwG8SgWMkvGQ3B9BIn9mGVx+8TvL4EljnwIwyR58qWyuE+ZM/Xr9JRapO3dc
+vm9VybT+pkoqvUhKEf/cH7SrM6cKZW5kc3RyZWFtCmVuZG9iagoxMyAwIG9iago8PC9UeXBlIC9Y
+T2JqZWN0IC9TdWJ0eXBlIC9JbWFnZSAvV2lkdGggOTggL0hlaWdodCA5OCAvU01hc2sgMTIgMCBS
+IC9Db2xvclNwYWNlIFsvSW5kZXhlZCAvRGV2aWNlUkdCIDE3IDE0IDAgUl0gL0JpdHNQZXJDb21w
+b25lbnQgOCAvRmlsdGVyIC9GbGF0ZURlY29kZSAvRGVjb2RlUGFybXMgPDwgL1ByZWRpY3RvciAx
+NSAvQ29sb3JzIDEgL0JpdHNQZXJDb21wb25lbnQgOCAvQ29sdW1ucyA5OCA+PiAvTGVuZ3RoIDg0
+MiA+PiBzdHJlYW0KaN7F2FeCgyAQAFAQQUVs97/sMhQLolKz/iQkkUcZGCJCQRf2XWG3JldfkMHf
+V3UgTwkFkpEYIAmJBaKNBCASSRQijGQhFMkBwoxMIcDIFj6NAsKHUUR4NQoJL0Yx4dEoKDwZRQlc
+X/AZpQVcX7gbFQhcX/gFgesLvyCwT2iIvlpajaDMXl1R4/SRJHrZiaGU4Se4eh0ZKzJW97m2BBaM
+tZWJiTFCOdc9kW9meOkgEOaSBLcFrkatNYEgog3sJWCgrsSyB1vUJD0SDUz3lehlkE14XmX3cgnC
+OScqaC9Ew9igRlDisSPlEsfSuxCbLazRI4W9BKHYIZy5zyI4nkfWT7Kw1CNs8+l5bAoTMKVyhckZ
+7uFDNcOFCVgVq3wxcTpAnCYT2E/gQdWznVZbcYLqMeIaGAUuR8x251v0zje3cufTe6CzJyYTNa7/
+IWZhx6QSMa16hjf5fhv7pgIx2DiVBrFRVJSQi461dJOVjyrPxaW4IGI1tRIV/WLLF24EMQmHq5Gy
+10Rpcyk9hcN8+eF7L6wDdTVEBQCf1Ie2hE8L3TSMqonsl3dCHHXZKoQNgAE+h6x+Sotnwh5RGJne
+CKzaSJZ5JyAR9px3TCdv2dCxVSXhENCUgfPVOax6zv1cN5M0p5MHNs0XkENGkxHJlYCsoobIOax6
+/1psHShjo6qg5uShdt8BqtYHUZOmDsLkGM13Z8K/SYkRbjA5285/79bqFmwMmmz5TsARgVnC9pq8
+EkQl470tj4T8lySu9QX3ghxtOffCdxo0AzqYKuh+wITQuhHLPjFkv/WYFUNcjdE0WkBLbhHlEHBE
+2cMLon2xP6QvBGTrTq+CRde3HevCJYA3XwmzoHTJ6YQz3x1zV+++uu/EeamT41fD5BCOoZee2mhM
+fVTd3YvhRpw3LPlOHKVXQt532y7VBjrvi9D5ajfpbacNe3bQm47DofAtQRHf+Srs+YTaBuXGN3o7
+UYRwNvMoIvgxyzUlVSHcxPrQEErdNvz6qdoPng3+4glnBaP+s2BUnUCotoFQdQNVNxCqbSBU20Co
+toFQbeNLyDe+hUwjBMgzAoUMJFxINGKAJCQWiEdShCgkEQhGMuoPUrLr/1AK1f8Ahd/3ByT4OcYK
+ZW5kc3RyZWFtCmVuZG9iagoxNCAwIG9iago8PC9GaWx0ZXIgL0ZsYXRlRGVjb2RlIC9MZW5ndGgg
+NjU+PiBzdHJlYW0KeJwBNgDJ/wAAAO9QnPJxr/vT5viy1PN8tf////m92v3p8/ze7Peozv70+fWS
+wfBbovFmqPadx/rI4PSHuzNFKS4KZW5kc3RyZWFtCmVuZG9iagoyIDAgb2JqCjw8IC9Qcm9jU2V0
+IFsvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJXSAvRm9udCA8PCAvRjEgMyAwIFIg
+L0YyIDQgMCBSIC9GMyA1IDAgUiA+PiAvWE9iamVjdCA8PCAvSTAgMTEgMCBSIC9JMSAxMiAwIFIg
+L0kyIDEzIDAgUiA+PiA+PgplbmRvYmoKNiAwIG9iago8PC9UeXBlIC9Bbm5vdCAvU3VidHlwZSAv
+TGluayAvUmVjdCBbMi44MzUwMDAgMS4wMDAwMDAgMTkuMDA1MDAwIDIuMTU2MDAwXSAvUCA5IDAg
+UiAvTk0gKDAwMDItMDAwMCkgL00gKEQ6MjAyNTA5MDYwMDQ1MDMtMDQnMDAnKSAvRiA0IC9Cb3Jk
+ZXIgWzAgMCAwXSAvQSA8PC9TIC9VUkkgL1VSSSAoaHR0cDovL3d3dy50Y3BkZi5vcmcpPj4gL0gg
+L0k+PgplbmRvYmoKMTUgMCBvYmoKPDwgL1RpdGxlICj+/wBNAG8AdQBuAHQAYQBpAG4AcwAgADIA
+IABCAGUAYQBjAGgAIABNAGEAcgBhAHQAaABvAG4AIABhAG4AZAAgAEgAYQBsAGYAIABSAGUAZwBp
+AHMAdAByAGEAdABpAG8AbikgL1Byb2R1Y2VyICj+/wBUAEMAUABEAEYAIAA2AC4AMQAwAC4AMAAg
+AFwoAGgAdAB0AHAAOgAvAC8AdwB3AHcALgB0AGMAcABkAGYALgBvAHIAZwBcKSkgL0NyZWF0aW9u
+RGF0ZSAoRDoyMDI1MDkwNjAwNDUwMy0wNCcwMCcpIC9Nb2REYXRlIChEOjIwMjUwOTA2MDA0NTAz
+LTA0JzAwJykgL1RyYXBwZWQgL0ZhbHNlID4+CmVuZG9iagoxNiAwIG9iago8PCAvVHlwZSAvTWV0
+YWRhdGEgL1N1YnR5cGUgL1hNTCAvTGVuZ3RoIDQ2ODkgPj4gc3RyZWFtCjw/eHBhY2tldCBiZWdp
+bj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6
+eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDQuMi4xLWMwNDMgNTIu
+MzcyNzI4LCAyMDA5LzAxLzE4LTE1OjA4OjA0Ij4KCTxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDov
+L3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CgkJPHJkZjpEZXNjcmlwdGlv
+biByZGY6YWJvdXQ9IiIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEv
+Ij4KCQkJPGRjOmZvcm1hdD5hcHBsaWNhdGlvbi9wZGY8L2RjOmZvcm1hdD4KCQkJPGRjOnRpdGxl
+PgoJCQkJPHJkZjpBbHQ+CgkJCQkJPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5Nb3VudGFp
+bnMgMiBCZWFjaCBNYXJhdGhvbiBhbmQgSGFsZiBSZWdpc3RyYXRpb248L3JkZjpsaT4KCQkJCTwv
+cmRmOkFsdD4KCQkJPC9kYzp0aXRsZT4KCQkJPGRjOmNyZWF0b3I+CgkJCQk8cmRmOlNlcT4KCQkJ
+CQk8cmRmOmxpPjwvcmRmOmxpPgoJCQkJPC9yZGY6U2VxPgoJCQk8L2RjOmNyZWF0b3I+CgkJCTxk
+YzpkZXNjcmlwdGlvbj4KCQkJCTxyZGY6QWx0PgoJCQkJCTxyZGY6bGkgeG1sOmxhbmc9IngtZGVm
+YXVsdCI+PC9yZGY6bGk+CgkJCQk8L3JkZjpBbHQ+CgkJCTwvZGM6ZGVzY3JpcHRpb24+CgkJCTxk
+YzpzdWJqZWN0PgoJCQkJPHJkZjpCYWc+CgkJCQkJPHJkZjpsaT48L3JkZjpsaT4KCQkJCTwvcmRm
+OkJhZz4KCQkJPC9kYzpzdWJqZWN0PgoJCTwvcmRmOkRlc2NyaXB0aW9uPgoJCTxyZGY6RGVzY3Jp
+cHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4w
+LyI+CgkJCTx4bXA6Q3JlYXRlRGF0ZT4yMDI1LTA5LTA2VDAwOjQ1OjAzLTA0OjAwPC94bXA6Q3Jl
+YXRlRGF0ZT4KCQkJPHhtcDpDcmVhdG9yVG9vbD48L3htcDpDcmVhdG9yVG9vbD4KCQkJPHhtcDpN
+b2RpZnlEYXRlPjIwMjUtMDktMDZUMDA6NDU6MDMtMDQ6MDA8L3htcDpNb2RpZnlEYXRlPgoJCQk8
+eG1wOk1ldGFkYXRhRGF0ZT4yMDI1LTA5LTA2VDAwOjQ1OjAzLTA0OjAwPC94bXA6TWV0YWRhdGFE
+YXRlPgoJCTwvcmRmOkRlc2NyaXB0aW9uPgoJCTxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIi
+IHhtbG5zOnBkZj0iaHR0cDovL25zLmFkb2JlLmNvbS9wZGYvMS4zLyI+CgkJCTxwZGY6S2V5d29y
+ZHM+PC9wZGY6S2V5d29yZHM+CgkJCTxwZGY6UHJvZHVjZXI+VENQREYgNi4xMC4wIChodHRwOi8v
+d3d3LnRjcGRmLm9yZyk8L3BkZjpQcm9kdWNlcj4KCQk8L3JkZjpEZXNjcmlwdGlvbj4KCQk8cmRm
+OkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNv
+bS94YXAvMS4wL21tLyI+CgkJCTx4bXBNTTpEb2N1bWVudElEPnV1aWQ6MjMwZDA2M2QtMDJkYy1h
+NWRlLWRmZDgtNzFiN2MzZmE2MDE2PC94bXBNTTpEb2N1bWVudElEPgoJCQk8eG1wTU06SW5zdGFu
+Y2VJRD51dWlkOjIzMGQwNjNkLTAyZGMtYTVkZS1kZmQ4LTcxYjdjM2ZhNjAxNjwveG1wTU06SW5z
+dGFuY2VJRD4KCQk8L3JkZjpEZXNjcmlwdGlvbj4KCQk8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91
+dD0iIiB4bWxuczpwZGZhRXh0ZW5zaW9uPSJodHRwOi8vd3d3LmFpaW0ub3JnL3BkZmEvbnMvZXh0
+ZW5zaW9uLyIgeG1sbnM6cGRmYVNjaGVtYT0iaHR0cDovL3d3dy5haWltLm9yZy9wZGZhL25zL3Nj
+aGVtYSMiIHhtbG5zOnBkZmFQcm9wZXJ0eT0iaHR0cDovL3d3dy5haWltLm9yZy9wZGZhL25zL3By
+b3BlcnR5IyI+CgkJCTxwZGZhRXh0ZW5zaW9uOnNjaGVtYXM+CgkJCQk8cmRmOkJhZz4KCQkJCQk8
+cmRmOmxpIHJkZjpwYXJzZVR5cGU9IlJlc291cmNlIj4KCQkJCQkJPHBkZmFTY2hlbWE6bmFtZXNw
+YWNlVVJJPmh0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy88L3BkZmFTY2hlbWE6bmFtZXNwYWNl
+VVJJPgoJCQkJCQk8cGRmYVNjaGVtYTpwcmVmaXg+cGRmPC9wZGZhU2NoZW1hOnByZWZpeD4KCQkJ
+CQkJPHBkZmFTY2hlbWE6c2NoZW1hPkFkb2JlIFBERiBTY2hlbWE8L3BkZmFTY2hlbWE6c2NoZW1h
+PgoJCQkJCQk8cGRmYVNjaGVtYTpwcm9wZXJ0eT4KCQkJCQkJCTxyZGY6U2VxPgoJCQkJCQkJCTxy
+ZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5OmNh
+dGVnb3J5PmludGVybmFsPC9wZGZhUHJvcGVydHk6Y2F0ZWdvcnk+CgkJCQkJCQkJCTxwZGZhUHJv
+cGVydHk6ZGVzY3JpcHRpb24+QWRvYmUgUERGIFNjaGVtYTwvcGRmYVByb3BlcnR5OmRlc2NyaXB0
+aW9uPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5Om5hbWU+SW5zdGFuY2VJRDwvcGRmYVByb3BlcnR5
+Om5hbWU+CgkJCQkJCQkJCTxwZGZhUHJvcGVydHk6dmFsdWVUeXBlPlVSSTwvcGRmYVByb3BlcnR5
+OnZhbHVlVHlwZT4KCQkJCQkJCQk8L3JkZjpsaT4KCQkJCQkJCTwvcmRmOlNlcT4KCQkJCQkJPC9w
+ZGZhU2NoZW1hOnByb3BlcnR5PgoJCQkJCTwvcmRmOmxpPgoJCQkJCTxyZGY6bGkgcmRmOnBhcnNl
+VHlwZT0iUmVzb3VyY2UiPgoJCQkJCQk8cGRmYVNjaGVtYTpuYW1lc3BhY2VVUkk+aHR0cDovL25z
+LmFkb2JlLmNvbS94YXAvMS4wL21tLzwvcGRmYVNjaGVtYTpuYW1lc3BhY2VVUkk+CgkJCQkJCTxw
+ZGZhU2NoZW1hOnByZWZpeD54bXBNTTwvcGRmYVNjaGVtYTpwcmVmaXg+CgkJCQkJCTxwZGZhU2No
+ZW1hOnNjaGVtYT5YTVAgTWVkaWEgTWFuYWdlbWVudCBTY2hlbWE8L3BkZmFTY2hlbWE6c2NoZW1h
+PgoJCQkJCQk8cGRmYVNjaGVtYTpwcm9wZXJ0eT4KCQkJCQkJCTxyZGY6U2VxPgoJCQkJCQkJCTxy
+ZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVzb3VyY2UiPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5OmNh
+dGVnb3J5PmludGVybmFsPC9wZGZhUHJvcGVydHk6Y2F0ZWdvcnk+CgkJCQkJCQkJCTxwZGZhUHJv
+cGVydHk6ZGVzY3JpcHRpb24+VVVJRCBiYXNlZCBpZGVudGlmaWVyIGZvciBzcGVjaWZpYyBpbmNh
+cm5hdGlvbiBvZiBhIGRvY3VtZW50PC9wZGZhUHJvcGVydHk6ZGVzY3JpcHRpb24+CgkJCQkJCQkJ
+CTxwZGZhUHJvcGVydHk6bmFtZT5JbnN0YW5jZUlEPC9wZGZhUHJvcGVydHk6bmFtZT4KCQkJCQkJ
+CQkJPHBkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+VVJJPC9wZGZhUHJvcGVydHk6dmFsdWVUeXBlPgoJ
+CQkJCQkJCTwvcmRmOmxpPgoJCQkJCQkJPC9yZGY6U2VxPgoJCQkJCQk8L3BkZmFTY2hlbWE6cHJv
+cGVydHk+CgkJCQkJPC9yZGY6bGk+CgkJCQkJPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJj
+ZSI+CgkJCQkJCTxwZGZhU2NoZW1hOm5hbWVzcGFjZVVSST5odHRwOi8vd3d3LmFpaW0ub3JnL3Bk
+ZmEvbnMvaWQvPC9wZGZhU2NoZW1hOm5hbWVzcGFjZVVSST4KCQkJCQkJPHBkZmFTY2hlbWE6cHJl
+Zml4PnBkZmFpZDwvcGRmYVNjaGVtYTpwcmVmaXg+CgkJCQkJCTxwZGZhU2NoZW1hOnNjaGVtYT5Q
+REYvQSBJRCBTY2hlbWE8L3BkZmFTY2hlbWE6c2NoZW1hPgoJCQkJCQk8cGRmYVNjaGVtYTpwcm9w
+ZXJ0eT4KCQkJCQkJCTxyZGY6U2VxPgoJCQkJCQkJCTxyZGY6bGkgcmRmOnBhcnNlVHlwZT0iUmVz
+b3VyY2UiPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5OmNhdGVnb3J5PmludGVybmFsPC9wZGZhUHJv
+cGVydHk6Y2F0ZWdvcnk+CgkJCQkJCQkJCTxwZGZhUHJvcGVydHk6ZGVzY3JpcHRpb24+UGFydCBv
+ZiBQREYvQSBzdGFuZGFyZDwvcGRmYVByb3BlcnR5OmRlc2NyaXB0aW9uPgoJCQkJCQkJCQk8cGRm
+YVByb3BlcnR5Om5hbWU+cGFydDwvcGRmYVByb3BlcnR5Om5hbWU+CgkJCQkJCQkJCTxwZGZhUHJv
+cGVydHk6dmFsdWVUeXBlPkludGVnZXI8L3BkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+CgkJCQkJCQkJ
+PC9yZGY6bGk+CgkJCQkJCQkJPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CgkJCQkJ
+CQkJCTxwZGZhUHJvcGVydHk6Y2F0ZWdvcnk+aW50ZXJuYWw8L3BkZmFQcm9wZXJ0eTpjYXRlZ29y
+eT4KCQkJCQkJCQkJPHBkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj5BbWVuZG1lbnQgb2YgUERGL0Eg
+c3RhbmRhcmQ8L3BkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj4KCQkJCQkJCQkJPHBkZmFQcm9wZXJ0
+eTpuYW1lPmFtZDwvcGRmYVByb3BlcnR5Om5hbWU+CgkJCQkJCQkJCTxwZGZhUHJvcGVydHk6dmFs
+dWVUeXBlPlRleHQ8L3BkZmFQcm9wZXJ0eTp2YWx1ZVR5cGU+CgkJCQkJCQkJPC9yZGY6bGk+CgkJ
+CQkJCQkJPHJkZjpsaSByZGY6cGFyc2VUeXBlPSJSZXNvdXJjZSI+CgkJCQkJCQkJCTxwZGZhUHJv
+cGVydHk6Y2F0ZWdvcnk+aW50ZXJuYWw8L3BkZmFQcm9wZXJ0eTpjYXRlZ29yeT4KCQkJCQkJCQkJ
+PHBkZmFQcm9wZXJ0eTpkZXNjcmlwdGlvbj5Db25mb3JtYW5jZSBsZXZlbCBvZiBQREYvQSBzdGFu
+ZGFyZDwvcGRmYVByb3BlcnR5OmRlc2NyaXB0aW9uPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5Om5h
+bWU+Y29uZm9ybWFuY2U8L3BkZmFQcm9wZXJ0eTpuYW1lPgoJCQkJCQkJCQk8cGRmYVByb3BlcnR5
+OnZhbHVlVHlwZT5UZXh0PC9wZGZhUHJvcGVydHk6dmFsdWVUeXBlPgoJCQkJCQkJCTwvcmRmOmxp
+PgoJCQkJCQkJPC9yZGY6U2VxPgoJCQkJCQk8L3BkZmFTY2hlbWE6cHJvcGVydHk+CgkJCQkJPC9y
+ZGY6bGk+CgkJCQk8L3JkZjpCYWc+CgkJCTwvcGRmYUV4dGVuc2lvbjpzY2hlbWFzPgoJCTwvcmRm
+OkRlc2NyaXB0aW9uPgoJPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KPD94cGFja2V0IGVuZD0idyI/
+PgplbmRzdHJlYW0KZW5kb2JqCjE3IDAgb2JqCjw8ICAvVHlwZSAvQ2F0YWxvZyAvVmVyc2lvbiAv
+MS43IC9QYWdlcyAxIDAgUiAvTmFtZXMgPDwgPj4gL1ZpZXdlclByZWZlcmVuY2VzIDw8IC9EaXJl
+Y3Rpb24gL0wyUiA+PiAvUGFnZUxheW91dCAvU2luZ2xlUGFnZSAvUGFnZU1vZGUgL1VzZU5vbmUg
+L09wZW5BY3Rpb24gWzcgMCBSIC9GaXRIIG51bGxdIC9NZXRhZGF0YSAxNiAwIFIgPj4KZW5kb2Jq
+CnhyZWYKMCAxOAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDgyNDMgMDAwMDAgbiAKMDAwMDA0
+Nzg2MSAwMDAwMCBuIAowMDAwMDA4MzA4IDAwMDAwIG4gCjAwMDAwMDg0MTQgMDAwMDAgbiAKMDAw
+MDAwODUyNSAwMDAwMCBuIAowMDAwMDQ4MDE4IDAwMDAwIG4gCjAwMDAwMDAwMTUgMDAwMDAgbiAK
+MDAwMDAwMDQ2NSAwMDAwMCBuIAowMDAwMDAyODY2IDAwMDAwIG4gCjAwMDAwMDMzMzUgMDAwMDAg
+biAKMDAwMDAwODYzOSAwMDAwMCBuIAowMDAwMDQ1Nzg2IDAwMDAwIG4gCjAwMDAwNDY2MDcgMDAw
+MDAgbiAKMDAwMDA0NzcyNiAwMDAwMCBuIAowMDAwMDQ4MjM0IDAwMDAwIG4gCjAwMDAwNDg1NDIg
+MDAwMDAgbiAKMDAwMDA1MzMxNCAwMDAwMCBuIAp0cmFpbGVyCjw8IC9TaXplIDE4IC9Sb290IDE3
+IDAgUiAvSW5mbyAxNSAwIFIgL0lEIFsgPDIzMGQwNjNkMDJkY2E1ZGVkZmQ4NzFiN2MzZmE2MDE2
+PiA8MjMwZDA2M2QwMmRjYTVkZWRmZDg3MWI3YzNmYTYwMTY+IF0gPj4Kc3RhcnR4cmVmCjUzNTI0
+CiUlRU9GCg==
+--=_83f338282aa1f7fdea9092f6e7020afd--

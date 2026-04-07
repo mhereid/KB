@@ -2,6 +2,24 @@
 
 Mountains 2 Beach (M2B) is a point-to-point marathon weekend in Ventura County, California, held April 18-19, 2026, featuring marathon, half marathon, 10K, 5K, and kids 1K distances. The course runs from the mountains of Ojai down to the coast at San Buenaventura State Beach, with staggered start locations by distance, free shuttle service, and strict course cutoffs that enforce a roughly 5.5-hour finishing window. [source](../raw/mountains-2-beach-2026-athlete-info.md)
 
+## My Registration
+
+**Event:** Combo Challenge — 5K (Saturday Apr 18) + Full Marathon (Sunday Apr 19) [source](../raw/mountains-2-beach-registration-confirmation.eml)
+
+**Corral:** 3 — Wave start at **6:16 AM** (not the 6:10 gun start)
+
+**Shuttle:** 5:00 AM pickup, Downtown Ventura location
+
+**Finish Area Parking:** Preferred Parking Pass (Sunday only) — pre-purchased
+
+**Kids Zone:** Sunday all-day access, 3 passes (for Marina, Jack, and Sam)
+
+**Shirt:** Men's Large T-Shirt
+
+**Medals:** Three total — 5K medal, Full Marathon medal, Combo Challenge medal; plus VIP lounge access Sunday as a Combo participant
+
+**Bib barcode:** 10140065 4
+
 ## Race Weekend Schedule
 
 **Saturday, April 18:**
