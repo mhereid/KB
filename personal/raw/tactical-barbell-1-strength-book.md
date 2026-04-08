@@ -137,20 +137,62 @@ Example: Day 1: BP/SQ/WPU, Day 4: BP/SQ + DL × 1-3 work sets
 - Don't change clusters mid-block; consistency drives results
 
 ## Incorporating Deadlifts
-Multiple options for managing deadlift volume/frequency:
-- 1x/week: 1-3 work sets on the third strength session, replacing WPU
-- 3x/week: 1 work set each session added after main cluster
-- The finicky nature of deadlifts is acknowledged; some thrive on volume, others need minimal exposure
+Three options for managing deadlift volume/frequency:
+
+| Option | Frequency | Volume | Schedule Example |
+|--------|-----------|--------|-----------------|
+| Option 1 | 3x/week | 1 work set/session | Day 1: SQ/BP + DL×1, Day 3: SQ/BP + DL×1, Day 5: SQ/BP + DL×1 |
+| Option 2 | 1x/week | 3 work sets | Day 1: SQ/BP/WPU, Day 3: SQ/BP/WPU, Day 5: SQ/BP + DL×3 |
+| Option 3 | 1x/week | 1 work set | Day 1: SQ/BP/WPU, Day 3: SQ/BP/WPU, Day 5: SQ/BP + DL×1 |
+
+Always do 1-3 warm-up sets at 40-60% 1RM before work sets. Choose based on recovery capacity and conditioning load.
 
 ## Forced Progression
 Alternative to retesting: add 5-10 lbs to 1RMs every 6-12 weeks and recalculate all percentages. No retesting required. Decision tree: if all lifts felt manageable, add weight. If you struggled, keep same numbers. Can progress individual lifts independently.
 
 ## Strength-Endurance (SE)
-- TB1 includes SE circuits as a complement to maximal-strength
-- High-rep, light-load (15-30% 1RM) circuits performed as separate sessions
-- Builds work capacity, connective tissue strength, and muscular endurance
-- SE training is messy by nature — failure is expected and acceptable
-- Introductory SE model included in this edition for beginners
+
+SE is trained with light loads (20-40% 1RM or bodyweight) and high reps, circuit-style, with shortened rest intervals. Three circuit types:
+
+### Alpha Circuits (Beginner/Entry Level)
+3 sessions/week, 4-6 exercises per circuit
+
+| Week | Circuits × Reps | RI Between Sets | RI Between Circuits |
+|------|----------------|-----------------|---------------------|
+| 1 | 3 × 10 | 0-90 sec | 2-3 min |
+| 2 | 3 × 20 | 0-90 sec | 2-3 min |
+| 3 | 3 × 30 | 0-2 min | 2-3 min |
+
+### Bravo Circuits (Intermediate/Advanced)
+3 sessions/week, 4-8 exercises per circuit
+
+| Week | Circuits × Reps | RI Between Sets | RI Between Circuits |
+|------|----------------|-----------------|---------------------|
+| 1 | 3 × 30 | 0-2 min | 3 min |
+| 2 | 3 × 40 | 0-2 min | 3 min |
+| 3 | 3 × 50 | 0-2 min | 3 min |
+
+### Tango Circuits (Time-Based, One-Off Sessions)
+1-3 sessions/week, 4-8 exercises, 2-3 circuits/session
+- 1 min AMRAP per exercise
+- 1 min RI between exercises
+- 2-3 min RI between circuits
+
+### SE Exercise Examples
+- KB Swings (2-handed), Push-ups, Goblet Squats, Inverted Ring Rows, KB Romanian Deadlift
+- Barbell Push Press, KB Goblet Squat, Romanian Deadlift, V-Ups, Barbell Rows
+- Push-ups, Pull-ups, Sit-ups (military PT style)
+- Any mix of barbells, kettlebells, bodyweight — keep loads at 20-40% 1RM
+
+### SE Programming Options
+- **Method 1**: 6-12 weeks maximal-strength → 3-6 weeks SE → repeat
+- **Method 2**: Get SE through conditioning (HIC, Fun-Runs, GCs) and sport/MMA; focus blocks on max-strength
+- **Fighter Bangkok**: Integrates 1 SE session/week with 2 maximal-strength sessions
+
+### SE Progression (6-week blocks)
+- **Reduce RI**: Repeat weeks 1-3 as weeks 4-6, focus on cutting rest intervals
+- **Alpha-Bravo**: Run Alpha weeks 1-3, then Bravo weeks 4-6
+- **Add Resistance**: Repeat weeks 1-3 with slightly heavier loads (still light, ~5-10% increase)
 
 ## Nutrition (Brief)
 - TB1 is not prescriptive about nutrition beyond general principles

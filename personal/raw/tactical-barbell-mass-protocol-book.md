@@ -22,41 +22,134 @@ Mass Protocol is the hypertrophy-focused book in the Tactical Barbell system, or
 ### Resistance Training — General Mass Templates
 Four templates for overall size and structural strength, all using 3-week blocks:
 
-1. **Mass Template (MT)** — 4 days/week. Bench/Squat/WPU 3x/week + Deadlift 1x. High frequency approach. Reps cycle from 8@60% → 8@70% → 3@80% (with AMRAP/Peak option week 3).
+#### 1. Mass Template (MT) — 4 days/week
+Bench/Squat/WPU performed 3x/week (Days 1, 3, 5). Deadlift solo on Day 6.
 
-2. **Grey Man (GM)** — 3 days/week, A/B/A alternating. Main cluster (Bench+Squat / OHP+Deadlift) plus customizable Supplementary clusters (4-6 isolation/accessory exercises). Favorite among operational types for balancing 3 lift days + 3 conditioning days.
+**MT Programming (3-week block):**
 
-3. **Gladiator** — 4 days/week with wider exercise variety. Includes AMRAP/Peaking techniques.
+| Week | Main Lifts (BP/SQ/WPU) | Deadlift (Day 6) |
+|------|------------------------|-------------------|
+| 1 | 4-5 × 8 @ 60% | 3-5 × 5 @ 70% |
+| 2 | 4-5 × 8 @ 70% | 3-5 × 5 @ 80% |
+| 3 | 4 × 3 @ 80% (+AMRAP/Peak) | 3-4 × 3 @ 90% |
 
-4. **Fighter HT** — Minimalist, 3 days/week. Squat+Bench twice, Deadlift solo once. For those with limited time or who need to balance other training demands.
+Week 3 AMRAP: On last set of the designated exercise, keep going past prescribed reps. One exercise per session only.
+Week 3 Peaking: Work up to heavy singles/doubles/triples after 1 work set at 80%.
+
+#### 2. Grey Man (GM) — 3 days/week
+A/B/A alternating. Main cluster: A = Bench+Squat, B = OHP+Deadlift. Plus customizable S clusters (4-6 supplementary exercises split into S1/S2).
+
+**GM Programming (3-week block):**
+
+| Week | Main Lifts | S Cluster |
+|------|-----------|-----------|
+| 1 | 4-5 × 8 @ 70% | 4 × 12 @ 55% |
+| 2 | 4-5 × 8 @ 75% | 4 × 10 @ 60% |
+| 3 | 4 × 3 @ 80% (+AMRAP/Peak) | 4 × 8 @ 65% |
+
+Schedule: Day 1 = A+S1, Day 3 = B+S2, Day 5 = A+S1 (then B+S2, A+S1, B+S2 next week).
+Main lifts: 2-5 min rest. S lifts: 1-2 min rest, super-setting optional.
+
+#### 3. Gladiator — 4 days/week
+Uses SQ/OHP (Day 1), BP/DL (Day 2), SQ/WPU (Day 4), OHP/BP (Day 5).
+
+**Gladiator Programming (3-week block):**
+
+| Week | Sets × Reps | % 1RM |
+|------|-------------|-------|
+| 1 | 4-5 × 8 | 60% |
+| 2 | 4-5 × 8 | 70% |
+| 3 | 4 × 3 (+AMRAP/Peak) | 80% |
+
+#### 4. Fighter HT — 3 days/week (Minimalist)
+Squat+Bench 2x/week (Days 1, 4). Deadlift solo 1x/week (Day 6).
+
+**Fighter HT Programming (3-week block):**
+
+| Week | SQ/BP Sessions | Deadlift Session |
+|------|----------------|------------------|
+| 1 | 4-5 × 8 @ 60% | 3-5 × 5 @ 70% |
+| 2 | 4-5 × 8 @ 70% | 3-5 × 5 @ 80% |
+| 3 | 5 × 3 @ 80% (+AMRAP/Peak) | 3-4 × 3 @ 90% (or 10×3, or DL+) |
 
 ### Resistance Training — Specificity Templates
 Fine-tuning phase for targeted hypertrophy, 3-week blocks, 4 sessions/week:
 
-1. **Alpha** — 50/50 maximal-strength (MS) and hypertrophy (H) split. 2 MS days (compound lifts, 3-5 reps, 75-85% 1RM) + 2 H days (6-12 exercises, 8-12 reps, 60-75% 1RM). Keeps heavy lifting in the mix.
+#### Specificity Alpha — 50/50 MS + Hypertrophy
+Schedule: Day 1 = MS, Day 2 = H1, Day 4 = MS, Day 5 = H2. Avoid H before MS.
 
-2. **Bravo** — Pure hypertrophy. 4 days of higher-volume isolation/compound work at 60-75% 1RM.
+**Alpha MS Programming (3-week block):**
+
+| Week | Sets × Reps | % 1RM | DL |
+|------|-------------|-------|----|
+| 1 | 3 × 5 | 75% | 1 work set @ 75% |
+| 2 | 3 × 3 | 85% | 1 work set @ 85% |
+| 3 | 3-5 × 3 | 80% | 1 work set @ 80% |
+
+MS cluster: Bench/Squat/Deadlift (or Front Squat/OHP/WPU). Rest 2-5 min. Avoid failure.
+
+**Alpha H Programming (3-week block):**
+
+| Week | Sets × Reps | % 1RM |
+|------|-------------|-------|
+| 1 | 4 × 10 | 60% |
+| 2 | 4 × 8 | 70% |
+| 3 | 4 × 10 | 65% |
+
+H cluster: 6-12 exercises split into H1/H2. Rest 1-2 min. Failure acceptable.
+
+#### Specificity Bravo — Pure Hypertrophy
+Schedule: Day 1 = H1, Day 2 = H2, Day 4 = H1, Day 5 = H2.
+
+**Bravo Programming (3-week block):**
+
+| Week | Sets × Reps | % 1RM |
+|------|-------------|-------|
+| 1 | 4 × 10 | 60% |
+| 2 | 4 × 8 | 70% |
+| 3 | 4 × 12 | 65% |
+
+All 4 sessions are hypertrophy. Higher volume, 60-75% 1RM.
 
 ### H Clusters (Specificity exercise groups)
-- Sample clusters: Camp Drvar, Keeny-Meeny, Eidolon, Classic, Bulgarian
-- Bulgarian cluster is the "nuclear option" — high-frequency Big 3 focus, recommended to use training max (90% of true 1RM)
-- Intensity techniques: Extra Sets, Failure (beyond-failure reps), Super Setting
+- **Camp Drvar**: Press/Dips/Front Squat/Rows/Pull-ups/Curls (split H1/H2)
+- **Keeny-Meeny**: Incline BP/Close-Grip BP/Front SQ/WPU/Rows/Shrugs — allows bench+squat 3x/week with Alpha
+- **Eidolon**: Traditional bodybuilding split with compounds and isolation
+- **Classic**: Standard upper/lower accessories
+- **Bulgarian**: Big 3 variations only (nuclear option) — use training max (90% true 1RM)
+- Intensity techniques: Extra Sets (add sets freely), Failure (beyond-failure reps on last set), Super Setting (pair exercises back-to-back)
 
 ## Conditioning
 
 ### Green Protocol (with General Mass)
-- Low intensity / longer duration
-- 1-3 sessions/week, max 60 min
-- Options: Walk (30-60 min), Ruck (30-60 min, 10-50 lbs), LSS jog/cycle/swim
-- Purpose: facilitate recovery, maintain aerobic base, promote anabolism
+Low intensity / longer duration. 1-3 sessions/week, max 60 min. Can be done on lifting or non-lifting days.
+
+**Green Sessions:**
+
+| Session | Duration | Description |
+|---------|----------|-------------|
+| Walk | 30-60 min | Walking at comfortable pace |
+| Ruck | 30-60 min | Weighted walk, 10-50 lbs (30 lbs sweet spot), weight vest acceptable |
+| Recovery Run | 20-30 min | Jog at conversational pace (talk-test), 120-150 BPM. Alternatives: cycle/swim/row |
+| Endurance Predator | 30-60 min | Walk with sprint intervals (50-100m all-out) every 5-10 min. Optional: 5-10 lb weight vest |
+| Fobbits | 15-20 min | LSS (jog/cycle/row) with KB swings (10 reps) every 2 min. Alternatives for work interval: push-ups, pull-ups, push-press, sledgehammer |
 
 ### Black Protocol (with Specificity)
-- High intensity / short duration
-- 1-2 sessions/week, max 20 min
-- Purpose: promote anabolic environment, improve anaerobic system
+High intensity / short duration. 1-2 sessions/week, max 20 min. Perform on non-lifting days only.
 
-### Key Principle
-Avoid conditioning that opposes anabolism. Excessive endurance work signals the body to shed mass. During Mass Protocol, conditioning takes a supporting role — facilitating recovery, promoting growth, and maintaining minimum operational readiness.
+**Black Sessions:**
+
+| Session | Protocol | Description |
+|---------|----------|-------------|
+| Anabolic Sprints | 5-10 × 30m sprints | All-out 30m sprint, walk back, brief rest, repeat. Stimulates GH/testosterone |
+| Reset-20 | 3-5 × 20s work / 2-5 min rest | Max effort 20s intervals. Alternatives: Airdyne/row/heavy bag |
+| Hill Sprints | 3-10 rounds | Sprint uphill 10-20s all-out, walk down, rest 1-2 min. Max 15 min total |
+
+### Conditioning Recap
+- Green with General Mass: max 3 sessions/week, max 60 min each
+- Black with Specificity: max 2 sessions/week, max 20 min each
+- Extra-curricular activity counts as a conditioning session
+- Avoid conditioning that opposes anabolism (no long runs, no excessive HIIT)
 
 ## Nutrition
 
