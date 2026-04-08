@@ -4,21 +4,7 @@ Tactical Barbell (TB) is a modular training system built around periodized stren
 
 ## TB1 — Maximal-Strength Templates
 
-TB1 provides three template options for developing maximal-strength, each designed around different frequency needs. The core principle: strength is a skill practiced frequently with submaximal loads, avoiding failure, using the Golden Rule (minimum 2-minute rest intervals between sets). Load percentages cycle from 70-95% of 1RM over 6-week blocks. [source](../raw/tactical-barbell-1-strength-book.md)
-
-### Operator (3 days/week)
-The flagship template — all cluster exercises performed every session, 3x/week. Standard progression: 5×5@70% → 5×5@80% → 3×3@90% → 5×5@75% → 3×3@85% → 1-2×3-4@95%. I/A version allows floating schedule for advanced lifters. Recommended cluster: Squat/Bench/WPU + optional Deadlift.
-
-### Zulu (4 days/week)
-Max-flex template splitting cluster into A/B groups, each 2x/week. Sessions ~20-30 min, leaving time for conditioning or accessories. Supports 4-6+ exercises. Standard uses 3 sets; I/A allows 3-5 sets with heavier peak loads (up to 95%).
-
-### Fighter (2 days/week)
-Minimalist template — lowest effective dose. Each lift 2x/week across 2 sessions. Popular with MMA, endurance athletes, and busy operators. Starts at 75% (vs 70% for Operator/Zulu) since frequency is lower.
-
-### Exercise Clusters
-- **Minimalist** (2-3 lifts): For heavy conditioning loads. E.g., Squat + Deadlift.
-- **Standard** (3-4 lifts): Best balance. E.g., Bench/Squat/WPU + DL.
-- **Heavy** (4+ lifts): For Zulu or Fighter. E.g., Bench/Squat/DL/OHP/WPU.
+TB1 provides three template options (Operator, Zulu, Fighter) for developing maximal-strength at different training frequencies, plus a complete strength-endurance circuit system. Full programming tables, exercise clusters, deadlift incorporation options, SE circuits, and sample schedules are covered in the dedicated article: **[[tactical-barbell-1-strength]]**. [source](../raw/tactical-barbell-1-strength-book.md)
 
 ## The OMS Framework
 
