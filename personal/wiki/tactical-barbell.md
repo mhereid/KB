@@ -77,5 +77,7 @@ A low-carb, intermittent fasting approach modulates with training phases:
 The approach scales with training phase — fewer/smaller meals during Operator, larger/more frequent meals during Mass, gradual increases during recomp blocks. Fat-adapted eating eliminates hunger between meals and simplifies macro tracking.
 
 ## Related Topics
+- [[tactical-barbell-1-strength]] — Full TB1 programming tables and templates
+- [[tactical-barbell-ageless-athlete]] — Longevity modifications, recovery programming, Old Warhorse template, base building for aging athletes
 - [[mountains-2-beach-marathon]]
 - [[marathon-training]]

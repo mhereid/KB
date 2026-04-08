@@ -7,6 +7,7 @@
 - [M2B Race Weekend Logistics](m2b-race-weekend-logistics.md) -- Stephanie's complete guide: Saturday 5K, Sunday marathon spectating, parking, shuttle, kids zone, restaurant picks
 - [Tactical Barbell](tactical-barbell.md) -- Modular OMS training system: annual periodization, program tweaks for deadlifts/chins, and nutrition integration
 - [Tactical Barbell I — Strength Training](tactical-barbell-1-strength.md) -- Full TB1 programming tables, exercise clusters, deadlift options, SE circuits, and sample schedules
+- [Tactical Barbell: Ageless Athlete](tactical-barbell-ageless-athlete.md) -- Longevity-focused TB modifications: recovery programming, training maxes, Old Warhorse peaking cycle, base building, KB swing protocols, injury variations
 
 ## Family & Parenting
 *(No articles yet -- add raw sources to populate)*
