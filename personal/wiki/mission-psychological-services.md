@@ -2,7 +2,19 @@
 
 Mission Psychological Services, Inc. is Stephanie's solo-provider California S-corp psychology practice, founded February 2020. The P&L shows a business that has compounded cleanly through two in-business maternity cycles to reach a 2025 record year (~$121K revenue / ~$42K net income) and is pacing to a new all-time high in 2026. The dominant recent trend is a clear capacity step-up in late 2024 that traces directly to adopting an AI note companion ([[mentalyc-ai-note-companion|Mentalyc]]) in August 2024. [source](../raw/mission-psych-services-pnl-analysis-2020-2026.md)
 
+## P&L at a Glance
+
+Click any year to drill into monthly detail. Revenue (green), expenses (red), and net operating income (amber line) across the life of the business. 2020 and 2026 are partial years; everything else is full-year cash basis.
+
+```chart:pnl-by-year-drilldown
+mission-psychological-services
+```
+
 ## Business Lifecycle
+
+```chart:mps-revenue-timeline
+mission-psychological-services
+```
 
 Annual revenue and net income (cash basis):
 
@@ -50,6 +62,10 @@ Pooled monthly averages (2022–2025) show a soft but real **summer dip** in Jul
 
 Cash planning should assume a ~20–25% July revenue dip vs. spring baseline, with a small rebound in Sep–Oct. [source](../raw/mission-psych-services-pnl-analysis-2020-2026.md)
 
+```chart:mps-seasonality
+mission-psychological-services
+```
+
 ## Expense Structure
 
 Lifetime expenses total $357,454, or 62.6% of revenue → **37.4% operating margin** (ex-CA corp tax/PTET/home office), which is strong for a solo psych practice.
@@ -68,6 +84,10 @@ Category breakdown (lifetime $ / % of total expenses):
 - CA PTET: $7,000 (2.0%)
 - Insurance: $5,297 (1.5%) — annual-premium style, ~$918–$1,041/yr.
 - Interest Paid: $5,077 (1.4%) — effectively zero after mid-2024 (loan paid off).
+
+```chart:mps-expense-donut
+mission-psychological-services
+```
 
 [source](../raw/mission-psych-services-pnl-analysis-2020-2026.md)
 

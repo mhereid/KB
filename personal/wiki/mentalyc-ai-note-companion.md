@@ -19,6 +19,10 @@ Steady-state monthly revenue at Mission Psychological Services before and after 
 | Jan–Dec 2025 (first full Mentalyc year) | ~$10.1K |
 | Jan–Mar 2026 | ~$11.9K |
 
+```chart:mentalyc-before-after
+mentalyc-ai-note-companion
+```
+
 The step-up starts the quarter Mentalyc was adopted and compounds through 2025 and into 2026. Because session fees did not materially change, the gain is best explained as **capacity expansion**, not a price hike. December 2025 ($13,564) and March 2026 ($13,152) are the two highest-grossing months in the practice's history and sit squarely inside the Mentalyc era. [source](../raw/mission-psych-services-pnl-analysis-2020-2026.md)
 
 ## Bookkeeping Note
