@@ -1,6 +1,6 @@
 # Personal Knowledge Base Index
 
-*Last updated: 2026-04-10*
+*Last updated: 2026-04-11*
 
 ## Fitness & Health
 - [Mountains 2 Beach Marathon](mountains-2-beach-marathon.md) -- Race logistics, cutoffs, and preparation for the April 2026 M2B marathon weekend in Ventura, CA
@@ -16,7 +16,7 @@
 *(No articles yet -- add raw sources to populate)*
 
 ## Personal Development
-*(No articles yet -- add raw sources to populate)*
+- [Claude + Obsidian Second Brain](claude-obsidian-second-brain.md) -- Practical guide to building an AI-maintained second brain with Claude Code and Obsidian, based on Karpathy's LLM Wiki pattern
 
 ## Personal Finance
 - [Mission Psychological Services](mission-psychological-services.md) -- Stephanie's solo psych practice: 2020-2026 P&L trends, maternity-leave revenue cycles, 2025 record year, 2026 pacing to $155-160K, expense structure, and tax strategy

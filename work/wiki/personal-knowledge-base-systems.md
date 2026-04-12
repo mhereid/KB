@@ -4,7 +4,7 @@ A personal knowledge base (PKB) is an AI-maintained repository of your collected
 
 ## Origin
 
-Andrej Karpathy published the "LLM Wiki" pattern describing how to use LLM agents to build and maintain personal knowledge bases. [source](../raw/karpathy-llm-wiki-gist.md) Nick Spisak (@NickSpisak_) expanded on the method with practical implementation details. [source](../raw/karpathy-second-brain-system.md)
+Andrej Karpathy published the "LLM Wiki" pattern describing how to use LLM agents to build and maintain personal knowledge bases. [source](../raw/karpathy-llm-wiki-gist.md) Nick Spisak (@NickSpisak_) expanded on the method with practical implementation details. [source](../raw/karpathy-second-brain-system.md) @defileo published a viral walkthrough pairing Claude Code with Obsidian as a practical "second brain" implementation of the same pattern, including daily operations (ingest, query, lint, morning briefings) and cron-based automation. [source](../../personal/raw/claude-obsidian-second-brain-defileo.md)
 
 ## Why Not RAG
 

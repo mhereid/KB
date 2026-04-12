@@ -44,3 +44,5 @@ Claude Code supports an extensible plugin system for specialized workflows:
 ## Related Topics
 - [[personal-knowledge-base-systems]]
 - [[flat-file-architecture]]
+- [[claude-managed-agents]]
+- [[agent-harness-hill-climbing]]
