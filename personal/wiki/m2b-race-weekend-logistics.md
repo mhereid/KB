@@ -1,3 +1,4 @@
+
 # M2B Race Weekend Logistics — Stephanie's Guide
 
 This is a complete logistics reference for the Mountains 2 Beach race weekend, April 18–19, 2026, in Ventura, CA. Mike is running the Combo Challenge (5K Saturday + Full Marathon Sunday). Stephanie and the kids are spectating on Sunday. All times are PDT. [source](../raw/mountains-2-beach-registration-confirmation.eml) [source](../raw/mountains-2-beach-2026-athlete-info.md)
@@ -10,9 +11,9 @@ This is a complete logistics reference for the Mountains 2 Beach race weekend, A
 Address: 2055 E Harbor Blvd, Ventura, CA 93001
 
 Key distances from the hotel:
-- **San Buenaventura State Beach** (finish area): ~5 min drive / 1.5 miles
+- **San Buenaventura State Beach** (finish area): right next to the hotel — walkable
 - **Downtown Ventura / Plaza Park** (shuttle pickup): ~5 min drive / 1.5 miles
-- **Expo & packet pickup** (State Beach): ~5 min drive / 1.5 miles
+- **Expo & packet pickup** (State Beach): right next to the hotel — walkable
 
 ---
 
@@ -59,12 +60,14 @@ This is the big day. Here's the full timeline for both Mike and Stephanie.
 
 ### Early Morning — Getting Mike to the Shuttle
 
+Mike is taking an **Uber** from the hotel to the Downtown shuttle pickup — Stephanie stays at the hotel with the kids, no need to drive or drop off.
+
 | Time | What | Details |
 |------|------|---------|
-| ~4:15 AM | Leave hotel | Drive Mike to Downtown shuttle pickup |
-| ~4:20 AM | Drop-off | **Plaza Park, Santa Clara St, Downtown Ventura** — shuttle boards at 5:00 AM, arrive by 4:30 AM per race instructions |
-| 4:30–5:00 AM | Mike boards shuttle | Shuttle departs to Ojai (marathon start). **Athletes only — no spectators or strollers on shuttles** |
-| ~4:35 AM | Stephanie returns to hotel | Go back to sleep or start getting kids ready |
+| ~4:30 AM | Mike orders Uber from hotel | Destination: **Plaza Park, Santa Clara St, Downtown Ventura**. ~1.5 mi / 5 min ride |
+| ~4:45 AM | Mike arrives at Plaza Park | Shuttle boards at 5:00 AM — race instructions say arrive 30 min early; this is 15 min tight but workable. The 4:00 AM shuttle is the earlier option if Mike wants buffer |
+| 4:45–5:00 AM | Mike boards shuttle | Shuttle departs to Ojai (marathon start). **Athletes only — no spectators or strollers on shuttles** |
+| Morning | Stephanie & kids sleep in | Hotel is right next to the State Beach finish — no rush until ~9:30 AM |
 
 ### Mike's Race Timeline
 
@@ -84,18 +87,19 @@ This is the big day. Here's the full timeline for both Mike and Stephanie.
 
 Track Mike's progress in real time on race day:
 
-**[M2B Live Tracking](https://track.laurelt.com/?h=m2b)**
+**[M2B Live Tracking](<https://track.laurelt.com/?h=m2b>)**
 
 Search by bib number **10140065** or name **Mike Hereid** to follow split times, current pace, and estimated finish. Bookmark this link on your phone before race morning.
 
 ### Stephanie & Kids — Sunday Morning Plan
 
+Mike handles his own ride to the shuttle (Uber, ~4:30 AM). Stephanie and the kids stay at the hotel until mid-morning.
+
 | Time | What | Details |
 |------|------|---------|
-| ~4:15 AM | Drop Mike at shuttle | Plaza Park, Downtown Ventura |
-| 4:35 AM–8:30 AM | Back at hotel | Sleep, breakfast, get kids ready. No rush — Mike won't finish until ~10:46 AM |
-| ~9:30 AM | Leave hotel for finish area | Drive to San Buenaventura State Beach Park |
-| ~9:35 AM | Park at finish area | **Use the Preferred Parking Pass** (pre-purchased, Sunday only). Parking is at State Beach — QR code payment for general; your pass covers preferred |
+| Overnight–8:30 AM | At the hotel | Sleep in, breakfast, get kids ready. No rush — Mike won't finish until ~10:46 AM |
+| ~9:30 AM | Head to finish area | Hotel is right next to San Buenaventura State Beach — can walk over or drive if loaded up with kids/gear |
+| ~9:35 AM | Park at finish area (if driving) | **Use the Preferred Parking Pass** (pre-purchased, Sunday only). Parking is at State Beach — QR code payment for general; your pass covers preferred |
 | 9:45 AM | Get settled | Find the finish line viewing area, get kids into **Kids Zone** (3 all-day passes for Marina, Jack, and Sam) |
 | **~10:46 AM** | **Watch Mike finish!** | Finish line is at State Beach. Look for Corral 3 bibs |
 
